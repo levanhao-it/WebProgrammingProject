@@ -222,3 +222,11 @@
     });
 
 })(jQuery);
+// login
+$( ".beauty_login .card-body .social_login_container > div" ).hover(
+    function() {
+    $( this ).addClass('is_open');
+    }, function() {
+    $( this ).removeClass('is_open');
+    }
+    );

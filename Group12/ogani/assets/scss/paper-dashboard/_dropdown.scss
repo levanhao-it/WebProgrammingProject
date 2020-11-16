@@ -367,7 +367,6 @@
     li:hover,
     li:focus{
         a{
-            color: $font-color;
             opacity: 1;
             text-decoration: none;
         }
@@ -482,6 +481,7 @@
                     color: #9C9B99;
                     font-size: 0.9em;
                     line-height: 35px;
+                    text-decoration: none;
                 }
             }
         }

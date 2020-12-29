@@ -20,6 +20,9 @@ public class ConnectionDB {
         }
 
     }
+    public void thucThiSQL(String sql){
+
+    }
     public static PreparedStatement connect(String sql) throws SQLException, ClassNotFoundException {
         if (con==null||con.isClosed()){
             Class.forName("com.mysql.jdbc.Driver");

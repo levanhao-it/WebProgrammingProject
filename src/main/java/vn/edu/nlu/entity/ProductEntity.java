@@ -108,6 +108,56 @@ public class ProductEntity {
             return null;
         }
     }
+    //Chuc nang tim kiem
+// tinh so luong data tim duoc
+    public int count(String txtSearch) {
+        Statement s = null;
+        try {
+            s= ConnectionDB.connect();
+            String sql = "SELECT COUNT(*) FROM SanPham where TenSP like %" + txtSearch + "%";
+            ResultSet rs = s.executeQuery(sql);
+            while(rs.next()){
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+    public List<Product> getProduct(int index, int sizeData){
+        Statement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            s= ConnectionDB.connect();
+            ResultSet rs=s.executeQuery("select id,name,img,price,priceSale from product");
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
+
+
 
 
 }

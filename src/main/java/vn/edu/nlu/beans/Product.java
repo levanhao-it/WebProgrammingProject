@@ -1,25 +1,26 @@
 package vn.edu.nlu.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Product {
+public class Product implements Serializable {
     private String id;
     private String name;
     private String img;
-    private int price;
-    private int priceSale;
+    private long price;
+    private long priceSale;
     private int quantityOrder,quantity;
     private boolean isSale,isNew;
     private String description,descriptionDetail;
-    private Date datePost;
-    private int idCategory;
+    private String datePost;
+    private String idCategory;
     private String status;
 
     public Product(){
 
     }
 
-    public Product(String id, String name, String img, int price, int priceSale, int quantityOrder, int quantity , boolean isSale, boolean isNew, String description, String descriptionDetail, Date datePost, int idCategory, String status) {
+    public Product(String id, String name, String img, long price, long priceSale, int quantityOrder, int quantity , boolean isSale, boolean isNew, String description, String descriptionDetail, String datePost, String idCategory, String status) {
         this.id = id;
         this.name = name;
         this.img = img;
@@ -66,19 +67,19 @@ public class Product {
         this.img = img;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
-    public int getPriceSale() {
+    public long getPriceSale() {
         return priceSale;
     }
 
-    public void setPriceSale(int priceSale) {
+    public void setPriceSale(long priceSale) {
         this.priceSale = priceSale;
     }
 
@@ -131,19 +132,19 @@ public class Product {
         this.descriptionDetail = descriptionDetail;
     }
 
-    public Date getDatePost() {
+    public String getDatePost() {
         return datePost;
     }
 
-    public void setDatePost(Date datePost) {
+    public void setDatePost(String datePost) {
         this.datePost = datePost;
     }
 
-    public int getIdCategory() {
+    public String getIdCategory() {
         return idCategory;
     }
 
-    public void setIdCategory(int idCategory) {
+    public void setIdCategory(String idCategory) {
         this.idCategory = idCategory;
     }
 

@@ -2,6 +2,7 @@ package vn.edu.nlu.model;
 
 import vn.edu.nlu.beans.Product;
 
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,6 +13,13 @@ public class Cart implements Serializable {
     public Cart(){
 
     }
+
+    public static Cart getCart(HttpSession session) {
+        return session.getAttribute("cart")==null
+                ? new Cart()
+                : (Cart) session.getAttribute("cart");
+    }
+
     public Product get(int id){
         return data.get(id);
     }
@@ -45,4 +53,7 @@ public class Cart implements Serializable {
         return data.values();
     }
 
+    public void commit(HttpSession session) {
+        session.setAttribute("cart",this);
+    }
 }

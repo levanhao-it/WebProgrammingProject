@@ -1,4 +1,6 @@
-<%--
+<%@ page import="vn.edu.nlu.model.Whishlist" %>
+<%@ page import="vn.edu.nlu.beans.Product" %>
+<%@ page import="java.util.Collection" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 12/29/2020
@@ -273,13 +275,17 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <% Whishlist wl=Whishlist.getWhishlist(session);
+                            Collection<Product> data=wl.getData();
+                            request.setAttribute("data",data);%>
+                        <c:forEach items="${data}" var="d">
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src="img/cart/cart-1.jpg" alt="">
-                                <h5>Bún Bò Huế</h5>
+                                <img src="${d.img}" alt="" style="height: 110px;width: 110px">
+                                <h5>${d.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                50.000
+                                ${d.price}
                             </td>
                             <td class="footer__widget">
                                 <div class="footer__widget__social">
@@ -289,7 +295,7 @@
 
                             <td class="footer__widget">
                                 <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="${pageContext.request.contextPath }/addCart?&id=${d.id }"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </td>
                             <td class="shoping__cart__item__close">
@@ -297,52 +303,8 @@
                             </td>
 
                         </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="img/cart/cart-2.jpg" alt="">
-                                <h5>Salad Kiểu Úc</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                127.000
-                            </td>
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-external-link"></i></a>
-                                </div>
-                            </td>
+                        </c:forEach>
 
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="img/cart/cart-3.jpg" alt="">
-                                <h5>Chuối</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                21.000
-                            </td>
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-external-link"></i></a>
-                                </div>
-                            </td>
-
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>

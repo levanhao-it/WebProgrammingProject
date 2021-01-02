@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/addWhishlist")
-
 public class addWhishlist extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -30,7 +29,8 @@ public class addWhishlist extends HttpServlet {
         }
         HttpSession session =request.getSession();
         Whishlist wl = Whishlist.getWhishlist(session);
-            wl.put(p);
+        wl.put(p);
+        wl.commit(session);
 
     }
 

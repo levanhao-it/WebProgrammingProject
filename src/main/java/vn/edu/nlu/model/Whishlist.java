@@ -51,4 +51,7 @@ public class Whishlist implements Serializable {
     public Collection<Product> getData(){
         return data.values();
     }
+    public void commit(HttpSession session) {
+        session.setAttribute("whishlist",this);
+    }
 }

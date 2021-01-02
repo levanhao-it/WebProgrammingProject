@@ -296,7 +296,7 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="${d.img}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="${pageContext.request.contextPath }/addWhishlist?&id=${d.id }"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fa fa-external-link"></i></a></li>
                                     <li><a href="${pageContext.request.contextPath }/addCart?&id=${d.id }"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>

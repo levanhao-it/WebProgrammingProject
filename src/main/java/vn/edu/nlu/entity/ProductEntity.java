@@ -23,16 +23,8 @@ public class ProductEntity {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getLong(4),
-                        rs.getLong(5),
-                        rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBoolean(8),
-                        rs.getBoolean(9),
-                        rs.getString(10),
-                        rs.getString(11),
-                        rs.getString(12),
-                        rs.getString(13),
-                        rs.getString(14)));
+                        rs.getLong(5)
+                ));
 
             }
             rs.close();
@@ -86,8 +78,16 @@ public class ProductEntity {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getLong(4),
-                        rs.getLong(5)
-
+                        rs.getLong(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)
                 );
 
                 rs.close();
@@ -103,12 +103,10 @@ public class ProductEntity {
     //Chuc nang tim kiem
 // tinh so luong data tim duoc
     public int count(String txtSearch) {
-        PreparedStatement s = null;
+        Statement s = null;
         try {
-            String sql = "SELECT COUNT(*) FROM product where name like ?";
-
-            s= ConnectionDB.connect(sql);
-            s.setString(1,"%"+txtSearch+"%");
+            s= ConnectionDB.connect();
+            String sql = "SELECT COUNT(*) FROM SanPham where TenSP like %" + txtSearch + "%";
             ResultSet rs = s.executeQuery(sql);
             while(rs.next()){
                 return rs.getInt(1);
@@ -124,7 +122,7 @@ public class ProductEntity {
         try {
             List<Product> re= new LinkedList<>();
             s= ConnectionDB.connect();
-            ResultSet rs=s.executeQuery("select * from product");
+            ResultSet rs=s.executeQuery("select id,name,img,price,priceSale from product");
             while (rs.next()){
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),

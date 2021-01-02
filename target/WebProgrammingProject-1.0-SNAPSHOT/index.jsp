@@ -760,6 +760,35 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    $(".product__discount__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 3,
+        dots: true,
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+
+            320: {
+                items: 1,
+            },
+
+            480: {
+                items: 2,
+            },
+
+            768: {
+                items: 2,
+            },
+
+            992: {
+                items: 3,
+            }
+        }
+    });
+</script>
 
 
 </body>

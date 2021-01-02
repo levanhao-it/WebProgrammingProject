@@ -9,7 +9,7 @@ public class Khachhang implements Object {
     public boolean themTaiKhoan(Object obj) {
        User user = (User) obj;
         try{
-            new ConnectionDB().thucThiSQL("insert into dangnhap values("+user.getUserName()+"",""+user.getPass()+"",""+user.getName()));
+           // new ConnectionDB().thucThiSQL("insert into dangnhap values("+user.getUserName()+"",""+user.getPass()+"",""+user.getName()));
                 return true;
         }catch (Exception e){
             e.printStackTrace();

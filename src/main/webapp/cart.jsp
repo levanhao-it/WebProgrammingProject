@@ -187,7 +187,7 @@
                         <c:forEach items="${data}" var="d">
                         <tr>
                             <td class="shoping__cart__item">
-                                <img src=${d.img} alt="">
+                                <img src=${d.img} alt="" style="height: 110px;width: 110px">
                                 <h5>${d.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
@@ -196,7 +196,9 @@
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
+                                        <span class="dec qtybtn">-</span>
                                         <input type="text" value="${d.quantity}">
+                                        <span class="inc qtybtn">+</span>
                                     </div>
                                 </div>
                             </td>
@@ -262,6 +264,26 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    var proQty = $('.pro-qty');
+    // proQty.prepend('<span class="dec qtybtn">-</span>');
+    // proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().find('input').val(newVal);
+    });
+</script>
 
 
 </body>

@@ -100,15 +100,20 @@ public class ProductEntity {
             return null;
         }
     }
+
     //Chuc nang tim kiem
-// tinh so luong data tim duoc
+    // tinh so luong data tim duoc
     public int count(String txtSearch) {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s= ConnectionDB.connect();
-            String sql = "SELECT COUNT(*) FROM SanPham where TenSP like %" + txtSearch + "%";
-            ResultSet rs = s.executeQuery(sql);
+            String sql = "SELECT COUNT(*) FROM Product where name like ? ";
+            s= ConnectionDB.connect(sql);
+
+            s.setString(1,"%" + txtSearch + "%");
+
+            ResultSet rs = s.executeQuery();
             while(rs.next()){
+                System.out.println(rs.getInt(1));
                 return rs.getInt(1);
             }
 
@@ -117,12 +122,16 @@ public class ProductEntity {
         }
         return 0;
     }
-    public List<Product> getProduct(int index, int sizeData){
-        Statement s= null;
+    public List<Product> getProductWhenSearch(int index, int sizeData, String txtSearch){
+        PreparedStatement s= null;
         try {
             List<Product> re= new LinkedList<>();
-            s= ConnectionDB.connect();
-            ResultSet rs=s.executeQuery("select id,name,img,price,priceSale from product");
+            String sql = "SELECT * FROM product where name like ? limit ? , ?";
+            s= ConnectionDB.connect(sql);
+            s.setString(1, "%" + txtSearch + "%");
+            s.setInt(2,index - 1);
+            s.setInt(3,sizeData);
+            ResultSet rs=s.executeQuery();
             while (rs.next()){
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
@@ -138,7 +147,6 @@ public class ProductEntity {
                         rs.getString(12),
                         rs.getString(13),
                         rs.getString(14)));
-
             }
             rs.close();
             s.close();
@@ -149,7 +157,9 @@ public class ProductEntity {
         }
     }
 
+    public static void main(String[] args) {
 
+    }
 
 
 }

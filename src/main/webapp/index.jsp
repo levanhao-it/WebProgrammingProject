@@ -127,13 +127,9 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-<!--                             <div class="hero__search__categories">-->
-<!--                                All Categories-->
-<!--                                <span class="arrow_carrot-down"></span>-->
-<!--                            </div>-->
-                            <input type="text" placeholder="Bạn muốn ăn gì?">
-                            <button type="submit" class="site-btn">Tìm Kiếm</button>
+                        <form action="SearchControl?index=1" method="post">
+                            <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
+                            <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">

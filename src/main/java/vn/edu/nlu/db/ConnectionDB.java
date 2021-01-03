@@ -3,9 +3,11 @@ package vn.edu.nlu.db;
 
 
 import vn.edu.nlu.Products;
+import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.entity.ProductEntity;
 
 import java.sql.*;
+import java.util.List;
 
 public class ConnectionDB {
     static Connection con;
@@ -36,16 +38,12 @@ public class ConnectionDB {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ProductEntity pe= new ProductEntity();
-        pe.insertList(Products.data.values());
+            ProductEntity pe = new ProductEntity();
+            List<Product> data = pe.getProductWhenSearch(1,2, "hk");
+            for(Product i : data){
+                System.out.println(i.getName());
+            }
 
-//        Statement s= ConnectionDB.connect();
-//        ResultSet rs=s.executeQuery("select * from product ");
-//        rs.last();
-//        System.out.println(rs.getRow());
-//        rs.beforeFirst();
-//        while (rs.next()){
-//            System.out.println(rs.getString(2));
-       // }
+
     }
 }

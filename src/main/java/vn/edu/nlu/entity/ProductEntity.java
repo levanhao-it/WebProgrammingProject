@@ -2,6 +2,7 @@ package vn.edu.nlu.entity;
 
 import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.db.ConnectionDB;
+import vn.edu.nlu.model.Account;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -156,6 +157,64 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
+    public Account login(String user, String pass){
+        PreparedStatement s= null;
+        String sql = "select * from account\n"
+                + "where [user] = ?\n"
+                + "and pass = ?";
+        try{
+            s = new ConnectionDB().connect(sql);
+            ResultSet rs = s.executeQuery();
+            while(rs.next()){
+                return new Account(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5));
+            }
+        }catch (Exception e){
+        }
+        return null;
+    }
+
+    public Account checkAccountExist(String user){
+        PreparedStatement s= null;
+        String sql = "select * from account\n"
+                + "where [user] = ?\n";
+        try{
+            s = new ConnectionDB().connect(sql);
+            s.setString(1,user);
+            ResultSet rs = s.executeQuery();
+            while(rs.next()){
+                return new Account(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5));
+            }
+        }catch (Exception e){
+        }
+        return null;
+    }
+    public void register(String user, String pass) {
+        PreparedStatement s = null;
+        String sql = "insert into account\n"
+                + "values(?,?,0,0)";
+        try {
+            s = new ConnectionDB().connect(sql);
+            s.setString(1,user);
+            s.setString(2,pass);
+            int rs = s.executeUpdate();
+
+
+            }catch(Exception e){
+
+            }
+        }
+
+
+
 
     public static void main(String[] args) {
 

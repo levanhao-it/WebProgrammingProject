@@ -36,7 +36,6 @@ public class ConnectionDB {
         }
 
     }
-
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
             ProductEntity pe = new ProductEntity();
             List<Product> data = pe.getProductWhenSearch(1,2, "hk");

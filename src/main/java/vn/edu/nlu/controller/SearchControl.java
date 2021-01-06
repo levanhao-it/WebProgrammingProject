@@ -25,7 +25,7 @@ public class SearchControl extends HttpServlet {
         int count  = pe.count(txtSearch);
         int pageSize = 2;
         int endPage;
-        if(count%pageSize ==0)
+        if(count % pageSize ==0)
             endPage = count/pageSize;
         else endPage = (count/pageSize) +1;
 

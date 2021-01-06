@@ -470,8 +470,8 @@
                             <div class="filter__sort">
                                 <span>Sắp xếp theo:</span>
                                 <select>
-                                    <option value="0">Mặc Định</option>
-                                    <option value="0">Mặc Định</option>
+                                    <option value="1">Giá tăng dần</option>
+                                    <option value="2">Giá giảm dần</option>
                                 </select>
                             </div>
                         </div>

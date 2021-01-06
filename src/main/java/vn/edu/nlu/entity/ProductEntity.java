@@ -205,9 +205,7 @@ public class ProductEntity {
             s = new ConnectionDB().connect(sql);
             s.setString(1,user);
             s.setString(2,pass);
-            int rs = s.executeUpdate();
-
-
+            s.executeUpdate();
             }catch(Exception e){
 
             }
@@ -268,8 +266,17 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+        public Account forgot(String email){
+        PreparedStatement s =null;
+        try{
+            s.setString(1, email);
+            s.executeQuery();
 
+        }catch (Exception e){
 
+        }
+            return null;
+        }
 
     public static void main(String[] args) {
     ProductEntity pe = new ProductEntity();

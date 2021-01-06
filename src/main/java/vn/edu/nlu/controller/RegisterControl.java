@@ -34,5 +34,8 @@ public class RegisterControl extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         }
+//        if(!email.equals(email)){
+//            response.sendRedirect("login.jsp");
+//        }
     }
 }

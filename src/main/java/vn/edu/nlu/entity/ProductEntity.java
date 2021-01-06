@@ -231,7 +231,7 @@ public class ProductEntity {
         }
         return 0;
     }
-    //lay du luon theo so phan trang
+    //lay du lieu theo so phan trang
     public List<Product> getProductWithCategory(String idCategory, int begin, int size){
         PreparedStatement s= null;
         try {
@@ -266,6 +266,39 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+    // lay san pham theo id
+    public Product getProductWithId(String id) {
+
+        PreparedStatement ps = null;
+        Product pro = new Product();
+        try {
+
+            String sql = "Select * from product where id= ? ";
+            ps = ConnectionDB.connect(sql);
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                pro.setId(rs.getString(1));
+                pro.setName(rs.getString(2));
+                pro.setImg(rs.getString(3));
+                pro.setPrice(rs.getInt(4));
+                pro.setPriceSale(rs.getInt(5));
+                pro.setQuantityOrder(rs.getInt(6));
+                pro.setQuantity(rs.getInt(7));
+                pro.setSale(rs.getBoolean(8));
+                pro.setNew(rs.getBoolean(9));
+                pro.setDescription(rs.getString(10));
+                pro.setDescriptionDetail(rs.getString(11));
+                pro.setDatePost(rs.getString(12));
+                pro.setIdCategory(rs.getString(13));
+                pro.setStatus(rs.getString(14));
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+        return pro;
+    }
         public Account forgot(String email){
         PreparedStatement s =null;
         try{
@@ -280,7 +313,9 @@ public class ProductEntity {
 
     public static void main(String[] args) {
     ProductEntity pe = new ProductEntity();
-        System.out.println(pe.countCategory("DM1"));
+
+    List<Product> list = pe.getProductWithCategory("DM1",0,10);
+    for(Product p : list) System.out.println(p.getName());
 
     }
 

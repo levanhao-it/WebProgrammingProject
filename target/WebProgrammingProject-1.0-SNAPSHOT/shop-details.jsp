@@ -5,7 +5,6 @@
 <html lang="zxx">
 
 <head>
-    <link rel="stylesheet" href="">
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
@@ -141,52 +140,55 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                        <li><a href="./shop-grid.html">Cửa Hàng</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./khaivi.html">Khai vị</a></li>
-                                <li><a href="./monchinh.html">Món chính</a></li>
-                                <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                                <li><a href="./thucuong.html">Đồ uống</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="./about-us.html">Về Chúng Tôi</a>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Liên Hệ</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3">
-                <div class="header__cart">
-                    <ul>
-                        <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                    <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
-                </div>
+
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="header__logo">
+                <a href="./index.html"><img src="img/logo.png" alt=""></a>
             </div>
         </div>
-        <div class="humberger__open">
-            <i class="fa fa-bars"></i>
+        <div class="col-lg-6">
+            <nav class="header__menu">
+                <ul>
+                    <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                    <li><a href="./shop-grid.html">Cửa Hàng</a>
+                        <ul class="header__menu__dropdown">
+                            <li><a href="./khaivi.html">Khai vị</a></li>
+                            <li><a href="./monchinh.html">Món chính</a></li>
+                            <li><a href="./trangmieng.html">Tráng miệng</a></li>
+                            <li><a href="./thucuong.html">Đồ uống</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./about-us.html">Về Chúng Tôi</a>
+                    </li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-3">
+            <div class="header__cart">
+                <ul>
+                    <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                    <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                </ul>
+                <div class="header__cart__price">item: <span>$150.00</span></div>
+            </div>
         </div>
     </div>
+    <div class="humberger__open">
+        <i class="fa fa-bars"></i>
+    </div>
+</div>
 </header>
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<section class="hero hero-normal">
+<section class="hero  hero-normal">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -241,7 +243,8 @@
                     <h2>Món Ăn</h2>
                     <div class="breadcrumb__option">
                         <a href="./index.html">Trang Chủ</a>
-                        <span>Món ăn</span>
+                        <a href="./index.html">Món Chính</a>
+                        <span>${product.name}</span>
                     </div>
                 </div>
             </div>
@@ -250,169 +253,185 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Product Section Begin -->
-<section class="product spad">
+<!-- Product Details Section Begin -->
+<section class="product-details spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-5">
-                <div class="sidebar">
-                    <div class="sidebar__item">
-                        <h4>Danh Mục Sản Phẩm</h4>
-                        <ul>
-                            <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
-                            <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
-                            <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
-                            <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
-                        </ul>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <img class="product__details__pic__item--large"
+                             src="${product.img}" alt="">
                     </div>
-                    <div class="sidebar__item">
-                        <h4>Giá</h4>
-                        <div class="price-range-wrap">
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                 data-min="10" data-max="5000">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar__item">
-                        <div class="latest-product__text">
-                            <h4>Sản Phẩm Mới</h4>
-                            <div class="latest-product__slider owl-carousel">
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a18.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Cá Hồi</h6>
-                                            <span>150.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a5.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Salad Bơ Kiểu Mỹ</h6>
-                                            <span>165.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a7.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Sốt Bơ</h6>
-                                            <span>80.000</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a10.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Chả Giò Cua</h6>
-                                            <span>110.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a14.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sò Điệp Đút Lò</h6>
-                                            <span>210.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a22.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Kẹp Bò</h6>
-                                            <span>109.000</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="product__details__pic__slider owl-carousel">
+                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
+                             src="${product.img}" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
+                             src="${product.img}" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
+                             src="${product.img}" alt="">
+                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
+                             src="${product.img}" alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-7">
-                <div class="section-title product__discount__title">
-                    <h2>${title}</h2>
-                </div>
-                <div class="filter__item">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-5">
-                            <div class="filter__sort">
-                                <span>Sắp Xếp Theo</span>
-                                <select>
-                                    <option value="0">Mặc Định</option>
-                                    <option value="0">Giá</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="filter__found">
-                                <h6><span>${size}</span> Sản Phẩm Tìm Kiếm</h6>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-3">
-                            <div class="filter__option">
-                                <span class="icon_grid-2x2"></span>
-                                <span class="icon_ul"></span>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>${product.name}</h3>
+                    <div class="product__details__rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <span>(18 đánh giá)</span>
+                    </div>
+                    <div class="product__details__price">${product.price}</div>
+                    <p>${product.description}</p>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <input type="text" value="1">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <c:forEach items="${data}" var="i">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="${i.img}">
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="ProductDetail?idProduct=${i.id}"><i class="fa fa-external-link"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
+                    <a href="shoping-cart.html" class="primary-btn">Thêm vào giỏ hàng</a>
+                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    <ul>
+                        <li><b>Tình Trạng</b> <span>${product.status}</span></li>
+                        <li><b>Giao hàng</b> <span>01 giờ giao hàng. <samp>Miễn phí trong ngày</samp></span></li>
+<%--                        <li><b>Khối lượng</b> <span>0.1 kg</span></li>--%>
+                        <li><b>Chia Sẻ</b>
+                            <div class="share">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
                             </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">${i.name}</a></h6>
-                                <h5>${i.price}</h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                               aria-selected="true">Mô Tả</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                               aria-selected="false">Thông Tin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                               aria-selected="false">Đánh Giá <span>(1)</span></a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Thông Tin Sản Phẩm</h6>
+                                <p>${product.description}</p>
                             </div>
                         </div>
-                    </div>
-                    </c:forEach>
 
-                </div>
-                <div class="product__pagination">
-                    <c:forEach begin="1"  end="${endPage}" var="i">
-                        <a id="${i}" href="SearchCategory?index=${i}&idCategory=${idCategory}">${i}</a>
-                    </c:forEach>
-                    <a href="SearchCategory?index=${index +1}&idCategory=${idCategory}"><i class="fa fa-long-arrow-right"></i></a>
+                        <div class="tab-pane active" id="tabs-2" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Mô Tả Chi Tiết</h6>
+                                <p>${product.descriptionDetail}</p>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <div class="product__details__tab__desc">
+                                <h6>Products Infomation</h6>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Product Section End -->
-<script>
-    var x = document.getElementById('${index}')
-    x.style.color = "white";
-    x.style.backgroundColor = "#ff8928"
-</script>
+<!-- Product Details Section End -->
+
+<!-- Related Product Section Begin -->
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Sản Phẩm Liên Quan</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/1.png">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Bánh Mì Úc</a></h6>
+                        <h5>30.000</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/6.jpg">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Bò Bít Tết</a></h6>
+                        <h5>600.000</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/8.jpg">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Hambuger Kiểu Mỹ</a></h6>
+                        <h5>120.000</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/5.jpg">
+                        <ul class="product__item__pic__hover">
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">Pizza</a></h6>
+                        <h5>300.000</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related Product Section End -->
 
 <!-- Footer Section Begin -->
 <footer class="footer spad">

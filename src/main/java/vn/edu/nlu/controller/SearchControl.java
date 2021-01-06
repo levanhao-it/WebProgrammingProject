@@ -31,7 +31,7 @@ public class SearchControl extends HttpServlet {
 
         int beginPage = index*pageSize - (pageSize-1);
 
-        Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
+        Collection<Product> data = pe.getProductWhenSearch(beginPage-1, pageSize, txtSearch);
         int sizeElement = data.size();
 
         request.setAttribute("endPage", endPage);

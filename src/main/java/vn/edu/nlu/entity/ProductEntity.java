@@ -212,11 +212,68 @@ public class ProductEntity {
 
             }
         }
+    // Tim kiem san pham theo danh muc
+    //tinh so luong san pham tim thay trong danh muc de phan trang
+    public int countCategory(String idCategory) {
+        PreparedStatement s = null;
+        try {
+            String sql = "SELECT COUNT(*) FROM Product where idCategory = ? ";
+            s= ConnectionDB.connect(sql);
 
+            s.setString(1, idCategory);
+
+            ResultSet rs = s.executeQuery();
+            while(rs.next()){
+
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+    //lay du luon theo so phan trang
+    public List<Product> getProductWithCategory(String idCategory, int begin, int size){
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
+            s= ConnectionDB.connect(sql);
+            s.setString(1, idCategory);
+            s.setInt(2, begin);
+            s.setInt(3, size);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
 
 
 
     public static void main(String[] args) {
+    ProductEntity pe = new ProductEntity();
+        System.out.println(pe.countCategory("DM1"));
 
     }
 

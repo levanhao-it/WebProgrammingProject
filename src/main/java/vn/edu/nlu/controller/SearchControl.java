@@ -23,7 +23,7 @@ public class SearchControl extends HttpServlet {
         int index = Integer.parseInt(request.getParameter("index"));
 
         int count  = pe.count(txtSearch);
-        int pageSize = 2;
+        int pageSize = 10;
         int endPage;
         if(count % pageSize ==0)
             endPage = count/pageSize;
@@ -33,9 +33,6 @@ public class SearchControl extends HttpServlet {
 
         Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
         int sizeElement = data.size();
-        for (Product p : data){
-            System.out.println(p.getName());
-        }
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);

@@ -71,9 +71,16 @@
                         <div class="header__top__right__social">
                             <a href="checkout.html"><i class="fa fa-check"></i> Thanh Toán</a>
                         </div>
-                        <div class="header__top__right__auth">
-                            <a href="login.html"><i class="fa fa-lock"></i> Đăng Nhập</a>
-                        </div>
+                        <c:if test="${sessionScope.acc == null}">
+                            <div class="header__top__right__auth">
+                                <a href="login.html"><i class="fa fa-lock"></i> Đăng Nhập</a>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.acc != null}">
+                            <div class="header__top__right__social">
+                                <a href="index.jsp"><i class="fa fa-check"></i> Đăng Xuất</a>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>

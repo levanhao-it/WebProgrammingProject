@@ -144,13 +144,13 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="">
+                <form action="RegisterControl" method="post">
                     <label for="username">Tên đăng nhập</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="text" id="username" name="username" class="form-control"
+                        <input type="text" id="username" name="usern" class="form-control"
                                placeholder="Tên đăng nhập">
                     </div>
                     <label for="email">Email</label>
@@ -165,7 +165,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="password" id="password" name="password" class="form-control"
+                        <input type="password" id="password" name="passw" class="form-control"
                                placeholder="Mật khẩu">
                     </div>
                     <label for="password">Nhập lại mật khẩu</label>
@@ -173,12 +173,12 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="cpassword" id="cpassword" name="cpassword" class="form-control"
+                        <input type="cpassword" id="cpassword" name="cpassw" class="form-control"
                                placeholder="Nhập lại mật khẩu">
                     </div>
                     <br>
                     <div class="form-group">
-                        <button class="btn btn-primary w-100 login_btn">Đăng kí</button>
+                        <button class="btn btn-primary w-100 login_btn" type="submit">Đăng kí</button>
                     </div>
                 </form>
             </div>

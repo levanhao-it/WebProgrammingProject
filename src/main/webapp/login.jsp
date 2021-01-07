@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster&display=swap" rel="stylesheet"> -->
+   <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Page Preloder -->
@@ -139,13 +139,14 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="">
+                <form action="LoginControl" method="post">
+                    <p class="text-danger">${mess}</p>
                     <label for="username">Tên đăng nhập</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="text" id="username" name="username" class="form-control"
+                        <input type="text" id="username" name="usern" class="form-control"
                                placeholder="Tên đăng nhập">
                     </div>
                     <label for="password">Mật khẩu</label>
@@ -153,7 +154,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="password" id="password" name="password" class="form-control"
+                        <input type="password" id="password" name="passw" class="form-control"
                                placeholder="Mật khẩu">
                     </div>
                     <div style="display: flex; justify-content: space-between;">
@@ -164,7 +165,7 @@
                         <div class="pass"><a href="forgot.html">Quên mật khẩu</a></div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary w-100 login_btn">Đăng nhập</button>
+                        <button class="btn btn-primary w-100 login_btn" type="submit">Đăng nhập</button>
                     </div>
                 </form>
             </div>

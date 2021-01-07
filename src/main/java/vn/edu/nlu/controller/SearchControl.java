@@ -18,6 +18,8 @@ public class SearchControl extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         ProductEntity pe = new ProductEntity();
         String txtSearch = request.getParameter("txtSearch");
         int index = Integer.parseInt(request.getParameter("index"));

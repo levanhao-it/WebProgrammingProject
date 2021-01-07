@@ -160,28 +160,36 @@ public class ProductEntity {
 
     public Account login(String user, String pass){
         PreparedStatement s= null;
-        String sql = "select * from account\n"
-                + "where [user] = ?\n"
-                + "and pass = ?";
+        String sql = "select * from account where user = ? and pass = ?";
         try{
             s = new ConnectionDB().connect(sql);
+            s.setString(1,user);
+            s.setString(2,pass);
             ResultSet rs = s.executeQuery();
-            while(rs.next()){
-                return new Account(rs.getString(1),
+            Account a;
+            if (rs.next()){
+               a= new Account(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getInt(4),
-                        rs.getInt(5));
+                        rs.getInt(5)
+               );
+               rs.close();
+               s.close();
+               return a;
+
+
             }
-        }catch (Exception e){
+            return  null;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public Account checkAccountExist(String user){
         PreparedStatement s= null;
-        String sql = "select * from account\n"
-                + "where [user] = ?\n";
+        String sql = "select * from account where user = ?";
         try{
             s = new ConnectionDB().connect(sql);
             s.setString(1,user);
@@ -197,18 +205,43 @@ public class ProductEntity {
         }
         return null;
     }
-    public void register(String user, String pass) {
+
+    public String getIdNew(){
+        Statement s= null;
+
+            String sql = "select * from account";
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(sql);
+            int count = 0;
+           while (rs.next()){
+               count++;
+           }
+            rs.close();
+            s.close();
+            String id = (count + 1) +"";
+            return id;
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+    public Account register(String user, String pass) {
         PreparedStatement s = null;
-        String sql = "insert into account\n"
-                + "values(?,?,0,0)";
+        String sql = "insert into account values(?,?,?,0,0)";
         try {
             s = new ConnectionDB().connect(sql);
-            s.setString(1,user);
-            s.setString(2,pass);
+            s.setString(1,getIdNew());
+            s.setString(2,user);
+            s.setString(3,pass);
             s.executeUpdate();
-            }catch(Exception e){
+            s.close();
+            return null;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
 
-            }
         }
     // Tim kiem san pham theo danh muc
     //tinh so luong san pham tim thay trong danh muc de phan trang
@@ -313,9 +346,10 @@ public class ProductEntity {
 
     public static void main(String[] args) {
     ProductEntity pe = new ProductEntity();
-
     List<Product> list = pe.getProductWithCategory("DM1",0,10);
     for(Product p : list) System.out.println(p.getName());
+        System.out.println(pe.register("ben", "1234"));
+
 
     }
 

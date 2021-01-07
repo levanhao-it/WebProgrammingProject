@@ -42,6 +42,12 @@ public class ConnectionDB {
             for(Product i : data){
                 System.out.println(i.getName());
             }
+//            List<Product> data = pe.getProductWhenSearch(1,2, "hk");
+//            for(Product i : data){
+//                System.out.println(i.getName());
+//            }
+        System.out.println(pe.register("ttti", "123"));
+
 
     }
 }

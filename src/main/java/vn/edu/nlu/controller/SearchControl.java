@@ -18,6 +18,8 @@ public class SearchControl extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         ProductEntity pe = new ProductEntity();
         String txtSearch = request.getParameter("txtSearch");
         int index = Integer.parseInt(request.getParameter("index"));
@@ -31,7 +33,7 @@ public class SearchControl extends HttpServlet {
 
         int beginPage = index*pageSize - (pageSize-1);
 
-        Collection<Product> data = pe.getProductWhenSearch(beginPage-1, pageSize, txtSearch);
+        Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
         int sizeElement = data.size();
 
         request.setAttribute("endPage", endPage);

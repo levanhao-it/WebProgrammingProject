@@ -18,10 +18,10 @@ public class RegisterControl extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("user");
+        String username = request.getParameter("usern");
         String email = request.getParameter("email");
-        String password = request.getParameter("pass");
-        String cpassword = request.getParameter("repass");
+        String password = request.getParameter("passw");
+        String cpassword = request.getParameter("cpassw");
         if(!password.equals(cpassword)){
             response.sendRedirect("login.jsp");
         }else{
@@ -34,8 +34,5 @@ public class RegisterControl extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         }
-//        if(!email.equals(email)){
-//            response.sendRedirect("login.jsp");
-//        }
     }
 }

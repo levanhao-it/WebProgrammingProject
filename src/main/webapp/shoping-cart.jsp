@@ -5,7 +5,6 @@
 <html lang="zxx">
 
 <head>
-    <link rel="stylesheet" href="">
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
@@ -98,7 +97,7 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<section class="hero hero-normal">
+<section class="hero  hero-normal">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -150,10 +149,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Món Ăn</h2>
+                    <h2>Giỏ Hàng</h2>
                     <div class="breadcrumb__option">
                         <a href="./index.html">Trang Chủ</a>
-                        <span>Món Ăn</span>
+                        <span>Giỏ Hàng</span>
                     </div>
                 </div>
             </div>
@@ -162,9 +161,128 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Product Section Begin -->
-<%@ include file="footer.jsp" %>
-<!-- Product Section End -->
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="shoping__product">Sản Phẩm</th>
+                            <th>Giá</th>
+                            <th>Số Lượng</th>
+                            <th>Tổng Tiền</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="shoping__cart__item">
+                                <img src="img/cart/cart-1.jpg" alt="">
+                                <h5>Bún Bò Huế</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                400.000
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="shoping__cart__total">
+                                400.000
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <span class="icon_close"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="shoping__cart__item">
+                                <img src="img/cart/cart-2.jpg" alt="">
+                                <h5>Lẩu Thái</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                600.000
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="shoping__cart__total">
+                                600.000
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <span class="icon_close"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="shoping__cart__item">
+                                <img src="img/cart/cart-3.jpg" alt="">
+                                <h5>Chuối</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                21.000
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="shoping__cart__total">
+                                21.000
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <span class="icon_close"></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__btns">
+                    <a href="shop-grid.html" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
+                    <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
+                        Cập nhật giỏ hàng</a>
+                </div>
+            </div>
+            <!-- <div class="col-lg-6">
+                <div class="shoping__continue">
+                    <div class="shoping__discount">
+                        <h5>Discount Codes</h5>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your coupon code">
+                            <button type="submit" class="site-btn">APPLY COUPON</button>
+                        </form>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-6" style="margin-left: 50%;">
+                <div class="shoping__checkout">
+                    <h5>Đơn Hàng</h5>
+                    <ul>
+                        <li>Tổng Tiền Hàng <span>1.021.000</span></li>
+                        <li>Phí Vận Chuyển <span>9.000</span></li>
+                        <li>Tổng Cộng <span>1.030.000</span></li>
+                    </ul>
+                    <a href="checkout.html" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shoping Cart Section End -->
 
 <!-- Footer Section Begin -->
 <%@ include file="footer.jsp" %>

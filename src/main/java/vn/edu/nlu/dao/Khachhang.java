@@ -22,8 +22,7 @@ public class Khachhang implements Object {
         return false;
     }
     public static void main(String [] args){
-        User user = new User("huynhhuy","123","TanHuy");
-        System.out.println();
+
     }
 
 }

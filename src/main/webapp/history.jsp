@@ -1,17 +1,8 @@
-<%@ page import="vn.edu.nlu.model.Whishlist" %>
-<%@ page import="vn.edu.nlu.beans.Product" %>
-<%@ page import="java.util.Collection" %><%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 12/29/2020
-  Time: 1:35 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -34,6 +25,7 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -55,14 +47,14 @@
     </div>
     <div class="humberger__menu__widget">
         <!-- <div class="header__top__right__language">
-            <img src="img/language.png" alt="">
-            <div>English</div>
-            <span class="arrow_carrot-down"></span>
-            <ul>
-                <li><a href="#">Spanis</a></li>
-                <li><a href="#">English</a></li>
-            </ul>
-        </div> -->
+        <img src="img/language.png" alt="">
+        <div>English</div>
+        <span class="arrow_carrot-down"></span>
+        <ul>
+            <li><a href="#">Spanis</a></li>
+            <li><a href="#">English</a></li>
+        </ul>
+    </div> -->
         <div class="header__top__right__auth">
             <a href="#"><i class="fa fa-user"></i> Đăng Nhập</a>
         </div>
@@ -70,14 +62,14 @@
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
             <li class="active"><a href="./index.html">Trang Chủ</a></li>
-            <li><a href="./shop-grid.html">Cửa Hàng</a></li>
-            <ul class="header__menu__dropdown">
-
-                <li><a href="./khaivi.html">Khai vị</a></li>
-                <li><a href="./monchinh.html">Món chính</a></li>
-                <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                <li><a href="./thucuong.html">Đồ uống</a></li>
-            </ul>
+            <li><a href="#">Cửa Hàng</a>
+                <ul class="header__menu__dropdown">
+                    <li><a href="./khaivi.html">Khai vị</a></li>
+                    <li><a href="./monchinh.html">Món chính</a></li>
+                    <li><a href="./trangmieng.html">Tráng miệng</a></li>
+                    <li><a href="./thucuong.html">Đồ uống</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="./about-us.html">Về Chúng Tôi</a>
             </li>
@@ -105,133 +97,134 @@
 <%@ include file="header.jsp" %>
 <!-- Header Section End -->
 
-<!-- Hero Section Begin -->
-<section class="hero  hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Danh Mục Sản Phẩm</span>
-                    </div>
-                    <ul>
-                        <li><a href="./khaivi.html">Khai vị</a></li>
-                        <li><a href="./monchinh.html">Món chính</a></li>
-                        <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                        <li><a href="./thucuong.html">Đồ uống</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Bạn muốn ăn gì?">
-                            <button type="submit" class="site-btn">Tìm Kiếm</button>
-                        </form>
-                    </div>
-                    <div class="hero__search__phone">
-                        <div class="hero__search__phone__icon">
-                            <i class="fa fa-phone"></i>
-                        </div>
-                        <div class="hero__search__phone__text">
-                            <h5>+84 3131 133</h5>
-                            <span>Hỗ Trợ 24/7 </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
-<!-- Breadcrumb Section Begin -->
+<!-- Header Section End -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Yêu Thích</h2>
+                    <h2>Lịch Sử Mua Hàng</h2>
                     <div class="breadcrumb__option">
                         <a href="./index.html">Trang Chủ</a>
-                        <span>Yêu Thích</span>
+                        <span>Lịch Sử Mua Hàng</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Breadcrumb Section End -->
-
-<!-- Whishlist Section Begin -->
 <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="shoping__cart__table">
+                <div class="shoping__cart__table1">
                     <table>
                         <thead>
                         <tr>
-                            <th class="shoping__product">Sản Phẩm</th>
-                            <th>Giá</th>
-                            <th>Chi Tiết</th>
-                            <th>Thêm vào giỏ hàng</th>
-                            <th>Xóa</th>
+                            <th>Mã Đơn</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                            <!--                            <th></th>-->
                         </tr>
                         </thead>
                         <tbody>
-                        <% Whishlist wl=Whishlist.getWhishlist(session);
-                            Collection<Product> data=wl.getData();
-                            request.setAttribute("data",data);%>
-                        <c:forEach items="${data}" var="d">
                         <tr>
+                            <td>HD0213</td>
                             <td class="shoping__cart__item">
-                                <img src="${d.img}" alt="" style="height: 110px;width: 110px">
-                                <h5>${d.name}</h5>
+                                <img src="img/cart/cart-1.jpg" alt="">
+                                <h5>Gỏi đu đủ</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${d.price}
+                                400.000
                             </td>
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-external-link"></i></a>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
                                 </div>
                             </td>
-
-                            <td class="footer__widget">
-                                <div class="footer__widget__social">
-                                    <a href="${pageContext.request.contextPath }/addCart?&id=${d.id }"><i class="fa fa-shopping-cart"></i></a>
-                                </div>
+                            <td class="shoping__cart__total">
+                                400.000
                             </td>
                             <td class="shoping__cart__item__close">
                                 <span class="icon_close"></span>
                             </td>
-
                         </tr>
-                        </c:forEach>
-
+                        <tr>
+                            <td>HD0213</td>
+                            <td class="shoping__cart__item">
+                                <img src="img/cart/cart-2.jpg" alt="">
+                                <h5>Lẩu Thái</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                600.000
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="shoping__cart__total">
+                                600.000
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <span class="icon_close"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HD0213</td>
+                            <td class="shoping__cart__item">
+                                <img src="img/cart/cart-3.jpg" alt="">
+                                <h5>Nước Cam</h5>
+                            </td>
+                            <td class="shoping__cart__price">
+                                21.000
+                            </td>
+                            <td class="shoping__cart__quantity">
+                                <div class="quantity">
+                                    <div class="pro-qty">
+                                        <input type="text" value="1">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="shoping__cart__total">
+                                21.000
+                            </td>
+                            <td class="shoping__cart__item__close">
+                                <span class="icon_close"></span>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-6" style="margin-left: 50%;">
+                <div class="shoping__checkout">
+                    <ul>
+                        <li>Tổng Tiền Hàng <span>1.021.000</span></li>
+                        <li>Phí Vận Chuyển <span>9.000</span></li>
+                        <li>Tổng Cộng <span>1.030.000</span></li>
+                    </ul>
+                    <a href="#" class="primary-btn">ĐẶT LẠI LẦN NỮA</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    </div>
+
+
 </section>
-
-<!-- Whishlist Section End -->
-
-<!-- Footer Section Begin -->
 <%@ include file="footer.jsp" %>
-<!-- Footer Section End -->
 
-<!-- Js Plugins -->
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.nice-select.min.js"></script>
@@ -240,7 +233,6 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-
-
 </body>
+
 </html>

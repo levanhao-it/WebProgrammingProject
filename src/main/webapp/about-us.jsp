@@ -5,7 +5,6 @@
 <html lang="zxx">
 
 <head>
-    <link rel="stylesheet" href="">
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
@@ -65,10 +64,10 @@
             <li class="active"><a href="./index.html">Trang Chủ</a></li>
             <li><a href="./shop-grid.html">Cửa Hàng</a></li>
             <ul class="header__menu__dropdown">
-                <li><a href="./khaivi.html">Khai vị</a></li>
-                <li><a href="./monchinh.html">Món chính</a></li>
-                <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                <li><a href="./thucuong.html">Đồ uống</a></li>
+                <li><a href="./shop-details.html">Khai vị</a></li>
+                <li><a href="./shoping-cart.html">Món chính</a></li>
+                <li><a href="./checkout.html">Tráng miệng</a></li>
+                <li><a href="./blog-details.html">Đồ uống</a></li>
             </ul>
             <li>
                 <a href="./about-us.html">Về Chúng Tôi</a>
@@ -98,7 +97,7 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<section class="hero hero-normal">
+<section class="hero  hero-normal">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -108,10 +107,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="./khaivi.html">Khai vị</a></li>
-                        <li><a href="./monchinh.html">Món chính</a></li>
-                        <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                        <li><a href="./thucuong.html">Đồ uống</a></li>
+                        <li><a href="#">Món Khai Vị</a></li>
+                        <li><a href="#">Món Chính</a></li>
+                        <li><a href="#">Món Tráng Miệng</a></li>
+                        <li><a href="#">Thức Uống</a></li>
                     </ul>
                 </div>
             </div>
@@ -150,10 +149,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Món Ăn</h2>
+                    <h2>About Us</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
-                        <span>Món Ăn</span>
+                        <a href="./index.html">Trang chủ</a>
+                        <span>About Us</span>
                     </div>
                 </div>
             </div>
@@ -162,9 +161,71 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Product Section Begin -->
-<%@ include file="footer.jsp" %>
-<!-- Product Section End -->
+<!-- Contact Section Begin -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <br>
+            <br>
+
+            <h2 style="text-align:center">Our Team</h2>
+            <div class="row wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                <div class="col-md-4" style="margin: 40px auto;text-align: center;">
+                    <div class="team-item"><img alt="image" class="team-image" src="img/team/huy.png"
+                                                style="width: 20.625em; height: 17.5em;">
+                        <div class="name"><img alt="shape" src="img/team/shape-11.png">
+                            <h6>Lê Hữu Huy</h6>
+                        </div>
+                        <p class="designation mb-2">MSSV: 18130096</p>
+                        <p>Lớp: DH18DTB</p>
+                        <div class="team-social social-icon-bg-hvr"><a href="https://www.facebook.com/kun.huy.2902"><i
+                                aria-hidden="true" class="fa fa-facebook"></i></a><a
+                                href="https://www.instagram.com/huykun.29/"><i aria-hidden="true"
+                                                                               class="fa fa-instagram"></i></a><a
+                                href="http://youtube.com"><i
+                                aria-hidden="true" class="fa fa-youtube"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin: 40px auto;text-align: center;">
+                    <div class="team-item"><img alt="image" class="team-image" src="img/team/hao.png"
+                                                style="width: 20.625em; height: 17.5em;">
+                        <div class="name"><img alt="shape" src="img/team/shape-11.png">
+                            <h6>Lê Văn Hào</h6>
+                        </div>
+                        <p class="designation mb-2">MSSV: 18130070</p>
+                        <p>Lớp:DH18DTB</p>
+                        <div class="team-social social-icon-bg-hvr"><a href="https://www.facebook.com/haole1411/"><i
+                                aria-hidden="true" class="fa fa-facebook"></i></a><a
+                                href="https://www.instagram.com/hafo___/"><i aria-hidden="true"
+                                                                             class="fa fa-instagram"></i></a><a
+                                href="http://youtube.com"><i
+                                aria-hidden="true" class="fa fa-youtube"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="margin:40px auto;text-align: center;">
+                    <div class="team-item"><img alt="image" class="team-image" src="img/team/thuy.png"
+                                                style="width: 20.625em; height: 17.5em;">
+                        <div class="name"><img alt="shape" src="img/team/shape-11.png">
+                            <h6>Huỳnh Tấn Huy</h6>
+                        </div>
+                        <p class="designation mb-2">MSSV: 18130095</p>
+                        <p>Lớp:DH18DTB</p>
+                        <div class="team-social social-icon-bg-hvr"><a href="https://www.facebook.com/tanhuy090700"><i
+                                aria-hidden="true" class="fa fa-facebook"></i></a><a
+                                href="https://www.instagram.com/ht.hyu____/"><i aria-hidden="true"
+                                                                                class="fa fa-instagram"></i></a><a
+                                href="http://youtube.com"><i
+                                aria-hidden="true" class="fa fa-youtube"></i></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Contact Form End -->
 
 <!-- Footer Section Begin -->
 <%@ include file="footer.jsp" %>

@@ -1,38 +1,114 @@
 package vn.edu.nlu.beans;
 
-public class User {
-        String userName;
-        String pass;
-        String name;
+import java.io.Serializable;
 
-        public User(String userName, String pass, String name) {
-            this.userName = userName;
-            this.pass = pass;
-            this.name = name;
+public class User implements Serializable {
+    private String idUser;
+    private String userName;
+    private String password;
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+    private String regisDate;
+    private int access;
+    private String key;
 
-        }
-
-        public String getUserName() {
-            return userName;
-        }
-
-        public void setUserName(String userName) {
-            this.userName = userName;
-        }
-
-        public String getPass() {
-            return pass;
-        }
-
-        public void setPass(String pass) {
-            this.pass = pass;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
+    public User(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate) {
+        this.idUser = idUser;
+        this.userName = userName;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.regisDate = regisDate;
     }
+
+    public String getRegisDate() {
+        return regisDate;
+    }
+
+    public void setRegisDate(String regisDate) {
+        this.regisDate = regisDate;
+    }
+
+    public int getAccess() {
+        return access;
+    }
+
+    public void setAccess(int access) {
+        this.access = access;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public User(String string, String rsString, String s, String string1, String rsString1, String s1, String string2, int anInt, String rsString2) {
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
+}
+
+

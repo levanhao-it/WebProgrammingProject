@@ -46,7 +46,7 @@ public class ConnectionDB {
 //            for(Product i : data){
 //                System.out.println(i.getName());
 //            }
-        System.out.println(pe.register("ttti", "123"));
+        System.out.println(pe.register("ttti", "123","abc@gmail.com"));
 
 
     }

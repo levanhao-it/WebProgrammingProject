@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
+
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -62,9 +63,7 @@
                                 <li><a href="#">English</a></li>
                             </ul>
                         </div> -->
-                        <div class="header__top__right__social">
-                            <a href="user.html"><i class="fa fa-user"></i> Tài Khoản</a>
-                        </div>
+
                         <div class="header__top__right__social">
                             <a href="history.html"><i class="fa fa-history"></i> Lịch Sử Đặt Hàng</a>
                         </div>
@@ -73,12 +72,15 @@
                         </div>
                         <c:if test="${sessionScope.acc == null}">
                             <div class="header__top__right__auth">
-                                <a href="login.html"><i class="fa fa-lock"></i> Đăng Nhập</a>
+                                <a href="login.jsp"><i class="fa fa-lock"></i> Đăng Nhập</a>
                             </div>
                         </c:if>
                         <c:if test="${sessionScope.acc != null}">
                             <div class="header__top__right__social">
-                                <a href="index.jsp"><i class="fa fa-check"></i> Đăng Xuất</a>
+                                <a href="user.jsp"><i class="fa fa-user"></i> ${sessionScope.acc.userName}</a>
+                            </div>
+                            <div class="header__top__right__social">
+                                <a href="LogoutControl"><i class="fa fa-check"></i> Đăng Xuất</a>
                             </div>
                         </c:if>
                     </div>

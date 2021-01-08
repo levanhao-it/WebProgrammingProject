@@ -1,6 +1,7 @@
 package vn.edu.nlu.entity;
 
 import vn.edu.nlu.beans.Product;
+import vn.edu.nlu.beans.User;
 import vn.edu.nlu.db.ConnectionDB;
 import vn.edu.nlu.model.Account;
 
@@ -158,22 +159,21 @@ public class ProductEntity {
         }
     }
 
-    public Account login(String user, String pass){
+    public User login(String user, String pass){
         PreparedStatement s= null;
-        String sql = "select * from account where user = ? and pass = ?";
+        String sql = "select * from user where tendangnhap = ? and matkhau = ?";
         try{
             s = new ConnectionDB().connect(sql);
             s.setString(1,user);
             s.setString(2,pass);
             ResultSet rs = s.executeQuery();
-            Account a;
+            User a;
             if (rs.next()){
-               a= new Account(rs.getString(1),
+               a= new User(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5)
-               );
+                        rs.getString(7),
+                        rs.getInt(8));
                rs.close();
                s.close();
                return a;
@@ -187,19 +187,20 @@ public class ProductEntity {
         }
     }
 
-    public Account checkAccountExist(String user){
+    public User checkAccountExist(String user){
         PreparedStatement s= null;
-        String sql = "select * from account where user = ?";
+        String sql = "select * from user where tendangnhap = ?";
         try{
             s = new ConnectionDB().connect(sql);
             s.setString(1,user);
             ResultSet rs = s.executeQuery();
             while(rs.next()){
-                return new Account(rs.getString(1),
+                return new User(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getInt(4),
-                        rs.getInt(5));
+                        rs.getString(7),
+                        rs.getInt(8));
+
             }
         }catch (Exception e){
         }
@@ -209,7 +210,7 @@ public class ProductEntity {
     public String getIdNew(){
         Statement s= null;
 
-            String sql = "select * from account";
+            String sql = "select * from user";
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(sql);
@@ -226,14 +227,15 @@ public class ProductEntity {
             return null;
         }
     }
-    public Account register(String user, String pass) {
+    public User register(String user, String pass, String email) {
         PreparedStatement s = null;
-        String sql = "insert into account values(?,?,?,0,0)";
+        String sql = "insert into user(idUser, tendangnhap,matkhau,email,quyen) values(?,?,?,?,0)";
         try {
             s = new ConnectionDB().connect(sql);
             s.setString(1,getIdNew());
             s.setString(2,user);
             s.setString(3,pass);
+            s.setString(4,email);
             s.executeUpdate();
             s.close();
             return null;
@@ -348,7 +350,7 @@ public class ProductEntity {
     ProductEntity pe = new ProductEntity();
     List<Product> list = pe.getProductWithCategory("DM1",0,10);
     for(Product p : list) System.out.println(p.getName());
-        System.out.println(pe.register("ben", "1234"));
+        System.out.println(pe.register("ben", "1234","abc@gmail.com"));
 
 
     }

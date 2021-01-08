@@ -145,6 +145,7 @@
             </div>
             <div class="login_container d-flex flex-column">
                 <form action="RegisterControl" method="post">
+                    <p class="text-danger">${mess}</p>
                     <label for="username">Tên đăng nhập</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -173,7 +174,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="cpassword" id="cpassword" name="cpassw" class="form-control"
+                        <input type="password" id="cpassword" name="cpassw" class="form-control"
                                placeholder="Nhập lại mật khẩu">
                     </div>
                     <br>

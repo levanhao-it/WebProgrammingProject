@@ -1,5 +1,6 @@
 package vn.edu.nlu.controller;
 
+import vn.edu.nlu.beans.User;
 import vn.edu.nlu.entity.ProductEntity;
 import vn.edu.nlu.model.Account;
 
@@ -26,12 +27,14 @@ public class RegisterControl extends HttpServlet {
             response.sendRedirect("login.jsp");
         }else{
             ProductEntity pe = new ProductEntity();
-            Account a = pe.checkAccountExist(username);
+            User a = pe.checkAccountExist(username);
             if(a==null){
-                pe.register(username,password);
+                pe.register(username,password,email);
                 response.sendRedirect("index.jsp");
             }else{
-                response.sendRedirect("login.jsp");
+                request.setAttribute("mess","Tên đăng nhập đã tồn tại");
+                response.sendRedirect("register.jsp");
+
             }
         }
     }

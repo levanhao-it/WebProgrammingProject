@@ -11,7 +11,6 @@ Coded by www.creative-tim.com
  =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -38,12 +37,12 @@ Coded by www.creative-tim.com
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"> -->
     <!-- CSS Files -->
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet"/>
-    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <!-- CSS Just for demo purpose, dont include it in your project -->
     <link href="./assets/demo/demo.css" rel="stylesheet"/>
 
 
@@ -118,6 +117,7 @@ Coded by www.creative-tim.com
 
 <!-- Header Section Begin -->
 <%@ include file="header.jsp" %>
+<!-- Header Section End -->
 
 <section class="hero  ">
     <div class="container">
@@ -131,7 +131,7 @@ Coded by www.creative-tim.com
                         <!-- <p>CT</p> -->
                     </a>
                     <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-                        Lê Văn Hào
+                        ${sessionScope.acc.userName}
                         <!-- <div class="logo-image-big">
         <img src="../assets/img/logo-big.png">
       </div> -->
@@ -221,11 +221,11 @@ Coded by www.creative-tim.com
                                     <div class="author">
                                         <a href="#">
                                             <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                                            <h5 class="title">Lê Văn Hào</h5>
+<%--                                            <h5 class="title">Lê Văn Hào</h5>--%>
                                         </a>
-                                        <p class="description">
-                                            @haole1411
-                                        </p>
+<%--                                        <p class="description">--%>
+<%--                                            @haole1411--%>
+<%--                                        </p>--%>
                                     </div>
 
                                 </div>
@@ -246,13 +246,14 @@ Coded by www.creative-tim.com
                                                 <div class="form-group">
                                                     <label>Tên Tài Khoản</label>
                                                     <input type="text" class="form-control"
-                                                           placeholder="Tên Tài Khoản" value="haole1411">
+                                                           placeholder="Tên Tài Khoản" value= ${sessionScope.acc.userName}>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 pl-1">
                                                 <div class="form-group">
                                                     <label>Mật Khẩu</label>
-                                                    <input type="password" class="form-control" placeholder="******">
+                                                    <input type="password" class="form-control" placeholder="Mật Khẩu"
+                                                    value=${sessionScope.acc.password}>
                                                 </div>
                                             </div>
                                         </div>
@@ -260,8 +261,7 @@ Coded by www.creative-tim.com
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Họ Tên</label>
-                                                    <input type="text" class="form-control" placeholder="Họ Tên"
-                                                           value="Lê Văn Hào">
+                                                    <input type="text" class="form-control" placeholder="Họ Tên">
                                                 </div>
                                             </div>
                                             <!-- <div class="col-md-6 pl-1">
@@ -288,7 +288,7 @@ Coded by www.creative-tim.com
                                                     <label>Số Điện Thoại</label>
                                                     <input type="text" class="form-control"
                                                            placeholder="Số Điện Thoại"
-                                                           value="0369750752">
+<%--                                                           value="0369750752">--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -312,7 +312,7 @@ Coded by www.creative-tim.com
                                                     <label>Email</label>
                                                     <input type="text" class="form-control"
                                                            placeholder="Email"
-                                                           value="haole47@gmail.com">
+                                                           value= ${sessionScope.acc.email}>
                                                 </div>
                                             </div>
 
@@ -345,7 +345,11 @@ Coded by www.creative-tim.com
 
     </div>
 </section>
+
+<!-- Footer Section Begin -->
 <%@ include file="footer.jsp" %>
+<!-- Footer Section End -->
+
 <!--   Core JS Files   -->
 
 <script src="./assets/js/core/popper.min.js"></script>

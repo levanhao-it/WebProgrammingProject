@@ -1,7 +1,7 @@
 package vn.edu.nlu.controller;
 
+import vn.edu.nlu.beans.User;
 import vn.edu.nlu.entity.ProductEntity;
-import vn.edu.nlu.model.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +23,7 @@ public class LoginControl extends HttpServlet {
         String username = request.getParameter("usern");
         String password = request.getParameter("passw");
         ProductEntity pe = new ProductEntity();
-        Account a = pe.login(username,password);
+        User a = pe.login(username,password);
         if(a==null){
             request.setAttribute("mess","Sai thông tin đăng nhập");
             request.getRequestDispatcher("login.jsp").forward(request,response);

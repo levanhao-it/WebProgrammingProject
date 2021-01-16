@@ -301,6 +301,39 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+    //lay san pham moi theo danh muc
+    public List<Product> getNewProductWithCategory(String idCategory){
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product where idCategory = ? and isNew = 1";
+            s= ConnectionDB.connect(sql);
+            s.setString(1, idCategory);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
     // lay san pham theo id
     public Product getProductWithId(String id) {
 
@@ -345,6 +378,45 @@ public class ProductEntity {
         }
             return null;
         }
+    // Filter with price from short to high
+    public List<Product> getProductSort(String idCategory, int begin, int size){
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
+            s= ConnectionDB.connect(sql);
+            s.setString(1, idCategory);
+            s.setInt(2, begin);
+            s.setInt(3, size);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
+
+
+
+
 
     public static void main(String[] args) {
     ProductEntity pe = new ProductEntity();

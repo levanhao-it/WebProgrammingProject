@@ -31,7 +31,7 @@ public class SearchCategory extends HttpServlet {
         else if(id.equals("DM4")) name = "Đồ Uống";
 
         int count  = pe.countCategory(id);
-        int pageSize = 10;
+        int pageSize = 12;
         int endPage;
         if(count % pageSize ==0)
             endPage = count/pageSize;
@@ -39,18 +39,21 @@ public class SearchCategory extends HttpServlet {
         int beginPage = index*pageSize - (pageSize-1);
 
         Collection<Product> data = pe.getProductWithCategory(id,beginPage -1,pageSize);
-        int sizeElement = data.size();
+        Collection<Product> dataNew = pe.getNewProductWithCategory(id);
+
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);
         request.setAttribute("idCategory", id);
         request.setAttribute("index", index);
-        request.setAttribute("size", sizeElement);
+        request.setAttribute("size", count);
 
         request.setAttribute("data", data);
         request.setAttribute("title", name);
 
-        request.getRequestDispatcher("khaivi.jsp").forward(request,response);
+        request.setAttribute("dataNew", dataNew);
+
+        request.getRequestDispatcher("food.jsp").forward(request,response);
     }
 }
 

@@ -198,7 +198,9 @@
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới</h4>
                             <div class="latest-product__slider owl-carousel">
+                                <c:forEach begin="1" end="2">
                                 <div class="latest-prdouct__slider__item">
+                                    <c:forEach begin="1" end="3" items="dataNew" var="i">
                                     <a href="#" class="latest-product__item">
                                         <div class="latest-product__item__pic">
                                             <img src="img/appertizer/sanphammoi/a18.jpg" alt="">
@@ -208,54 +210,9 @@
                                             <span>150.000</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a5.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Salad Bơ Kiểu Mỹ</h6>
-                                            <span>165.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a7.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Sốt Bơ</h6>
-                                            <span>80.000</span>
-                                        </div>
-                                    </a>
+                                    </c:forEach>
                                 </div>
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a10.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Chả Giò Cua</h6>
-                                            <span>110.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a14.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sò Điệp Đút Lò</h6>
-                                            <span>210.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a22.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Kẹp Bò</h6>
-                                            <span>109.000</span>
-                                        </div>
-                                    </a>
-                                </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
@@ -271,7 +228,7 @@
                             <div class="filter__sort">
                                 <span>Sắp Xếp Theo</span>
                                 <select>
-                                    <option value="0">Mặc Định</option>
+                                    <option value="0" href="">Mặc Định</option>
                                     <option value="0">Giá</option>
                                 </select>
                             </div>

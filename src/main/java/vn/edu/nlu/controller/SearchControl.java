@@ -25,7 +25,7 @@ public class SearchControl extends HttpServlet {
         int index = Integer.parseInt(request.getParameter("index"));
 
         int count  = pe.count(txtSearch);
-        int pageSize = 10;
+        int pageSize = 12;
         int endPage;
         if(count % pageSize ==0)
             endPage = count/pageSize;
@@ -34,13 +34,12 @@ public class SearchControl extends HttpServlet {
         int beginPage = index*pageSize - (pageSize-1);
 
         Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
-        int sizeElement = data.size();
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);
         request.setAttribute("txtSearch", txtSearch);
         request.setAttribute("index", index);
-        request.setAttribute("size", sizeElement);
+        request.setAttribute("size", count);
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
 }

@@ -39,7 +39,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
                     </div>
                     <ul>
                         <li>Địa Chỉ: Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh.</li>
@@ -52,17 +52,17 @@
                 <div class="footer__widget">
                     <h6>Liên Kết</h6>
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./about-us.html">Chúng Tôi Là Ai</a></li>
+                        <li><a href="./index.jsp">Trang chủ</a></li>
+                        <li><a href="./about-us.jsp">Chúng Tôi Là Ai</a></li>
                         <li><a href="./contact.html">Liên Hệ</a></li>
-                        <li><a href="./blog.html">Tin Tức</a></li>
+                        <li><a href="./blog.jsp">Tin Tức</a></li>
 
                     </ul>
                     <ul>
-                        <li><a href="./user.html">Tài Khoản Của Tôi</a></li>
-                        <li><a href="./history.html">Lịch Sử Đặt Hàng</a></li>
-                        <li><a href="./privacy.html">Chính Sách Bảo Mật</a></li>
-                        <li><a href="./whishlist.html">Sản Phẩm Yêu Thích</a></li>
+                        <li><a href="./user.jsp">Tài Khoản Của Tôi</a></li>
+                        <li><a href="./history.jsp">Lịch Sử Đặt Hàng</a></li>
+                        <li><a href="./privacy.jsp">Chính Sách Bảo Mật</a></li>
+                        <li><a href="./whishlist.jsp">Sản Phẩm Yêu Thích</a></li>
                     </ul>
                     <!-- <ul>
                         <li><a href="#"></a></li>

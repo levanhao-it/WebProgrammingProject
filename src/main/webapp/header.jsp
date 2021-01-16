@@ -63,13 +63,20 @@
                                 <li><a href="#">English</a></li>
                             </ul>
                         </div> -->
+                        <c:if test="${sessionScope.acc.access == 0}">
+                        <div class="header__top__right__social">
+                            <a href="history.jsp"><i class="fa fa-history"></i> Lịch Sử Đặt Hàng</a>
+                        </div>
 
                         <div class="header__top__right__social">
-                            <a href="history.html"><i class="fa fa-history"></i> Lịch Sử Đặt Hàng</a>
+                            <a href="checkout.jsp"><i class="fa fa-check"></i> Thanh Toán</a>
                         </div>
-                        <div class="header__top__right__social">
-                            <a href="checkout.html"><i class="fa fa-check"></i> Thanh Toán</a>
-                        </div>
+                        </c:if>
+                        <c:if test="${sessionScope.acc.access == 1}">
+                            <div class="header__top__right__social">
+                                <a href="./concept-master/pages/quanlyuser.jsp"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
+                            </div>
+                        </c:if>
                         <c:if test="${sessionScope.acc == null}">
                             <div class="header__top__right__auth">
                                 <a href="login.jsp"><i class="fa fa-lock"></i> Đăng Nhập</a>
@@ -92,25 +99,25 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                        <li><a href="./shop-grid.html">Cửa Hàng</a>
+                        <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
+                        <li><a href="./shop-grid.jsp">Cửa Hàng</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./khaivi.html">Khai vị</a></li>
-                                <li><a href="./monchinh.html">Món chính</a></li>
-                                <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                                <li><a href="./thucuong.html">Đồ uống</a></li>
+                                <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
+                                <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
+                                <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
+                                <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="./about-us.html">Về Chúng Tôi</a>
+                            <a href="./about-us.jsp">Về Chúng Tôi</a>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./blog.jsp">Blog</a></li>
                         <li><a href="./contact.html">Liên Hệ</a></li>
                     </ul>
                 </nav>

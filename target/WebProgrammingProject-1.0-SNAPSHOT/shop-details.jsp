@@ -93,55 +93,7 @@
 <!-- Humberger End -->
 
 <!-- Header Section Begin -->
-<header class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6" style="flex: 0 0 30%">
-                    <div class="header__top__left">
-                        <ul>
-                            <li><i class="fa fa-envelope"></i> group12@gmail.com</li>
-                            <!-- <li>Free Shipping for all Order of $99</li> -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6" style="flex-shrink: 0;flex-grow: 0;flex-basis: 70%;max-width:70%">
-                    <div class="header__top__right">
-                        <div class="header__top__right__social">
-                            <a href="https://www.facebook.com/Group12-100996871826770"><i
-                                    class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                        </div>
-                        <!-- <div class="header__top__right__language">
-                            <img src="img/language.png" alt="">
-                            <div>English</div>
-                            <span class="arrow_carrot-down"></span>
-                            <ul>
-                                <li><a href="#">Spanis</a></li>
-                                <li><a href="#">English</a></li>
-                            </ul>
-                        </div> -->
-                        <div class="header__top__right__social">
-                            <a href="user.html"><i class="fa fa-user"></i> Tài Khoản</a>
-                        </div>
-                        <div class="header__top__right__social">
-                            <a href="history.html"><i class="fa fa-history"></i> Lịch Sử Đặt Hàng</a>
-                        </div>
-                        <div class="header__top__right__social">
-                            <a href="checkout.html"><i class="fa fa-check"></i> Thanh Toán</a>
-                        </div>
-                        <div class="header__top__right__auth">
-                            <a href="login.html"><i class="fa fa-lock"></i> Đăng Nhập</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</header>
+<%@ include file="header.jsp" %>
 
 <div class="container">
     <div class="row">
@@ -434,80 +386,7 @@
 <!-- Related Product Section End -->
 
 <!-- Footer Section Begin -->
-<footer class="footer spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="footer__about">
-                    <div class="footer__about__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                    <ul>
-                        <li>Địa Chỉ: Phường Linh Trung, Quận Thủ Đức, Thành Phố Hồ Chí Minh.</li>
-                        <li>Điện Thoại: +84 3131 133.</li>
-                        <li>Email: group12@gmail.com.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                <div class="footer__widget">
-                    <h6>Liên Kết</h6>
-                    <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./about-us.html">Chúng Tôi Là Ai</a></li>
-                        <li><a href="./contact.html">Liên Hệ</a></li>
-                        <li><a href="./blog.html">Tin Tức</a></li>
-
-                    </ul>
-                    <ul>
-                        <li><a href="./user.html">Tài Khoản Của Tôi</a></li>
-                        <li><a href="./history.html">Lịch Sử Đặt Hàng</a></li>
-                        <li><a href="./privacy.html">Chính Sách Bảo Mật</a></li>
-                        <li><a href="./whishlist.html">Sản Phẩm Yêu Thích</a></li>
-                    </ul>
-                    <!-- <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Dịch Vụ Của Chúng Tôi</a></li>
-                        <li><a href="#">Dự Án</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Cải Tiến</a></li>
-                        <li><a href="#"></a></li>
-                    </ul> -->
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="footer__widget">
-                    <h6>Tham Gia Với Chúng Tôi </h6>
-                    <p>Truy cập Email để cập nhật về những món ăn mới nhất và các ưu đãi đặc biệt</p>
-                    <form action="#">
-                        <input type="text" placeholder="Nhập Email của bạn">
-                        <button type="submit" class="site-btn">Đăng Ký</button>
-                    </form>
-                    <div class="footer__widget__social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="footer__copyright">
-                    <div class="footer__copyright__text">
-                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                            All rights reserved | This template is made with <i class="fa fa-heart"
-                                                                                aria-hidden="true"></i> by <a href="#">Group12</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                    <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+<%@ include file="footer.jsp" %>
 <!-- Footer Section End -->
 
 <!-- Js Plugins -->

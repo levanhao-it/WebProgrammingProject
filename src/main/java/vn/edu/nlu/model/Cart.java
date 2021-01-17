@@ -37,8 +37,12 @@ public class Cart implements Serializable {
        if(data.containsKey(id)) data.get(id).setQuantity(quantity);
 
     }
-    public void remove(int id){
-         data.remove(id);
+    public boolean remove(String id){
+        if (data.containsKey(id)) {
+            data.remove(id);
+            return true;
+        }
+        return false;
     }
     public long total(){
         long sum=0;

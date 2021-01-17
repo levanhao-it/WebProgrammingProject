@@ -201,13 +201,13 @@
                             </td>
                             <td class="footer__widget">
                                 <div class="footer__widget__social">
-                                    <a href="#"><i class="fa fa-external-link"></i></a>
+                                    <a href="ProductDetail?idProduct=${d.id}"><i class="fa fa-external-link"></i></a>
                                 </div>
                             </td>
 
                             <td class="footer__widget">
                                 <div class="footer__widget__social">
-                                    <a href="${pageContext.request.contextPath }/addCart?&id=${d.id }"><i class="fa fa-shopping-cart"></i></a>
+                                    <a href="addCart?id=${d.id }"><i class="fa fa-shopping-cart"></i></a>
                                 </div>
                             </td>
                             <td class="shoping__cart__item__close">

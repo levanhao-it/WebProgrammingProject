@@ -21,7 +21,7 @@ public class DataCustomer extends HttpServlet {
         UserManagement management = new UserManagement();
         List<User> data = management.getAllKhachHang();
         request.setAttribute("data", data);
-        request.getRequestDispatcher("/pages/quanlyuser.jsp").forward(request,response);
+        request.getRequestDispatcher("/concept-master/pages/quanlyuser.jsp").forward(request,response);
     }
 }
 

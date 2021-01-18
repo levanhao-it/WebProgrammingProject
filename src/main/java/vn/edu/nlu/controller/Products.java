@@ -11,39 +11,33 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
 
-@WebServlet(urlPatterns = "/SearchControl")
-public class SearchControl extends HttpServlet {
+@WebServlet(urlPatterns = "/Products")
+public class Products extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html; charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        ProductEntity pe = new ProductEntity();
-        String txtSearch = request.getParameter("txtSearch");
         int index = Integer.parseInt(request.getParameter("index"));
         int value = Integer.parseInt(request.getParameter("value"));
 
-        int count  = pe.count(txtSearch);
-        int pageSize = 12;
+        ProductEntity pe = new ProductEntity();
+        int countProduct = pe.getAll().size();
+        int pageSize = 21;
         int endPage;
-        if(count % pageSize ==0)
-            endPage = count/pageSize;
-        else endPage = (count/pageSize) +1;
-
+        if(countProduct % pageSize ==0)
+            endPage = countProduct/pageSize;
+        else endPage = (countProduct/pageSize) +1;
         int beginPage = index*pageSize - (pageSize-1);
 
-        Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
+        Collection<Product> data = pe.getAllProducts(index,pageSize);
         Collection<Product> dataNew = pe.getNewProduct();
-
-        request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);
-        request.setAttribute("txtSearch", txtSearch);
-        request.setAttribute("index", index);
-        request.setAttribute("size", count);
-        request.setAttribute("dataNew", dataNew);
         request.setAttribute("value", value);
+        request.setAttribute("endPage", endPage);
+        request.setAttribute("size", countProduct);
+        request.setAttribute("dataNew", dataNew);
+        request.setAttribute("index", index);
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
 }

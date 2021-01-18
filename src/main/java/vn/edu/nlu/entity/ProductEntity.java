@@ -413,19 +413,81 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
-
+    public Collection<Product> getNewProduct() {
+        Statement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product where isNew = 1";
+            s= ConnectionDB.connect();
+            ResultSet rs=s.executeQuery(sql);
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
+    // lay tat ca du lieu san pham theo chi so index de phan trang
+    public List<Product> getAllProducts(int index, int size){
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product limit ? , ?";
+            s= ConnectionDB.connect(sql);
+            s.setInt(1, index);
+            s.setInt(2, size);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
 
 
 
 
     public static void main(String[] args) {
     ProductEntity pe = new ProductEntity();
-    List<Product> list = pe.getProductWithCategory("DM1",0,10);
+    List<Product> list = pe.getAllProducts(1,21);
     for(Product p : list) System.out.println(p.getName());
-        System.out.println(pe.register("ben", "1234","abc@gmail.com"));
-
-
     }
+
 
 
 }

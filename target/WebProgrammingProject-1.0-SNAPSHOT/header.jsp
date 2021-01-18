@@ -106,7 +106,7 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
-                        <li><a href="./shop-grid.jsp">Cửa Hàng</a>
+                        <li><a href="Products?index=1&value=0">Cửa Hàng</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
                                 <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>

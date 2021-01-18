@@ -41,7 +41,6 @@ public class SearchCategory extends HttpServlet {
         Collection<Product> data = pe.getProductWithCategory(id,beginPage -1,pageSize);
         Collection<Product> dataNew = pe.getNewProductWithCategory(id);
 
-
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);
         request.setAttribute("idCategory", id);

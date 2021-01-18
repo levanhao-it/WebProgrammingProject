@@ -171,10 +171,10 @@
                     <div class="sidebar__item">
                         <h4>Danh Mục Sản Phẩm</h4>
                         <ul>
-                            <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
-                            <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
-                            <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
-                            <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
+                            <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
+                            <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
+                            <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
+                            <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -198,20 +198,22 @@
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới</h4>
                             <div class="latest-product__slider owl-carousel">
-                                <c:forEach begin="1" end="2">
-                                <div class="latest-prdouct__slider__item">
-                                    <c:forEach begin="1" end="3" items="dataNew" var="i">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a18.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Cá Hồi</h6>
-                                            <span>150.000</span>
-                                        </div>
-                                    </a>
-                                    </c:forEach>
-                                </div>
+                                <c:forEach begin="1" end="3" var="k">
+                                    <div class="latest-prdouct__slider__item">
+                                        <c:forEach begin="${k*3-2}" end="${k*3}" items="${dataNew}" var="i">
+                                            <a href="#" class="latest-product__item">
+                                                <div class="latest-product__item__pic">
+                                                    <img src="${i.img}" style="height: 110px;width: 110px" alt="">
+                                                </div>
+                                                <div class="latest-product__item__text">
+                                                    <h6>${i.name}</h6>
+                                                    <span>${i.price}</span>
+                                                </div>
+                                            </a>
+                                        </c:forEach>
+
+                                    </div>
+
                                 </c:forEach>
                             </div>
                         </div>
@@ -227,10 +229,15 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Sắp Xếp Theo</span>
-                                <select>
-                                    <option value="0" href="">Mặc Định</option>
-                                    <option value="0">Giá</option>
+                                <form>
+                                <select name="filter">
+                                    <option value="0">Mặc Định</option>
+                                    <option value="1">Giá Tăng</option>
+                                    <option value="2">Giá Giảm</option>
+                                    <option value="3">Ngày Tăng</option>
+                                    <option value="3">Ngày Giảm</option>
                                 </select>
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">

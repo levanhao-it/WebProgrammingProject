@@ -196,64 +196,24 @@
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới</h4>
                             <div class="latest-product__slider owl-carousel">
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/monchinh/sanphammoi/19.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sườn Heo Nướng Ớt</h6>
-                                            <span>900.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a7.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Sốt Bơ</h6>
-                                            <span>80.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/trangmieng/sanphammoi/che-khuc-bach.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Chè Khúc Bạch</h6>
-                                            <span>30.000</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="latest-prdouct__slider__item">
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/monchinh/sanphammoi/12.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bún Cá</h6>
-                                            <span>350.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/thucuong/sanphammoi/12.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Sinh Tố Dâu</h6>
-                                            <span>50.000</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="latest-product__item">
-                                        <div class="latest-product__item__pic">
-                                            <img src="img/appertizer/sanphammoi/a18.jpg" alt="">
-                                        </div>
-                                        <div class="latest-product__item__text">
-                                            <h6>Bánh Mì Cá Hồi</h6>
-                                            <span>150.000</span>
-                                        </div>
-                                    </a>
-                                </div>
+                                <c:forEach begin="1" end="3" var="k">
+                                    <div class="latest-prdouct__slider__item">
+                                        <c:forEach begin="${k*3-2}" end="${k*3}" items="${dataNew}" var="i">
+                                            <a href="#" class="latest-product__item">
+                                                <div class="latest-product__item__pic">
+                                                    <img src="${i.img}" style="height: 110px;width: 110px" alt="">
+                                                </div>
+                                                <div class="latest-product__item__text">
+                                                    <h6>${i.name}</h6>
+                                                    <span>${i.price}</span>
+                                                </div>
+                                            </a>
+                                        </c:forEach>
+
+                                    </div>
+
+                                </c:forEach>
+
                             </div>
                         </div>
                     </div>
@@ -420,12 +380,21 @@
                     </c:forEach>
 
                 </div>
-                <div class="product__pagination">
-                    <c:forEach begin="1"  end="${endPage}" var="i">
-                        <a id="${i}" href="SearchControl?index=${i}&txtSearch=${txtSearch}">${i}</a>
-                    </c:forEach>
-                        <a href="SearchControl?index=${index +1}&txtSearch=${txtSearch}"><i class="fa fa-long-arrow-right"></i></a>
 
+                <div class="product__pagination">
+                    <c:if test="${value == 1}">
+                    <c:forEach begin="1"  end="${endPage}" var="i">
+                        <a id="${i}" href="SearchControl?index=${i}&txtSearch=${txtSearch}&value=1">${i}</a>
+                    </c:forEach>
+                        <a href="SearchControl?index=${index +1}&txtSearch=${txtSearch}&value=1"><i class="fa fa-long-arrow-right"></i></a>
+                    </c:if>
+
+                    <c:if test="${value == 0}">
+                        <c:forEach begin="1"  end="${endPage}" var="i">
+                            <a id="${i}" href="Products?index=${i}&value=0">${i}</a>
+                        </c:forEach>
+                        <a href="Products?index=${index +1}&value=0"><i class="fa fa-long-arrow-right"></i></a>
+                    </c:if>
                 </div>
             </div>
         </div>

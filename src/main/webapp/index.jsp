@@ -127,7 +127,7 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="SearchControl?index=1&value=1" method="post">
+                        <form action="SearchControl?index=1&value=1&valueFilter=2" method="post">
                             <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
                             <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>

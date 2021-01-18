@@ -167,8 +167,6 @@
                     <div class="sidebar__item">
                         <h4>Danh Mục Sản Phẩm</h4>
                         <ul>
-
-
                             <li><a href="./khaivi.html">Khai vị</a></li>
                             <li><a href="./monchinh.html">Món chính</a></li>
                             <li><a href="./trangmieng.html">Tráng miệng</a></li>
@@ -340,11 +338,29 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
-                                <span>Sắp xếp theo:</span>
-                                <select>
-                                    <option value="1">Giá tăng dần</option>
-                                    <option value="2">Giá giảm dần</option>
-                                </select>
+                                        <span>Sắp xếp theo:</span>
+                                             <c:if test="${value == 0}">
+                                                 <select name="valueFilter" id="selectFilter" >
+                                                     <option value="0" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=0">Mặc định</option>
+                                                     <option value="1" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=1">Giá tăng</option>
+                                                     <option value="2" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=2">Giá giảm</option>
+                                                     <option value="3" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=3">Ngày Tăng</option>
+                                                     <option value="4" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=4">Ngày Giảm</option>
+                                                 </select>
+
+                                             </c:if>
+                                                <c:if test="${value == 1}">
+                                                    <select name="valueFilter" id="selectFilter" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=1">
+                                                        <option value="0" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=0">Mặc định</option>
+                                                        <option value="1" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=1">Giá tăng</option>
+                                                        <option value="2" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=2">Giá giảm</option>
+                                                        <option value="3" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=3">Ngày Tăng</option>
+                                                        <option value="4" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=4">Ngày Giảm</option>
+                                                    </select>
+                                                </c:if>
+
+
+
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -383,10 +399,10 @@
 
                 <div class="product__pagination">
                     <c:if test="${value == 1}">
-                    <c:forEach begin="1"  end="${endPage}" var="i">
-                        <a id="${i}" href="SearchControl?index=${i}&txtSearch=${txtSearch}&value=1">${i}</a>
-                    </c:forEach>
-                        <a href="SearchControl?index=${index +1}&txtSearch=${txtSearch}&value=1"><i class="fa fa-long-arrow-right"></i></a>
+                        <c:forEach begin="1"  end="${endPage}" var="i">
+                            <a id="${i}" href="SearchControl?index=${i}&txtSearch=${txtSearch}&value=1&valueFilter=${valueFilter}">${i}</a>
+                        </c:forEach>
+                        <a href="SearchControl?index=${index +1}&txtSearch=${txtSearch}&value=1&valueFilter=${valueFilter}"><i class="fa fa-long-arrow-right"></i></a>
                     </c:if>
 
                     <c:if test="${value == 0}">
@@ -404,6 +420,8 @@
     var x = document.getElementById('${index}')
     x.style.color = "white";
     x.style.backgroundColor = "#ff8928"
+    var index = ${valueFilter} + 1;
+    document.getElementById('selectFilter').selectedIndex =  "index";
 </script>
 <!-- Product Section End -->
 

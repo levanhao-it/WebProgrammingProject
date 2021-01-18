@@ -21,9 +21,11 @@ public class SearchControl extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         ProductEntity pe = new ProductEntity();
+
         String txtSearch = request.getParameter("txtSearch");
         int index = Integer.parseInt(request.getParameter("index"));
         int value = Integer.parseInt(request.getParameter("value"));
+        int valueFilter = Integer.parseInt(request.getParameter("valueFilter"));
 
         int count  = pe.count(txtSearch);
         int pageSize = 12;
@@ -34,7 +36,7 @@ public class SearchControl extends HttpServlet {
 
         int beginPage = index*pageSize - (pageSize-1);
 
-        Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch);
+        Collection<Product> data = pe.getProductWhenSearch(beginPage, pageSize, txtSearch, valueFilter);
         Collection<Product> dataNew = pe.getNewProduct();
 
         request.setAttribute("endPage", endPage);
@@ -44,6 +46,7 @@ public class SearchControl extends HttpServlet {
         request.setAttribute("size", count);
         request.setAttribute("dataNew", dataNew);
         request.setAttribute("value", value);
+        request.setAttribute("valueFilter", valueFilter);
         request.getRequestDispatcher("shop-grid.jsp").forward(request,response);
     }
 }

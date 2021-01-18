@@ -14,6 +14,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductEntity {
+
+    public static void main(String[] args) {
+        ProductEntity pe = new ProductEntity();
+        List<Product> list = pe.getAllProducts(1,21);
+        for(Product p : list) System.out.println(p.getName());
+    }
+
     public List<Product> getAll(){
         Statement s= null;
         try {
@@ -124,11 +131,22 @@ public class ProductEntity {
         }
         return 0;
     }
-    public List<Product> getProductWhenSearch(int index, int sizeData, String txtSearch){
+    public List<Product> getProductWhenSearch(int index, int sizeData, String txtSearch, int valueFilter){
         PreparedStatement s= null;
         try {
             List<Product> re= new LinkedList<>();
-            String sql = "SELECT * FROM product where name like ? limit ? , ?";
+            String sql = "";
+            if(valueFilter == 0)
+                sql = "SELECT * FROM product where name like ? limit ? , ?";
+            else if(valueFilter == 1)
+                sql = "SELECT * FROM product where name like ? order by price asc limit ? , ?";
+            else if(valueFilter == 2)
+                sql = "SELECT * FROM product where name like ? order by price desc limit ? , ?";
+            else if(valueFilter == 3)
+                sql = "SELECT * FROM product where name like ? order by datePost asc limit ? , ?";
+            else if(valueFilter == 4)
+                sql = "SELECT * FROM product where name like ? order by datePost desc limit ? , ?";
+
             s= ConnectionDB.connect(sql);
             s.setString(1, "%" + txtSearch + "%");
             s.setInt(2,index - 1);
@@ -481,14 +499,6 @@ public class ProductEntity {
         }
     }
 
-
-
-
-    public static void main(String[] args) {
-    ProductEntity pe = new ProductEntity();
-    List<Product> list = pe.getAllProducts(1,21);
-    for(Product p : list) System.out.println(p.getName());
-    }
 
 
 

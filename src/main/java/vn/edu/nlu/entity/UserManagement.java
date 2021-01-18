@@ -1,6 +1,6 @@
 
 package vn.edu.nlu.entity;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.AsmConstants;
+
 import vn.edu.nlu.beans.User;
 import vn.edu.nlu.db.ConnectionDB;
 
@@ -16,7 +16,7 @@ public class UserManagement {
         Statement s= null;
         try {
             List<User> re= new LinkedList<>();
-            String sql = "Select * from user where quyen = 0";
+            String sql = "Select * from user ";
             s= ConnectionDB.connect();
             ResultSet rs=s.executeQuery(sql);
             while (rs.next()){
@@ -27,7 +27,8 @@ public class UserManagement {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getString(7),
-                        rs.getString(8)
+                        rs.getString(8),
+                        rs.getInt(9)
                 ));
             }
             rs.close();
@@ -37,14 +38,65 @@ public class UserManagement {
             e.printStackTrace();
             return new LinkedList<>();
         }
+    }
+    public String getIdNew(){
+        Statement s= null;
 
+        String sql = "select * from user";
+        String id = "";
+
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(sql);
+
+            while (rs.next()){
+                id = rs.getString(1);
+            }
+            rs.close();
+            s.close();
+            String idNew = (Integer.parseInt(id) + 1) + "";
+            return idNew;
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+            return null;
+        }
+    }
+    public void deleteUser(String uid){
+       PreparedStatement s = null;
+       try{
+           String sql = "delete from user where idUser=?";
+           s = new ConnectionDB().connect(sql);
+           s.setString(1,uid);
+           s.executeUpdate();
+       }catch (Exception e) {
+           e.printStackTrace();
+       }
 
     }
+    public void addUser(String idUser, String username, String password, String name, String address, String phone, String email, String regisDate) {
+        PreparedStatement s = null;
+        String sql = "insert into user(idUser,tendangnhap,matkhau,hoten,diachi,sodt,email,dateRegister,quyen) values(?,?,?,?,?,?,?,?,0)";
+        try {
+            s = new ConnectionDB().connect(sql);
+            s.setString(1,idUser);
+            s.setString(2,username);
+            s.setString(3,password);
+            s.setString(4,name);
+            s.setString(5,address);
+            s.setString(6,phone);
+            s.setString(7,email);
+            s.setString(8,regisDate);
+            s.executeUpdate();
+            s.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
     public static void main(String[] args) {
         UserManagement man = new UserManagement();
         List<User> data = man.getAllKhachHang();
         for(User u : data)
-            System.out.println(u.getName());
+            System.out.println(u.getUserName());
     }
 }

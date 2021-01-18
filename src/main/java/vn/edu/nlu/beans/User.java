@@ -22,7 +22,7 @@ public class User implements Serializable {
         this.access = access;
     }
 
-    public User(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate) {
+    public User(String idUser, String userName, String password, String name, String address, String phone, String email,String regisDate,int access) {
         this.idUser = idUser;
         this.userName = userName;
         this.password = password;
@@ -31,6 +31,7 @@ public class User implements Serializable {
         this.phone = phone;
         this.email = email;
         this.regisDate = regisDate;
+        this.access = access;
     }
 
     public String getRegisDate() {

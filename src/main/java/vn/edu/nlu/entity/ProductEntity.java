@@ -211,17 +211,19 @@ public class ProductEntity {
         Statement s= null;
 
             String sql = "select * from user";
+            String id = "";
+
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(sql);
-            int count = 0;
+
            while (rs.next()){
-               count++;
+               id = rs.getString(1);
            }
             rs.close();
             s.close();
-            String id = (count + 1) +"";
-            return id;
+            String idNew = (Integer.parseInt(id) + 1) + "";
+            return idNew;
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
             return null;

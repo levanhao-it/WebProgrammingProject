@@ -31,10 +31,9 @@ public class RegisterControl extends HttpServlet {
             if(a==null){
                 pe.register(username,password,email);
                 response.sendRedirect("index.jsp");
-            }else{
+            }else{ 
                 request.setAttribute("mess","Tên đăng nhập đã tồn tại");
                 response.sendRedirect("register.jsp");
-
             }
         }
     }

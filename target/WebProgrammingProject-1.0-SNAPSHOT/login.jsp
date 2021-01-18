@@ -70,18 +70,18 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Trang Chủ</a></li>
-            <li><a href="./shop-grid.html">Cửa Hàng</a></li>
+            <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
+            <li><a href="./shop-grid.jsp">Cửa Hàng</a></li>
             <ul class="header__menu__dropdown">
                 <li><a href="./khaivi.html">Khai vị</a></li>
-                <li><a href="./monchinh.html">Món chính</a></li>
+                <li><a href="./monchinh.jsp">Món chính</a></li>
                 <li><a href="./trangmieng.html">Tráng miệng</a></li>
                 <li><a href="./thucuong.html">Đồ uống</a></li>
             </ul>
             <li>
-                <a href="./about-us.html">Về Chúng Tôi</a>
+                <a href="./about-us.jsp">Về Chúng Tôi</a>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./blog.jsp">Blog</a></li>
             <li><a href="./contact.html">Liên Hệ</a></li>
         </ul>
     </nav>
@@ -162,7 +162,7 @@
                             <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                             <label class="custom-control-label" for="customControlAutosizing">Nhớ mật khẩu</label>
                         </div>
-                        <div class="pass"><a href="forgot.html">Quên mật khẩu</a></div>
+                        <div class="pass"><a href="forgot.jsp">Quên mật khẩu</a></div>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary w-100 login_btn" type="submit">Đăng nhập</button>
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center p-3">
-                Bạn chưa có tài khoản? <a href="register.html" class="ml-2">Bấm vào đây</a>
+                Bạn chưa có tài khoản? <a href="register.jsp" class="ml-2">Bấm vào đây</a>
             </div>
         </div>
     </div>

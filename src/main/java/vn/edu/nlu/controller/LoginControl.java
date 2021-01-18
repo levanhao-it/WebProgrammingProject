@@ -31,6 +31,7 @@ public class LoginControl extends HttpServlet {
             //day a len session
             HttpSession session = request.getSession();
             session.setAttribute("acc", a);
+            session.setMaxInactiveInterval(1000);
             response.sendRedirect("index.jsp");
         }
     }

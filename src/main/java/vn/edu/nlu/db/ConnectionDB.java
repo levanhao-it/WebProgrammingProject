@@ -1,7 +1,5 @@
 package vn.edu.nlu.db;
 
-
-
 import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.entity.ProductEntity;
 

@@ -118,16 +118,16 @@
                     </div>
                     <ul>
                         <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1">Món chính</a></li>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1">Tráng miệng</a></li>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="SearchControl?index=1&value=1&valueFilter=2" method="post">
+                        <form action="SearchControl?index=1&value=1&valueFilter=0" method="post">
                             <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
                             <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>

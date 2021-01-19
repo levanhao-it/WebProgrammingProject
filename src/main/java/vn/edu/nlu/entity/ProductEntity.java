@@ -16,9 +16,7 @@ import java.util.List;
 public class ProductEntity {
 
     public static void main(String[] args) {
-        ProductEntity pe = new ProductEntity();
-        List<Product> list = pe.getAllProducts(1,21);
-        for(Product p : list) System.out.println(p.getName());
+
     }
 
     public List<Product> getAll(){
@@ -131,7 +129,7 @@ public class ProductEntity {
         }
         return 0;
     }
-    public List<Product> getProductWhenSearch(int index, int sizeData, String txtSearch, int valueFilter){
+    public List<Product> getProductWhenSearch(int beginProduct, int sizeData, String txtSearch, int valueFilter){
         PreparedStatement s= null;
         try {
             List<Product> re= new LinkedList<>();
@@ -149,7 +147,7 @@ public class ProductEntity {
 
             s= ConnectionDB.connect(sql);
             s.setString(1, "%" + txtSearch + "%");
-            s.setInt(2,index - 1);
+            s.setInt(2,beginProduct);
             s.setInt(3,sizeData);
             ResultSet rs=s.executeQuery();
             while (rs.next()){
@@ -465,13 +463,23 @@ public class ProductEntity {
         }
     }
     // lay tat ca du lieu san pham theo chi so index de phan trang
-    public List<Product> getAllProducts(int index, int size){
+    public List<Product> getAllProducts(int beginProduct, int size, int valueFilter){
         PreparedStatement s= null;
         try {
             List<Product> re= new LinkedList<>();
-            String sql = "SELECT * FROM product limit ? , ?";
+            String sql = "";
+            if(valueFilter == 0)
+                sql = "SELECT * FROM product limit ? , ?";
+            else if(valueFilter == 1)
+                sql = "SELECT * FROM product order by price asc limit ? , ?";
+            else if(valueFilter == 2)
+                sql = "SELECT * FROM product order by price desc limit ? , ?";
+            else if(valueFilter == 3)
+                sql = "SELECT * FROM product order by datePost asc limit ? , ?";
+            else if(valueFilter == 4)
+                sql = "SELECT * FROM product order by datePost desc limit ? , ?";
             s= ConnectionDB.connect(sql);
-            s.setInt(1, index);
+            s.setInt(1, beginProduct);
             s.setInt(2, size);
             ResultSet rs=s.executeQuery();
             while (rs.next()){

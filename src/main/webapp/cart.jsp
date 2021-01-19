@@ -197,14 +197,12 @@
                                 <div class="quantity">
                                     <div class="pro-qty">
                                         <span class="dec qtybtn">-</span>
-                                        <input type="text" value="${d.quantity}">
+                                        <input type="text" value="1">
                                         <span class="inc qtybtn">+</span>
                                     </div>
                                 </div>
                             </td>
-                            <td class="shoping__cart__total">
-                               ${d.price*d.quantity}
-                            </td>
+                            <td class="shoping__cart__total"></td>
                             <td class="shoping__cart__item__close">
                                <button> <a href="DeleteCartProduct?id=${d.id}"><span class="icon_close"></span></a></button>
                             </td>

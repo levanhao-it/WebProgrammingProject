@@ -340,22 +340,22 @@
                             <div class="filter__sort">
                                         <span>Sắp xếp theo:</span>
                                              <c:if test="${value == 0}">
-                                                 <select name="valueFilter" id="selectFilter" >
-                                                     <option value="0" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=0">Mặc định</option>
-                                                     <option value="1" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=1">Giá tăng</option>
-                                                     <option value="2" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=2">Giá giảm</option>
-                                                     <option value="3" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=3">Ngày Tăng</option>
-                                                     <option value="4" href="Products?index=${index}&txtSearch=${txtSearch}&value=0&valueFilter=4">Ngày Giảm</option>
+                                                 <select name="valueFilter" id="selectFilter" onchange="genderChanged()">
+                                                     <option value="0" >Mặc định</option>
+                                                     <option value="1" >Giá tăng</option>
+                                                     <option value="2" >Giá giảm</option>
+                                                     <option value="3" >Ngày Tăng</option>
+                                                     <option value="4" >Ngày Giảm</option>
                                                  </select>
 
                                              </c:if>
                                                 <c:if test="${value == 1}">
-                                                    <select name="valueFilter" id="selectFilter" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=1">
-                                                        <option value="0" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=0">Mặc định</option>
-                                                        <option value="1" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=1">Giá tăng</option>
-                                                        <option value="2" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=2">Giá giảm</option>
-                                                        <option value="3" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=3">Ngày Tăng</option>
-                                                        <option value="4" href="SearchControl?index=${index}&txtSearch=${txtSearch}&value=1&valueFilter=4">Ngày Giảm</option>
+                                                    <select name="valueFilter" id="selectFilter1" onchange="genderChanged1()">
+                                                        <option value="0" >Mặc định</option>
+                                                        <option value="1" >Giá tăng</option>
+                                                        <option value="2" >Giá giảm</option>
+                                                        <option value="3" >Ngày Tăng</option>
+                                                        <option value="4">Ngày Giảm</option>
                                                     </select>
                                                 </c:if>
 
@@ -407,9 +407,9 @@
 
                     <c:if test="${value == 0}">
                         <c:forEach begin="1"  end="${endPage}" var="i">
-                            <a id="${i}" href="Products?index=${i}&value=0">${i}</a>
+                            <a id="${i}" href="Products?index=${i}&value=0&valueFilter=${valueFilter}">${i}</a>
                         </c:forEach>
-                        <a href="Products?index=${index +1}&value=0"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="Products?index=${index +1}&value=0&valueFilter=${valueFilter}"><i class="fa fa-long-arrow-right"></i></a>
                     </c:if>
                 </div>
             </div>
@@ -420,8 +420,57 @@
     var x = document.getElementById('${index}')
     x.style.color = "white";
     x.style.backgroundColor = "#ff8928"
-    var index = ${valueFilter} + 1;
-    document.getElementById('selectFilter').selectedIndex =  "index";
+    if("${value}" === "1"){
+            document.getElementById('selectFilter1').selectedIndex = "${valueFilter}";
+    }else if("${value}" === "0"){
+            document.getElementById('selectFilter').selectedIndex = "${valueFilter}";
+    }
+
+</script>
+<script>
+    function genderChanged1()
+    {
+        var x = document.getElementById('selectFilter1');
+        var value = x.value;
+
+        if (value === '0'){
+            location.assign("SearchControl?index=1&txtSearch=${txtSearch}&value=1&valueFilter=0");
+        }
+        else if (value === '1'){
+            location.assign("SearchControl?index=1&txtSearch=${txtSearch}&value=1&valueFilter=1");
+        }
+        else if (value === '2'){
+            location.assign("SearchControl?index=1&txtSearch=${txtSearch}&value=1&valueFilter=2")
+        }
+        else if (value === '3'){
+            location.assign("SearchControl?index=1&txtSearch=${txtSearch}&value=1&valueFilter=3")
+        }
+        else if (value === '4'){
+            location.assign("SearchControl?index=1&txtSearch=${txtSearch}&value=1&valueFilter=4")
+        }
+    }
+
+    function genderChanged()
+    {
+        var x = document.getElementById('selectFilter');
+        var value = x.value;
+
+        if (value === '0'){
+            location.assign("Products?index=1&value=0&valueFilter=0");
+        }
+        else if (value === '1'){
+            location.assign("Products?index=1&value=0&valueFilter=1");
+        }
+        else if (value === '2'){
+            location.assign("Products?index=1&value=0&valueFilter=2")
+        }
+        else if (value === '3'){
+            location.assign("Products?index=1&value=0&valueFilter=3")
+        }
+        else if (value === '4'){
+            location.assign("Products?index=1&value=0&valueFilter=4")
+        }
+    }
 </script>
 <!-- Product Section End -->
 

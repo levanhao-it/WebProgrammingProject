@@ -219,7 +219,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="shop-grid.jsp" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
+                    <a href="Products?index=1&value=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Cập nhật giỏ hàng</a>
                 </div>

@@ -1,6 +1,7 @@
 
 package vn.edu.nlu.entity;
 
+import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.beans.User;
 import vn.edu.nlu.db.ConnectionDB;
 
@@ -20,7 +21,8 @@ public class UserManagement {
             s= ConnectionDB.connect();
             ResultSet rs=s.executeQuery(sql);
             while (rs.next()){
-                re.add(new User(rs.getString(1),
+                re.add(new User(
+                        rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -73,13 +75,13 @@ public class UserManagement {
        }
 
     }
-    public void addUser(String idUser, String username, String password, String name, String address, String phone, String email, String regisDate) {
+    public void addUser(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate) {
         PreparedStatement s = null;
         String sql = "insert into user(idUser,tendangnhap,matkhau,hoten,diachi,sodt,email,dateRegister,quyen) values(?,?,?,?,?,?,?,?,0)";
         try {
             s = new ConnectionDB().connect(sql);
             s.setString(1,idUser);
-            s.setString(2,username);
+            s.setString(2,userName);
             s.setString(3,password);
             s.setString(4,name);
             s.setString(5,address);
@@ -92,11 +94,84 @@ public class UserManagement {
             e.printStackTrace();
         }
 
+
+
+    }
+    public void editUser(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate){
+        PreparedStatement s = null;
+        String sql ="UPDATE user Set tendangnhap = ?,matkhau = ?, hoten = ?,diachi = ?,sodt = ?,email = ?,dateRegister = ?, quyen = 0 WHERE idUser = ?";
+        try {
+            s = ConnectionDB.connect(sql);
+
+            s.setString(1,userName);
+            s.setString(2,password);
+            s.setString(3,name);
+            s.setString(4,address);
+            s.setString(5,phone);
+            s.setString(6,email);
+            s.setString(7,regisDate);
+            s.setString(8,idUser);
+            s.executeUpdate();
+            s.close();
+
+        }catch (ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+        }
+
+
+    }
+//    public void updateUser(String idUser, String userName, String password, String name, String address, String phone, String email,Stri){
+//        PreparedStatement s = null;
+//        String sql ="UPDATE user Set tendangnhap = ?,matkhau = ?, hoten = ?,diachi = ?,sodt = ?,email = ?, quyen = 0 WHERE idUser = ?";
+//        try {
+//            s = ConnectionDB.connect(sql);
+//
+//            s.setString(1,userName);
+//            s.setString(2,password);
+//            s.setString(3,name);
+//            s.setString(4,address);
+//            s.setString(5,phone);
+//            s.setString(6,email);
+//            s.setString(8,idUser);
+//            s.executeUpdate();
+//            s.close();
+//
+//        }catch (ClassNotFoundException | SQLException e){
+//            e.printStackTrace();
+//        }
+//
+//    }
+    public List<User> getUserById(String uid) {
+        PreparedStatement s= null;
+        try {
+            List<User> re= new LinkedList<>();
+            String sql = "SELECT * FROM user where idUser=?";
+            s= ConnectionDB.connect(sql);
+            s.setString(1,uid);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new User(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
     }
     public static void main(String[] args) {
         UserManagement man = new UserManagement();
-        List<User> data = man.getAllKhachHang();
-        for(User u : data)
-            System.out.println(u.getUserName());
+        man.editUser("3", "levanhao", "123", "le", "hcm", "", "", "2021-12-01");
     }
+
+
 }

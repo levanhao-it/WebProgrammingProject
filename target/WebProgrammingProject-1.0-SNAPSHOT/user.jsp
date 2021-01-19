@@ -40,10 +40,6 @@ Coded by www.creative-tim.com
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <!-- CSS Files -->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="./assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet"/>
-    <!-- CSS Just for demo purpose, dont include it in your project -->
-    <link href="./assets/demo/demo.css" rel="stylesheet"/>
 
 
 </head>
@@ -118,233 +114,64 @@ Coded by www.creative-tim.com
 <!-- Header Section Begin -->
 <%@ include file="header.jsp" %>
 <!-- Header Section End -->
+<div class="modal-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="EditMyUser" method="post">
+                <c:forEach items="${detail}" var="d">
 
-<section class="hero  ">
-    <div class="container">
-        <div class="wrapper ">
-            <div class="sidebar" data-color="white" data-active-color="danger" style="position: absolute;">
-                <div class="logo">
-                    <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-                        <div class="logo-image-small">
-                            <img src="./assets/img/logo-small.png">
-                        </div>
-                        <!-- <p>CT</p> -->
-                    </a>
-                    <a href="https://www.creative-tim.com" class="simple-text logo-normal">
-                        ${sessionScope.acc.userName}
-                        <!-- <div class="logo-image-big">
-        <img src="../assets/img/logo-big.png">
-      </div> -->
-                    </a>
-                </div>
-                <div class="sidebar-wrapper">
-                    <div>
-                        <ul class="nav">
-                            <li class="active ">
-                                <a href="./user.html">
-                                    <i class="nc-icon nc-single-02"></i>
-                                    <p>Thông Tin Tài Khoản</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="nc-icon nc-bell-55"></i>
-                                    <p>Thông Báo</p>
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Chi Tiết Người Dùng</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                </div>
-            </div>
-            <div class="main-panel" style="background-color: #f5e2b9">
-                <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
-                    <div class="container-fluid">
-                        <div class="navbar-wrapper">
-                            <div class="navbar-toggle">
-                                <button type="button" class="navbar-toggler">
-                                    <span class="navbar-toggler-bar bar1"></span>
-                                    <span class="navbar-toggler-bar bar2"></span>
-                                    <span class="navbar-toggler-bar bar3"></span>
-                                </button>
-                            </div>
-                            <a class="navbar-brand" href="javascript:;">Thông Tin Tài Khoản</a>
+                    <div class="modal-body">
+                        <div class="form-group" hidden>
+                            <label>ID</label>
+                            <input type="text" value="${d.idUser}" name="idUser" class="form-control" required>
                         </div>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                            <span class="navbar-toggler-bar navbar-kebab"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <div class="form-group">
+                            <label>Tên Đăng Nhập</label>
+                            <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mật Khẩu</label>
+                            <input type="password" value="${d.password}" name="matkhau" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Họ Tên</label>
+                            <input type="text" value="${d.name}" name="hoten" class="form-control" required>
 
-                            <ul class="navbar-nav">
+                        </div>
+                        <div class="form-group">
+                            <label>Địa Chỉ</label>
+                            <input type="text" value="${d.address}" name="diachi" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số Điện Thoại</label>
+                            <input type="text" value="${d.phone}" name="sodt" class="form-control" required>
 
-                                <li class="nav-item btn-rotate dropdown">
-                                    <a class="nav-link dropdown-toggle" href="http://example.com"
-                                       id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                       aria-expanded="false">
-                                        <i class="nc-icon nc-bell-55"></i>
-                                        <p>
-                                            <span class="d-lg-none d-md-block">Some Actions</span>
-                                        </p>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right"
-                                         aria-labelledby="navbarDropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn-rotate" href="javascript:;">
-                                        <i class="nc-icon nc-settings-gear-65"></i>
-                                        <p>
-                                            <span class="d-lg-none d-md-block">Tài Khoản</span>
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" value="${d.email}" name="email" class="form-control" required>
+
+                        </div>
+                        <div class="form-group" hidden>
+                            <label>Ngày Đăng Kí</label>
+                            <input type="text" value="${d.regisDate}" name="dateregister" class="form-control" placeholder="yyyy-mm-dd" required>
                         </div>
                     </div>
-                </nav>
-                <!-- End Navbar -->
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card card-user">
-                                <div class="image">
-                                    <img src="./assets/img/damir-bosnjak.jpg" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-<%--                                            <h5 class="title">Lê Văn Hào</h5>--%>
-                                        </a>
-<%--                                        <p class="description">--%>
-<%--                                            @haole1411--%>
-<%--                                        </p>--%>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card card-user">
-                                <div class="card-header">
-                                    <h5 class="card-title">Chỉnh Sửa Hồ Sơ</h5>
-                                </div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="row">
-
-                                            <div class="col-md-3 px-1" style="margin-left: 10px;">
-                                                <div class="form-group">
-                                                    <label>Tên Tài Khoản</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Tên Tài Khoản" value= ${sessionScope.acc.userName}>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Mật Khẩu</label>
-                                                    <input type="password" class="form-control" placeholder="Mật Khẩu"
-                                                    value=${sessionScope.acc.password}>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Họ Tên</label>
-                                                    <input type="text" class="form-control" placeholder="Họ Tên">
-                                                </div>
-                                            </div>
-                                            <!-- <div class="col-md-6 pl-1">
-                                                <div class="form-group">
-                                                    <label>Tên</label>
-                                                    <input type="text" class="form-control" placeholder="Last Name"
-                                                        value="Hào">
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Địa Chỉ</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Địa Chỉ"
-                                                           value="Linh Trung - Thủ Đức - Hồ Chí Minh">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Số Điện Thoại</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Số Điện Thoại"
-<%--                                                           value="0369750752">--%>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- <div class="col-md-4 pr-1">
-                                                <div class="form-group">
-                                                    <label>Thành Phố</label>
-                                                    <input type="text" class="form-control" placeholder="City"
-                                                        value="Hồ Chí Minh">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 px-1">
-                                                <div class="form-group">
-                                                    <label>Quốc Gia</label>
-                                                    <input type="text" class="form-control" placeholder="Country"
-                                                        value="VietNam">
-                                                </div>
-                                            </div> -->
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="text" class="form-control"
-                                                           placeholder="Email"
-                                                           value= ${sessionScope.acc.email}>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <!-- <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Thông Tin</label>
-                                                    <textarea class="form-control textarea">...</textarea>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <div class="row">
-                                            <div class="update ml-auto mr-auto">
-                                                <button type="submit" class="btn btn-primary btn-round"
-                                                        style="background-color: #ff8928;">Cập Nhật Hồ
-                                                    Sơ
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                        <input type="submit" class="btn btn-success" value="Lưu">
                     </div>
-                </div>
-            </div>
-
+                </c:forEach>
+            </form>
         </div>
-
     </div>
-</section>
+
+</div>
+
 
 <!-- Footer Section Begin -->
 <%@ include file="footer.jsp" %>
@@ -352,18 +179,7 @@ Coded by www.creative-tim.com
 
 <!--   Core JS Files   -->
 
-<script src="./assets/js/core/popper.min.js"></script>
 
-<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="./assets/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="./assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="./assets/demo/demo.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

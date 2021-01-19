@@ -34,6 +34,10 @@ public class User implements Serializable {
         this.access = access;
     }
 
+    public User(String name) {
+        this.name = name;
+    }
+
     public String getRegisDate() {
         return regisDate;
     }

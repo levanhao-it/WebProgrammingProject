@@ -2,12 +2,12 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -271,184 +271,75 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-xs-6">
-                        <h2>Quản Lý <b>Người Dùng</b></h2>
+                        <h2>Chi Tiết  <b> Khách Hàng</b></h2>
                     </div>
-                    <div class="col-xs-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm Người Dùng</span></a>
-                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa Người Dùng</span></a>
-                    </div>
-                </div>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên Đăng Nhập</th>
-                    <th>Mật Khẩu</th>
-                    <th>Họ Tên</th>
-                    <th>Địa chỉ</th>
-                    <th>Số Điện Thoại</th>
-                    <th>Email</th>
-                    <th>Ngày Đăng Kí</th>
-                    <th>Quyền</th>
-                    <th>Thao Tác</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${listU}" var="o">
 
-                <tr>
-                    <td>${o.idUser}</td>
-                    <td>${o.userName}</td>
-                    <td>${o.password}</td>
-                    <td>${o.name}</td>
-                    <td>${o.address}</td>
-                    <td>${o.phone}</td>
-                    <td>${o.email}</td>
-                    <td>${o.regisDate}</td>
-                    <td>${o.access}</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="delete?uid=${o.idUser}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Quay Lại</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Tiếp Theo</a></li>
-                </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
+<!-- Edit Modal HTML -->
+<div class="modal-dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="AddUserControl" method="post">
+
+            <form action="EditUserControl" method="post">
+                <c:forEach items="${detail}" var="d">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Thêm Người Dùng</h4>
+                    <h4 class="modal-title">Chi Tiết Người Dùng</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group" hidden>
+                        <label>ID</label>
+                        <input type="text" value="${d.idUser}" name="idUser" class="form-control" required>
+                    </div>
                     <div class="form-group">
                         <label>Tên Đăng Nhập</label>
-                        <input type="text" name="tendangnhap" class="form-control" required>
+                        <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Mật Khẩu</label>
-                        <input type="password" name="matkhau" class="form-control" required>
+                        <input type="password" value="${d.password}" name="matkhau" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Họ Tên</label>
-                        <input type="text" name="hoten" class="form-control" required>
+                        <input type="text" value="${d.name}" name="hoten" class="form-control" required>
 
                     </div>
                     <div class="form-group">
                         <label>Địa Chỉ</label>
-                        <input type="text" name="diachi" class="form-control" required>
+                        <input type="text" value="${d.address}" name="diachi" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Số Điện Thoại</label>
-                        <input type="text" name="sodt" class="form-control" required>
+                        <input type="text" value="${d.phone}" name="sodt" class="form-control" required>
 
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="email" class="form-control" required>
+                        <input type="text" value="${d.email}" name="email" class="form-control" required>
 
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng Kí</label>
-                        <input type="date" name="dateregister" class="form-control" required>
+                        <input type="text" value="${d.regisDate}" name="dateregister" class="form-control" placeholder="yyyy-mm-dd" required>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">
-                    <input type="submit" class="btn btn-success" value="Thêm">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                    <input type="submit" class="btn btn-success" value="Lưu">
                 </div>
+                </c:forEach>
             </form>
         </div>
     </div>
-</div>
-<!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh Sửa Người Dùng</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Tên Đăng Nhập</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Mật Khẩu</label>
-                        <input type="password" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Họ Tên</label>
-                        <input type="text" class="hoten" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Địa Chỉ</label>
-                        <input type="text" class="diachi" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Số Điện Thoại</label>
-                        <input type="text" class="sodt" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" class="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Quyền</label>
-                        <input type="text" class="quyen" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
-                </div>
-            </form>
-        </div>
-    </div>
+
 </div>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Bạn có chắc là muốn xóa sản phẩm này không?</p>
-                    <p class="text-warning"><small>Không thể thực hiện được</small></p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>
-

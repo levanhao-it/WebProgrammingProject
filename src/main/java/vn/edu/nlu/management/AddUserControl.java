@@ -1,4 +1,4 @@
-package vn.edu.nlu.controller;
+package vn.edu.nlu.management;
 
 import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.entity.ProductEntity;

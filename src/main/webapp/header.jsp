@@ -74,7 +74,7 @@
                         </c:if>
                         <c:if test="${sessionScope.acc.access == 1}">
                             <div class="header__top__right__social">
-                                <a href="./concept-master/pages/quanlyuser.jsp"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
+                                <a href="./admin/quanlyuser.jsp"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
                             </div>
                         </c:if>
                         <c:if test="${sessionScope.acc == null}">
@@ -84,7 +84,7 @@
                         </c:if>
                         <c:if test="${sessionScope.acc != null}">
                             <div class="header__top__right__social">
-                                <a href="user.jsp"><i class="fa fa-user"></i> ${sessionScope.acc.userName}</a>
+                                <a href="MyUser?uid=${sessionScope.acc.idUser}"><i class="fa fa-user"></i> ${sessionScope.acc.userName}</a>
                             </div>
                             <div class="header__top__right__social">
                                 <a href="LogoutControl"><i class="fa fa-check"></i> Đăng Xuất</a>

@@ -271,63 +271,20 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-xs-6">
-                        <h2>Quản Lý <b>Sản Phẩm</b></h2>
+                        <h2>Chi Tiết  <b> Sản Phẩm</b></h2>
                     </div>
-                    <div class="col-xs-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm Sản Phẩm</span></a>
-                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>
-                    </div>
+
                 </div>
-            </div>
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên</th>
-                    <th>Ảnh</th>
-                    <th>Giá</th>
-                    <th>Thao Tác</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${data}" var="i">
-                <tr>
-                    <td>
-								${i.id}
-                    </td>
-                    <td>${i.name}</td>
-                    <td>
-                        <img src="${i.img}" style="height: 110px;width: 110px">
-                    </td>
-                    <td>${i.price}</td>
-                    <td>
-                        <a href="loadProductDetail?pid=${i.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="deleteProduct?pid=${i.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <div class="clearfix">
-                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                <ul class="pagination">
-                    <li class="page-item disabled"><a href="#">Quay Lại</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">4</a></li>
-                    <li class="page-item"><a href="#" class="page-link">5</a></li>
-                    <li class="page-item"><a href="#" class="page-link">Tiếp Theo</a></li>
-                </ul>
             </div>
         </div>
     </div>
 </div>
 <!-- Edit Modal HTML -->
-<div id="addEmployeeModal" class="modal fade">
+<!-- Edit Modal HTML -->
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="addProduct" method="post">
+            <form action="editPro" method="post">
+                <c:forEach items="${detail}" var="d">
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -335,24 +292,24 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>ID</label>
-                        <input type="text" name="id" class="form-control" required>
+                        <input type="text" value="${d.id}" name="id"  class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Tên</label>
-                        <input type="text" name="name" class="form-control" required>
+                        <input type="text" name="name" value="${d.name}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
-                        <input type="text"name="image" class="form-control" required>
+                        <input type="text"name="image" value="${d.img}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input type="text" name="price"class="form-control" required>
+                        <input type="text" name="price" value="${d.price}" class="form-control" required>
 
                     </div>
                     <div class="form-group">
                         <label>Giá Giảm</label>
-                        <input type="text" name="priceSale" class="form-control" required>
+                        <input type="text" name="priceSale" value="${d.priceSale}"class="form-control" required>
 
                     </div>
                     <div class="form-group">
@@ -373,16 +330,16 @@
                     </div>
                     <div class="form-group">
                         <label>Mô Tả</label>
-                        <input type="text" name="description" class="form-control" required></input>
+                        <input type="text" name="description" value="${d.description}" class="form-control" required></input>
                     </div>
                     <div class="form-group">
                         <label>Mô Tả Chi Tiết</label>
-                        <input type="text" name="descriptionDetail"class="form-control" required>
+                        <input type="text" name="descriptionDetail" value="${d.descriptionDetail}" class="form-control" required>
 
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
-                        <input type="text"name="datePost" class="form-control" placeholder="yyyy-mm-dd" required>
+                        <input type="text"name="datePost" value="${d.datePost}" class="form-control" placeholder="yyyy-mm/dd" required>
 
                     </div>
                     <div class="form-group">
@@ -407,122 +364,14 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">
-                    <input type="submit" class="btn btn-success" value="Thêm">
+                    <input type="submit" class="btn btn-success" value="Lưu Thay Đổi ">
                 </div>
+                </c:forEach>
             </form>
         </div>
-    </div>
+
 </div>
-<!-- Edit Modal HTML -->
-<%--<div id="editEmployeeModal" class="modal fade">--%>
-<%--    <div class="modal-dialog">--%>
-<%--        <div class="modal-content">--%>
-<%--            <form action="EditProduct" method="post">--%>
-<%--                <div class="modal-header">--%>
-<%--                    <h4 class="modal-title">Thêm Sản Phẩm</h4>--%>
-<%--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
-<%--                </div>--%>
-<%--                <div class="modal-body">--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>ID</label>--%>
-<%--                        <input type="text" name="id" value="${detail.id}" class="form-control" required>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Tên</label>--%>
-<%--                        <input type="text" name="name" value="${detail.name}" class="form-control" required>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Ảnh </label>--%>
-<%--                        <input type="text"name="image" value="${detail.image}" class="form-control" required>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Giá</label>--%>
-<%--                        <input type="text" name="price" value="${detail.price}" class="form-control" required>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Giá Giảm</label>--%>
-<%--                        <input type="text" name="priceSale" value="${detail.priceSale}"class="form-control" required>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Sản Phẩm Mới</label>--%>
-<%--                        <select name="isNew" class="form-select" aria-label="Mặc định" required>--%>
-<%--                            <option value="1">Có</option>--%>
-<%--                            <option value="0">Không</option>--%>
-<%--                        </select>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Sản Phẩm Giảm Giá</label>--%>
-<%--                        <select name="isSale" class="form-select" aria-label="Mặc định" required>--%>
-<%--                            <option value="1">Có</option>--%>
-<%--                            <option value="0">Không</option>--%>
-<%--                        </select>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Mô Tả</label>--%>
-<%--                        <input type="text" name="description" value="${detail.description}" class="form-control" required></input>--%>
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Mô Tả Chi Tiết</label>--%>
-<%--                        <input type="text" name="descriptionDetail" value="${detail.descriptionDetail}" class="form-control" required>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Ngày Đăng</label>--%>
-<%--                        <input type="text"name="datePost" class="form-control" placeholder="yyyy-mm/dd" required>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Mã Danh Mục</label>--%>
-<%--                        <select name="idCategory" class="form-select" aria-label="Mặc định" required>--%>
-<%--                            <option value="DM1">Khai Vị</option>--%>
-<%--                            <option value="DM2">Món Chính</option>--%>
-<%--                            <option value="DM3">Tráng Miệng</option>--%>
-<%--                            <option value="DM4">Đồ Uống</option>--%>
-<%--                        </select>--%>
-
-<%--                    </div>--%>
-<%--                    <div class="form-group">--%>
-<%--                        <label>Tình Trạng</label>--%>
-<%--                        <select name="status" class="form-select" aria-label="Mặc định" required>--%>
-<%--                            <option value="Còn Hàng">Còn Hàng</option>--%>
-<%--                            <option value="Hết Hàng">Hết Hàng</option>--%>
-<%--                        </select>--%>
-
-<%--                    </div>--%>
-
-<%--                </div>--%>
-<%--                <div class="modal-footer">--%>
-<%--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">--%>
-<%--                    <input type="submit" class="btn btn-success" value="Thêm">--%>
-<%--                </div>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 <!-- Delete Modal HTML -->
-<div id="deleteEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete these Records?</p>
-                    <p class="text-warning"><small>This action cannot be undone.</small></p>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+
 </body>
 </html>

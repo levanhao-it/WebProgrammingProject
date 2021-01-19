@@ -211,7 +211,7 @@
                                 </div>
                             </td>
                             <td class="shoping__cart__item__close">
-                                <span class="icon_close"></span>
+                                <button> <a href="DeleteWhishlistProduct?id=${d.id}"><span class="icon_close"></span></a></button>
                             </td>
 
                         </tr>

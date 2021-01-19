@@ -1,8 +1,8 @@
-package vn.edu.nlu.controller;
+package vn.edu.nlu.management;
 
 import vn.edu.nlu.beans.Product;
-import vn.edu.nlu.entity.ProductEntity;
-import vn.edu.nlu.model.Cart;
+import vn.edu.nlu.beans.User;
+import vn.edu.nlu.entity.ProductManagement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,27 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Collection;
 
-@WebServlet(urlPatterns = "/DeleteCartProduct")
-public class DeleteCartProduct extends HttpServlet {
+@WebServlet(urlPatterns = "/DataProducts")
+public class DataProducts extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id=request.getParameter("id");
-        ProductEntity pe= new ProductEntity();
-        Product p=pe.getById(id);
-        if(p==null){
-            response.sendRedirect("Home");
-            return;
-        }
-        HttpSession session=request.getSession();
-        Cart c=Cart.getCart(session);
-        c.remove(p.getId());
-        response.sendRedirect("cart.jsp");
-        c.commit(session);
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
 
+        ProductManagement pm= new ProductManagement();
+        Collection<Product> data= pm.getAll();
+
+        request.setAttribute("data",data);
+        request.getRequestDispatcher("quanlyproduct.jsp").forward(request,response);
 
 
     }

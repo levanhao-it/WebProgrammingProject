@@ -45,8 +45,12 @@ public class Whishlist implements Serializable {
     public void add(){
 
     }
-    public void remove(int id){
-        data.remove(id);
+    public boolean remove(String id){
+        if (data.containsKey(id)) {
+            data.remove(id);
+            return true;
+        }
+        return false;
     }
     public Collection<Product> getData(){
         return data.values();

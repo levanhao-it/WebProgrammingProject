@@ -2,12 +2,12 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -275,19 +275,13 @@
                     </div>
                     <div class="col-xs-6">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm Sản Phẩm</span></a>
-                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>
+<%--                        <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Xóa</span></a>--%>
                     </div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="selectAll">
-									<label for="selectAll"></label>
-								</span>
-                    </th>
                     <th>ID</th>
                     <th>Tên</th>
                     <th>Ảnh</th>
@@ -296,86 +290,22 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach items="${data}" var="i">
                 <tr>
                     <td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]" value="1">
-									<label for="checkbox1"></label>
-								</span>
+								${i.id}
                     </td>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
+                    <td>${i.name}</td>
                     <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <img src="${i.img}" style="height: 110px;width: 110px">
+                    </td>
+                    <td>${i.price}</td>
+                    <td>
+                        <a href="loadProductDetail?pid=${i.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="deleteProduct?pid=${i.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox2" name="options[]" value="1">
-									<label for="checkbox2"></label>
-								</span>
-                    </td>
-                    <td>Dominique Perrier</td>
-                    <td>dominiqueperrier@mail.com</td>
-                    <td>Obere Str. 57, Berlin, Germany</td>
-                    <td>(313) 555-5735</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox3" name="options[]" value="1">
-									<label for="checkbox3"></label>
-								</span>
-                    </td>
-                    <td>Maria Anders</td>
-                    <td>mariaanders@mail.com</td>
-                    <td>25, rue Lauriston, Paris, France</td>
-                    <td>(503) 555-9931</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox4" name="options[]" value="1">
-									<label for="checkbox4"></label>
-								</span>
-                    </td>
-                    <td>Fran Wilson</td>
-                    <td>franwilson@mail.com</td>
-                    <td>C/ Araquil, 67, Madrid, Spain</td>
-                    <td>(204) 619-5731</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-								<span class="custom-checkbox">
-									<input type="checkbox" id="checkbox5" name="options[]" value="1">
-									<label for="checkbox5"></label>
-								</span>
-                    </td>
-                    <td>Martin Blank</td>
-                    <td>martinblank@mail.com</td>
-                    <td>Via Monte Bianco 34, Turin, Italy</td>
-                    <td>(480) 631-2097</td>
-                    <td>
-                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                </tr>
+                </c:forEach>
                 </tbody>
             </table>
             <div class="clearfix">
@@ -397,15 +327,19 @@
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form action="addProduct" method="post">
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" name="id" class="form-control" required>
+                    </div>
+                    <div class="form-group">
                         <label>Tên</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
@@ -413,7 +347,7 @@
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
-                        <input type="text" name="price "class="form-control" required>
+                        <input type="text" name="price"class="form-control" required>
 
                     </div>
                     <div class="form-group">
@@ -423,12 +357,18 @@
                     </div>
                     <div class="form-group">
                         <label>Sản Phẩm Mới</label>
-                        <input type="text" name="isNew" class="form-control" required>
+                        <select name="isNew" class="form-select" aria-label="Mặc định" required>
+                            <option value="1">Có</option>
+                            <option value="0">Không</option>
+                        </select>
 
                     </div>
                     <div class="form-group">
                         <label>Sản Phẩm Giảm Giá</label>
-                        <input type="text" name="isSale"class="form-control" required>
+                        <select name="isSale" class="form-select" aria-label="Mặc định" required>
+                            <option value="1">Có</option>
+                            <option value="0">Không</option>
+                        </select>
 
                     </div>
                     <div class="form-group">
@@ -442,17 +382,25 @@
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
-                        <input type="text"name="datePost" class="form-control" required>
+                        <input type="text"name="datePost" class="form-control" placeholder="yyyy-mm-dd" required>
 
                     </div>
                     <div class="form-group">
                         <label>Mã Danh Mục</label>
-                        <input type="text" name="idCategory" class="form-control" required>
+                        <select name="idCategory" class="form-select" aria-label="Mặc định" required>
+                            <option value="DM1">Khai Vị</option>
+                            <option value="DM2">Món Chính</option>
+                            <option value="DM3">Tráng Miệng</option>
+                            <option value="DM4">Đồ Uống</option>
+                        </select>
 
                     </div>
                     <div class="form-group">
                         <label>Tình Trạng</label>
-                        <input type="text"name="status" class="form-control" required>
+                        <select name="status" class="form-select" aria-label="Mặc định" required>
+                            <option value="Còn Hàng">Còn Hàng</option>
+                            <option value="Hết Hàng">Hết Hàng</option>
+                        </select>
 
                     </div>
 
@@ -466,40 +414,95 @@
     </div>
 </div>
 <!-- Edit Modal HTML -->
-<div id="editEmployeeModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Employee</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <input type="submit" class="btn btn-info" value="Save">
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<%--<div id="editEmployeeModal" class="modal fade">--%>
+<%--    <div class="modal-dialog">--%>
+<%--        <div class="modal-content">--%>
+<%--            <form action="EditProduct" method="post">--%>
+<%--                <div class="modal-header">--%>
+<%--                    <h4 class="modal-title">Thêm Sản Phẩm</h4>--%>
+<%--                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--%>
+<%--                </div>--%>
+<%--                <div class="modal-body">--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>ID</label>--%>
+<%--                        <input type="text" name="id" value="${detail.id}" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Tên</label>--%>
+<%--                        <input type="text" name="name" value="${detail.name}" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Ảnh </label>--%>
+<%--                        <input type="text"name="image" value="${detail.image}" class="form-control" required>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Giá</label>--%>
+<%--                        <input type="text" name="price" value="${detail.price}" class="form-control" required>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Giá Giảm</label>--%>
+<%--                        <input type="text" name="priceSale" value="${detail.priceSale}"class="form-control" required>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Sản Phẩm Mới</label>--%>
+<%--                        <select name="isNew" class="form-select" aria-label="Mặc định" required>--%>
+<%--                            <option value="1">Có</option>--%>
+<%--                            <option value="0">Không</option>--%>
+<%--                        </select>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Sản Phẩm Giảm Giá</label>--%>
+<%--                        <select name="isSale" class="form-select" aria-label="Mặc định" required>--%>
+<%--                            <option value="1">Có</option>--%>
+<%--                            <option value="0">Không</option>--%>
+<%--                        </select>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Mô Tả</label>--%>
+<%--                        <input type="text" name="description" value="${detail.description}" class="form-control" required></input>--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Mô Tả Chi Tiết</label>--%>
+<%--                        <input type="text" name="descriptionDetail" value="${detail.descriptionDetail}" class="form-control" required>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Ngày Đăng</label>--%>
+<%--                        <input type="text"name="datePost" class="form-control" placeholder="yyyy-mm/dd" required>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Mã Danh Mục</label>--%>
+<%--                        <select name="idCategory" class="form-select" aria-label="Mặc định" required>--%>
+<%--                            <option value="DM1">Khai Vị</option>--%>
+<%--                            <option value="DM2">Món Chính</option>--%>
+<%--                            <option value="DM3">Tráng Miệng</option>--%>
+<%--                            <option value="DM4">Đồ Uống</option>--%>
+<%--                        </select>--%>
+
+<%--                    </div>--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>Tình Trạng</label>--%>
+<%--                        <select name="status" class="form-select" aria-label="Mặc định" required>--%>
+<%--                            <option value="Còn Hàng">Còn Hàng</option>--%>
+<%--                            <option value="Hết Hàng">Hết Hàng</option>--%>
+<%--                        </select>--%>
+
+<%--                    </div>--%>
+
+<%--                </div>--%>
+<%--                <div class="modal-footer">--%>
+<%--                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">--%>
+<%--                    <input type="submit" class="btn btn-success" value="Thêm">--%>
+<%--                </div>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">

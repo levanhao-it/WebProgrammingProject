@@ -27,7 +27,7 @@ public class DataProducts extends HttpServlet {
         Collection<Product> data= pm.getAll();
 
         request.setAttribute("data",data);
-        request.getRequestDispatcher("quanlyproduct.jsp").forward(request,response);
+        request.getRequestDispatcher("/admin/quanlyproduct.jsp").forward(request,response);
 
 
     }

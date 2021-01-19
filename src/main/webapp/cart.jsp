@@ -219,7 +219,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="shop-grid.html" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
+                    <a href="Products?index=1&value=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Cập nhật giỏ hàng</a>
                 </div>
@@ -243,7 +243,7 @@
                         <li>Phí Vận Chuyển <span>9.000</span></li>
                         <li>Tổng Cộng <span>1.030.000</span></li>
                     </ul>
-                    <a href="checkout.html" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
+                    <a href="checkout.jsp" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
                 </div>
             </div>
         </div>

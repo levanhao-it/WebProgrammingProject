@@ -26,6 +26,6 @@ public class loadProductDetail extends HttpServlet {
         List<Product> p = pm.getProductById(pid);
         request.setAttribute("detail",p);
         request.setAttribute("id",pid);
-       request.getRequestDispatcher("editProduct.jsp").forward(request,response);
+       request.getRequestDispatcher("/admin/editProduct.jsp").forward(request,response);
     }
 }

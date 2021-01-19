@@ -1,3 +1,6 @@
+<%@ page import="vn.edu.nlu.model.Cart" %>
+<%@ page import="vn.edu.nlu.beans.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -163,7 +166,65 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Product Section Begin -->
-<%@ include file="footer.jsp" %>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            Giỏ Hàng
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="shoping__product">Sản Phẩm</th>
+                                <th>Giá</th>
+                                <th>Số Lượng</th>
+                                <th>Tổng Tiền</th>
+                                <th>Xóa </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% Cart c=Cart.getCart(session);
+                                Collection<Product> data=c.getData();
+                                request.setAttribute("data",data);%>
+                            <c:forEach items="${data}" var="d">
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src=${d.img} alt="" style="height: 110px;width: 110px">
+                                        <h5>${d.name}</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                            ${d.price}
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <span class="dec qtybtn">-</span>
+                                                <input type="text" value="${d.quantity}">
+                                                <span class="inc qtybtn">+</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                            ${d.price*d.quantity}
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <button> <a href="DeleteCartProduct?id=${d.id}"><span class="icon_close"></span></a></button>
+                                    </td>
+
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Product Section End -->
 
 <!-- Footer Section Begin -->

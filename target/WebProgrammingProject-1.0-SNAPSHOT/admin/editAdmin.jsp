@@ -286,7 +286,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <form action="EditUserControl" method="post">
+            <form action="EditAdminControl" method="post">
                 <c:forEach items="${detail}" var="d">
 
                 <div class="modal-header">
@@ -331,7 +331,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="ManagerUser"><input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a>
+                    <a href="ManagerAdmin"><input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a>
                     <input type="submit" class="btn btn-success" value="Lưu">
                 </div>
                 </c:forEach>

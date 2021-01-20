@@ -265,6 +265,7 @@
     </script>
 </head>
 <body>
+<%@ include file="headerAdmin.jsp" %>
 <div class="container">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -301,8 +302,8 @@
                     </td>
                     <td>${i.price}</td>
                     <td>
-                        <a href="loadProductDetail?pid=${i.id}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="deleteProduct?pid=${i.id}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a href="loadProductDetail?pid=${i.id}"  class="edit" ><i class="material-icons"  title="Edit">&#xE254;</i></a>
+                        <a href="deleteProduct?pid=${i.id}" class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 </c:forEach>
@@ -382,7 +383,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
-                        <input type="text"name="datePost" class="form-control" placeholder="yyyy-mm-dd" required>
+                        <input type="date"name="datePost" class="form-control" placeholder="yyyy-mm-dd" required>
 
                     </div>
                     <div class="form-group">
@@ -406,7 +407,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">
+                    <a href="DataProducts"><input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát"></a>
                     <input type="submit" class="btn btn-success" value="Thêm">
                 </div>
             </form>
@@ -524,5 +525,6 @@
         </div>
     </div>
 </div>
+<%@ include file="footerAdmin.jsp" %>
 </body>
 </html>

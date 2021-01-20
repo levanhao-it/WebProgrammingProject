@@ -110,10 +110,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="./khaivi.html">Khai vị</a></li>
-                        <li><a href="./monchinh.html">Món chính</a></li>
-                        <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                        <li><a href="./thucuong.html">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
@@ -217,7 +217,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="Products?index=1&value=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
+                    <a href="Products?index=1&value=0&valueFilter=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Cập nhật giỏ hàng</a>
                 </div>

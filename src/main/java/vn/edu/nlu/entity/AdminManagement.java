@@ -1,7 +1,6 @@
 
 package vn.edu.nlu.entity;
 
-import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.beans.User;
 import vn.edu.nlu.db.ConnectionDB;
 
@@ -12,12 +11,12 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserManagement {
-    public List<User> getAllKhachHang(){
+public class AdminManagement {
+    public List<User> getAllAdmin(){
         Statement s= null;
         try {
             List<User> re= new LinkedList<>();
-            String sql = "Select * from user where quyen=0";
+            String sql = "Select * from user where quyen=1";
             s= ConnectionDB.connect();
             ResultSet rs=s.executeQuery(sql);
             while (rs.next()){
@@ -63,7 +62,7 @@ public class UserManagement {
             return null;
         }
     }
-    public void deleteUser(String uid){
+    public void deleteAdmin(String uid){
        PreparedStatement s = null;
        try{
            String sql = "delete from user where idUser=?";
@@ -77,7 +76,7 @@ public class UserManagement {
     }
     public void addUser(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate) {
         PreparedStatement s = null;
-        String sql = "insert into user(idUser,tendangnhap,matkhau,hoten,diachi,sodt,email,dateRegister,quyen) values(?,?,?,?,?,?,?,?,0)";
+        String sql = "insert into user(idUser,tendangnhap,matkhau,hoten,diachi,sodt,email,dateRegister,quyen) values(?,?,?,?,?,?,?,?,1)";
         try {
             s = new ConnectionDB().connect(sql);
             s.setString(1,idUser);
@@ -99,7 +98,7 @@ public class UserManagement {
     }
     public void editUser(String idUser, String userName, String password, String name, String address, String phone, String email, String regisDate){
         PreparedStatement s = null;
-        String sql ="UPDATE user Set tendangnhap = ?,matkhau = ?, hoten = ?,diachi = ?,sodt = ?,email = ?,dateRegister = ?, quyen = 0 WHERE idUser = ?";
+        String sql ="UPDATE user Set tendangnhap = ?,matkhau = ?, hoten = ?,diachi = ?,sodt = ?,email = ?,dateRegister = ?, quyen = 1 WHERE idUser = ?";
         try {
             s = ConnectionDB.connect(sql);
 
@@ -141,7 +140,7 @@ public class UserManagement {
 //        }
 //
 //    }
-    public List<User> getUserById(String uid) {
+    public List<User> getAdminById(String uid) {
         PreparedStatement s= null;
         try {
             List<User> re= new LinkedList<>();
@@ -169,7 +168,7 @@ public class UserManagement {
         }
     }
     public static void main(String[] args) {
-        UserManagement man = new UserManagement();
+        AdminManagement man = new AdminManagement();
         man.editUser("3", "levanhao", "123", "le", "hcm", "", "", "2021-12-01");
     }
 

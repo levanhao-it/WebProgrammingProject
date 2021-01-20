@@ -265,6 +265,7 @@
     </script>
 </head>
 <body>
+<%@ include file="headerAdmin.jsp" %>
 <div class="container">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -290,7 +291,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group" hidden>
                         <label>ID</label>
                         <input type="text" value="${d.id}" name="id"  class="form-control" required>
                     </div>
@@ -339,7 +340,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
-                        <input type="text"name="datePost" value="${d.datePost}" class="form-control" placeholder="yyyy-mm/dd" required>
+                        <input type="date"name="datePost" value="${d.datePost}" class="form-control" placeholder="yyyy-mm/dd" required>
 
                     </div>
                     <div class="form-group">
@@ -363,7 +364,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Thoát">
+                    <a href="DataProducts"><input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a>
                     <input type="submit" class="btn btn-success" value="Lưu Thay Đổi ">
                 </div>
                 </c:forEach>
@@ -372,6 +373,7 @@
 
 </div>
 <!-- Delete Modal HTML -->
+<%@ include file="footerAdmin.jsp" %>
 
 </body>
 </html>

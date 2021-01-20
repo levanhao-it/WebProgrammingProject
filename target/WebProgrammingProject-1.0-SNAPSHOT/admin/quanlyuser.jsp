@@ -265,6 +265,7 @@
     </script>
 </head>
 <body>
+<%@ include file="headerAdmin.jsp" %>
 <div class="container">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -306,10 +307,10 @@
                     <td>${o.phone}</td>
                     <td>${o.email}</td>
                     <td>${o.regisDate}</td>
-                    <td>${o.access}</td>
+                    <td>Người Dùng</td>
                     <td>
-                        <a href="LoadUserDetail?uid=${o.idUser}" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="delete?uid=${o.idUser}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a href="LoadUserDetail?uid=${o.idUser}" class="edit" ><i class="material-icons" title="Edit">&#xE254;</i></a>
+                        <a href="delete?uid=${o.idUser}" class="delete" ><i class="material-icons" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
                 </c:forEach>
@@ -374,7 +375,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                    <a href="ManagerUser"><input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy"></a>
                     <input type="submit" class="btn btn-success" value="Thêm">
                 </div>
             </form>
@@ -453,6 +454,7 @@
         </div>
     </div>
 </div>
+<%@ include file="footerAdmin.jsp" %>
 </body>
 </html>
 

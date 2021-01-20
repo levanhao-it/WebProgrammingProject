@@ -147,7 +147,7 @@
                         <span>Thức Ăn Ngon</span>
                         <h2>Thức Ăn <br />100% An Toàn</h2>
                         <p style="color: aliceblue;">Nhận Và Giao Hàng Miễn Phí</p>
-                        <a href="./shop-grid.html" class="primary-btn">Đặt Ngay</a>
+                        <a href="Products?index=1&value=0&valueFilter=0" class="primary-btn">Đặt Ngay</a>
                     </div>
                 </div>
             </div>

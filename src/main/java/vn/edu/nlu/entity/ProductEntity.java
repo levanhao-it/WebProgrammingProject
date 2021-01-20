@@ -19,13 +19,13 @@ public class ProductEntity {
 
     }
 
-    public List<Product> getAll(){
-        Statement s= null;
+    public List<Product> getAll() {
+        Statement s = null;
         try {
-            List<Product> re= new LinkedList<>();
-            s= ConnectionDB.connect();
-            ResultSet rs=s.executeQuery("select id,name,img,price,priceSale from product");
-            while (rs.next()){
+            List<Product> re = new LinkedList<>();
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery("select id,name,img,price,priceSale from product");
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -43,18 +43,19 @@ public class ProductEntity {
         }
 
     }
-    public int insertList(Collection<Product> data){
-        Statement s= null;
+
+    public int insertList(Collection<Product> data) {
+        Statement s = null;
         try {
-            s= ConnectionDB.connect();
-            String sql= "INSERT INTO product (id,name,img,price,priceSale,quantityOrder,quantity ,isSale,isNew,description,descriptionDetail,datePost,idCategory,status)\n" +
+            s = ConnectionDB.connect();
+            String sql = "INSERT INTO product (id,name,img,price,priceSale,quantityOrder,quantity ,isSale,isNew,description,descriptionDetail,datePost,idCategory,status)\n" +
                     "VALUES\n" +
                     "";
-            for(Product d:data){
-                sql+="("+d.getId()+",\""+d.getName()+"\",\""+d.getImg()+"\","+d.getPrice()+","+d.getPriceSale()+","+d.getQuantityOrder()+","
-                        +d.getQuantity()+","+
-                        d.isNew()+","+d.isSale()+",\""+d.getDescription()+"\",\""+d.getDescriptionDetail()+
-                        "\",\'"+d.getDatePost()+"\',\""+d.getIdCategory()+"\",\""+d.getStatus()+"\"), \n";
+            for (Product d : data) {
+                sql += "(" + d.getId() + ",\"" + d.getName() + "\",\"" + d.getImg() + "\"," + d.getPrice() + "," + d.getPriceSale() + "," + d.getQuantityOrder() + ","
+                        + d.getQuantity() + "," +
+                        d.isNew() + "," + d.isSale() + ",\"" + d.getDescription() + "\",\"" + d.getDescriptionDetail() +
+                        "\",\'" + d.getDatePost() + "\',\"" + d.getIdCategory() + "\",\"" + d.getStatus() + "\"), \n";
 
             }
             System.out.println(sql);
@@ -72,7 +73,7 @@ public class ProductEntity {
     }
 
     public Product getById(String id) {
-        PreparedStatement s= null;
+        PreparedStatement s = null;
         try {
             String sql = "select * from product where id=?";
             s = ConnectionDB.connect(sql);
@@ -100,7 +101,7 @@ public class ProductEntity {
                 rs.close();
                 s.close();
                 return p;
-        }
+            }
             return null;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -114,12 +115,12 @@ public class ProductEntity {
         PreparedStatement s = null;
         try {
             String sql = "SELECT COUNT(*) FROM Product where name like ? ";
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
 
-            s.setString(1,"%" + txtSearch + "%");
+            s.setString(1, "%" + txtSearch + "%");
 
             ResultSet rs = s.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 System.out.println(rs.getInt(1));
                 return rs.getInt(1);
             }
@@ -129,28 +130,29 @@ public class ProductEntity {
         }
         return 0;
     }
-    public List<Product> getProductWhenSearch(int beginProduct, int sizeData, String txtSearch, int valueFilter){
-        PreparedStatement s= null;
+
+    public List<Product> getProductWhenSearch(int beginProduct, int sizeData, String txtSearch, int valueFilter) {
+        PreparedStatement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "";
-            if(valueFilter == 0)
+            if (valueFilter == 0)
                 sql = "SELECT * FROM product where name like ? limit ? , ?";
-            else if(valueFilter == 1)
+            else if (valueFilter == 1)
                 sql = "SELECT * FROM product where name like ? order by price asc limit ? , ?";
-            else if(valueFilter == 2)
+            else if (valueFilter == 2)
                 sql = "SELECT * FROM product where name like ? order by price desc limit ? , ?";
-            else if(valueFilter == 3)
+            else if (valueFilter == 3)
                 sql = "SELECT * FROM product where name like ? order by datePost asc limit ? , ?";
-            else if(valueFilter == 4)
+            else if (valueFilter == 4)
                 sql = "SELECT * FROM product where name like ? order by datePost desc limit ? , ?";
 
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
             s.setString(1, "%" + txtSearch + "%");
-            s.setInt(2,beginProduct);
-            s.setInt(3,sizeData);
-            ResultSet rs=s.executeQuery();
-            while (rs.next()){
+            s.setInt(2, beginProduct);
+            s.setInt(3, sizeData);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -175,67 +177,77 @@ public class ProductEntity {
         }
     }
 
-    public User login(String user, String pass){
-        PreparedStatement s= null;
+    public User login(String user, String pass) {
+        PreparedStatement s = null;
         String sql = "select * from user where tendangnhap = ? and matkhau = ?";
-        try{
+        try {
             s = new ConnectionDB().connect(sql);
-            s.setString(1,user);
-            s.setString(2,pass);
+            s.setString(1, user);
+            s.setString(2, pass);
             ResultSet rs = s.executeQuery();
             User a;
-            if (rs.next()){
-               a= new User(rs.getString(1),
+            if (rs.next()) {
+                a = new User(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
                         rs.getString(7),
-                        rs.getInt(8));
-               rs.close();
-               s.close();
-               return a;
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getString(10));
+                rs.close();
+                s.close();
+                return a;
 
 
             }
-            return  null;
+            return null;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public User checkAccountExist(String user){
-        PreparedStatement s= null;
+    public User checkAccountExist(String user) {
+        PreparedStatement s = null;
         String sql = "select * from user where tendangnhap = ?";
-        try{
+        try {
             s = new ConnectionDB().connect(sql);
-            s.setString(1,user);
+            s.setString(1, user);
             ResultSet rs = s.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 return new User(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
                         rs.getString(7),
-                        rs.getInt(8));
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getString(10));
 
             }
-        }catch (Exception e){
+        } catch (Exception e) {
         }
         return null;
     }
 
-    public String getIdNew(){
-        Statement s= null;
+    public String getIdNew() {
+        Statement s = null;
 
-            String sql = "select * from user";
-            String id = "";
+        String sql = "select * from user";
+        String id = "";
 
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(sql);
 
-           while (rs.next()){
-               id = rs.getString(1);
-           }
+            while (rs.next()) {
+                id = rs.getString(1);
+            }
             rs.close();
             s.close();
             String idNew = (Integer.parseInt(id) + 1) + "";
@@ -245,15 +257,16 @@ public class ProductEntity {
             return null;
         }
     }
+
     public User register(String user, String pass, String email) {
         PreparedStatement s = null;
         String sql = "insert into user(idUser, tendangnhap,matkhau,email,quyen) values(?,?,?,?,0)";
         try {
             s = new ConnectionDB().connect(sql);
-            s.setString(1,getIdNew());
-            s.setString(2,user);
-            s.setString(3,pass);
-            s.setString(4,email);
+            s.setString(1, getIdNew());
+            s.setString(2, user);
+            s.setString(3, pass);
+            s.setString(4, email);
             s.executeUpdate();
             s.close();
             return null;
@@ -262,19 +275,20 @@ public class ProductEntity {
             return null;
         }
 
-        }
+    }
+
     // Tim kiem san pham theo danh muc
     //tinh so luong san pham tim thay trong danh muc de phan trang
     public int countCategory(String idCategory) {
         PreparedStatement s = null;
         try {
             String sql = "SELECT COUNT(*) FROM Product where idCategory = ? ";
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
 
             s.setString(1, idCategory);
 
             ResultSet rs = s.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
 
                 return rs.getInt(1);
             }
@@ -284,29 +298,30 @@ public class ProductEntity {
         }
         return 0;
     }
+
     //lay du lieu theo so phan trang
-    public List<Product> getProductWithCategory(String idCategory, int begin, int size, int valueFilter){
-        PreparedStatement s= null;
+    public List<Product> getProductWithCategory(String idCategory, int begin, int size, int valueFilter) {
+        PreparedStatement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "";
-            if(valueFilter == 0)
+            if (valueFilter == 0)
                 sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
-            else if(valueFilter == 1)
+            else if (valueFilter == 1)
                 sql = "SELECT * FROM product where idCategory = ? order by price asc limit ? , ?";
-            else if(valueFilter == 2)
+            else if (valueFilter == 2)
                 sql = "SELECT * FROM product where idCategory = ? order by price desc limit ? , ?";
-            else if(valueFilter == 3)
+            else if (valueFilter == 3)
                 sql = "SELECT * FROM product where idCategory = ? order by datePost asc limit ? , ?";
-            else if(valueFilter == 4)
+            else if (valueFilter == 4)
                 sql = "SELECT * FROM product where idCategory = ? order by datePost desc limit ? , ?";
 
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
             s.setString(1, idCategory);
             s.setInt(2, begin);
             s.setInt(3, size);
-            ResultSet rs=s.executeQuery();
-            while (rs.next()){
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -330,16 +345,17 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
     //lay san pham moi theo danh muc
-    public List<Product> getNewProductWithCategory(String idCategory){
-        PreparedStatement s= null;
+    public List<Product> getNewProductWithCategory(String idCategory) {
+        PreparedStatement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "SELECT * FROM product where idCategory = ? and isNew = 1";
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
             s.setString(1, idCategory);
-            ResultSet rs=s.executeQuery();
-            while (rs.next()){
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -363,6 +379,7 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
     // lay san pham theo id
     public Product getProductWithId(String id) {
 
@@ -396,29 +413,31 @@ public class ProductEntity {
         }
         return pro;
     }
-        public Account forgot(String email){
-        PreparedStatement s =null;
-        try{
+
+    public Account forgot(String email) {
+        PreparedStatement s = null;
+        try {
             s.setString(1, email);
             s.executeQuery();
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
-            return null;
-        }
+        return null;
+    }
+
     // Filter with price from short to high
-    public List<Product> getProductSort(String idCategory, int begin, int size){
-        PreparedStatement s= null;
+    public List<Product> getProductSort(String idCategory, int begin, int size) {
+        PreparedStatement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
             s.setString(1, idCategory);
             s.setInt(2, begin);
             s.setInt(3, size);
-            ResultSet rs=s.executeQuery();
-            while (rs.next()){
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -442,14 +461,15 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
     public Collection<Product> getNewProduct() {
-        Statement s= null;
+        Statement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "SELECT * FROM product where isNew = 1";
-            s= ConnectionDB.connect();
-            ResultSet rs=s.executeQuery(sql);
-            while (rs.next()){
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -473,27 +493,28 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
     // lay tat ca du lieu san pham theo chi so index de phan trang
-    public List<Product> getAllProducts(int beginProduct, int size, int valueFilter){
-        PreparedStatement s= null;
+    public List<Product> getAllProducts(int beginProduct, int size, int valueFilter) {
+        PreparedStatement s = null;
         try {
-            List<Product> re= new LinkedList<>();
+            List<Product> re = new LinkedList<>();
             String sql = "";
-            if(valueFilter == 0)
+            if (valueFilter == 0)
                 sql = "SELECT * FROM product limit ? , ?";
-            else if(valueFilter == 1)
+            else if (valueFilter == 1)
                 sql = "SELECT * FROM product order by price asc limit ? , ?";
-            else if(valueFilter == 2)
+            else if (valueFilter == 2)
                 sql = "SELECT * FROM product order by price desc limit ? , ?";
-            else if(valueFilter == 3)
+            else if (valueFilter == 3)
                 sql = "SELECT * FROM product order by datePost asc limit ? , ?";
-            else if(valueFilter == 4)
+            else if (valueFilter == 4)
                 sql = "SELECT * FROM product order by datePost desc limit ? , ?";
-            s= ConnectionDB.connect(sql);
+            s = ConnectionDB.connect(sql);
             s.setInt(1, beginProduct);
             s.setInt(2, size);
-            ResultSet rs=s.executeQuery();
-            while (rs.next()){
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
                 re.add(new Product(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -517,8 +538,6 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
-
-
 
 
 }

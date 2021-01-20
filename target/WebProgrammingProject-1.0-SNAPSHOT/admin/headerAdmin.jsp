@@ -21,14 +21,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="./css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 <body>
 
@@ -74,7 +74,7 @@
                         </c:if>
                         <c:if test="${sessionScope.acc.access == 1}">
                             <div class="header__top__right__social">
-                                <a href="ManagerUser"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
+                                <a href="./admin/quanlyuser.jsp"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
                             </div>
                         </c:if>
                         <c:if test="${sessionScope.acc == null}">
@@ -99,38 +99,32 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
+                    <a href="Home"><img src="./img/logo.png" alt=""></a>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-9">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
-                        <li><a href="Products?index=1&value=0&valueFilter=0">Cửa Hàng</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
-                                <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
-                                <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
-                                <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
-                            </ul>
+                        <li ><a href="Home">Trang Chủ</a></li>
+                        <li><a href="ManagerUser">Quản Lý Người Dùng</a>
                         </li>
                         <li>
-                            <a href="./about-us.jsp">Về Chúng Tôi</a>
+                            <a href="ManagerAdmin">Quản Lý Admin</a>
                         </li>
-                        <li><a href="./blog.jsp">Blog</a></li>
-                        <li><a href="./contact.jsp">Liên Hệ</a></li>
+                        <li><a href="DataProducts">Quản Lý Sản Phẩm</a></li>
+
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-3">
-                <div class="header__cart">
-                    <ul>
-                        <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                    </ul>
-                    <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
-                </div>
-            </div>
+<%--            <div class="col-lg-3">--%>
+<%--                <div class="header__cart">--%>
+<%--                    <ul>--%>
+<%--                        <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>--%>
+<%--                        <li><a href="cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>--%>
+<%--                    </ul>--%>
+<%--                    <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->--%>
+<%--                </div>--%>
+<%--            </div>--%>
         </div>
         <div class="humberger__open">
             <i class="fa fa-bars"></i>
@@ -139,14 +133,14 @@
 </header>
 <!-- Header Section End -->
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/jquery.slicknav.js"></script>
-<script src="js/mixitup.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/main.js"></script>
+<script src="./js/jquery-3.3.1.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/jquery.nice-select.min.js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+<script src="./js/jquery.slicknav.js"></script>
+<script src="./js/mixitup.min.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>

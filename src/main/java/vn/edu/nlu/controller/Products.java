@@ -31,7 +31,7 @@ public class Products extends HttpServlet {
         else endPage = (countProduct/pageSize) +1;
         int beginPage = index*pageSize - (pageSize-1) - 1;
 
-        Collection<Product> data = pe.getAllProducts(beginPage,pageSize,valueFilter);
+        Collection<Product> data = pe.getAllProductsWithFilter(beginPage,pageSize,valueFilter);
         Collection<Product> dataNew = pe.getNewProduct();
         request.setAttribute("list", data);
         request.setAttribute("value", value);

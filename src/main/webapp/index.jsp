@@ -320,9 +320,10 @@
             </div>
         </div>
         <div class="row featured__filter">
+            <c:forEach items="${data}" var="i">
             <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/khaivi/a1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="${i.img}">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-external-link"></i></a></li>
@@ -330,79 +331,19 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Thịt bò đút lò phô mai</a></h6>
-                            <h5>120.000</h5>
+                            <h6><a href="#">${i.name}</a></h6>
+                            <h5>${i.price}</h5>
                         </div>
                     </div>
                 </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/khaivi/a2.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Phô mai cừu Mỹ</a></h6>
-                            <h5>150.000</h5>
-                        </div>
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/khaivi/a3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Cá hồi sốt kem bơ</a></h6>
-                            <h5>170.000</h5>
-                        </div>
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/khaivi/a3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Cá hồi sốt kem bơ</a></h6>
-                            <h5>170.000</h5>
-                        </div>
-                    </div>
-                </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/khaivi/a3.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Cá hồi sốt kem bơ</a></h6>
-                        <h5>170.000</h5>
-                    </div>
-                </div>
-            </div>
-
+            </c:forEach>
         </div>
         <div style="width: 100%; height:50px">
             <div class="product__pagination" style="float: right">
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                <c:forEach begin="1"  end="${endPage}" var="i">
+                    <a id="${i}" href="Home?index=${i}">${i}</a>
+                </c:forEach>
+                <a href="Home?index=${index +1}"><i class="fa fa-long-arrow-right"></i></a>
             </div>
         </div>
 
@@ -696,6 +637,11 @@
         </div>
     </div>
 </section>
+<script>
+    var x = document.getElementById('${index}')
+    x.style.color = "white";
+    x.style.backgroundColor = "#ff8928"
+</script>
 <!-- Blog Section End -->
 
 <!-- Footer Section Begin -->

@@ -496,13 +496,13 @@ public class ProductEntity {
     }
 
     // lay tat ca du lieu san pham theo chi so index de phan trang
-    public List<Product> getAllProducts(int beginProduct, int size, int valueFilter) {
+    public List<Product> getAllProductsWithFilter(int beginProduct, int size, int valueFilter) {
         PreparedStatement s = null;
         try {
             List<Product> re = new LinkedList<>();
             String sql = "";
             if (valueFilter == 0)
-                sql = "SELECT * FROM product limit ? , ?";
+                sql = "SELECT * FROM product ORDER BY RAND() limit ? , ?";
             else if (valueFilter == 1)
                 sql = "SELECT * FROM product order by price asc limit ? , ?";
             else if (valueFilter == 2)
@@ -574,5 +574,39 @@ public class ProductEntity {
             return new LinkedList<>();
         }
 
+    }
+
+    public List<Product> getAllProducts(int beginPage,int pageSize) {
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product ORDER BY RAND() limit ?, ?";
+            s= ConnectionDB.connect(sql);
+            s.setInt(1,beginPage);
+            s.setInt(2,pageSize);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
     }
 }

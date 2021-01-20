@@ -169,7 +169,7 @@
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__search">
                         <form action="#">
-                            <input type="text" placeholder="Search...">
+                            <input type="text" placeholder="Tìm Kiếm...">
                             <button type="submit"><span class="icon_search"></span></button>
                         </form>
                     </div>

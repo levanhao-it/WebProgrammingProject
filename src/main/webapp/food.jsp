@@ -41,8 +41,8 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
     </div>
@@ -62,19 +62,19 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Trang Chủ</a></li>
-            <li><a href="./shop-grid.html">Cửa Hàng</a></li>
+            <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
+            <li><a href="./shop-grid.jsp">Cửa Hàng</a></li>
             <ul class="header__menu__dropdown">
-                <li><a href="./khaivi.html">Khai vị</a></li>
-                <li><a href="./monchinh.html">Món chính</a></li>
-                <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                <li><a href="./thucuong.html">Đồ uống</a></li>
+                <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
+                <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
+                <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
+                <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
             </ul>
             <li>
-                <a href="./about-us.html">Về Chúng Tôi</a>
+                <a href="./about-us.jsp">Về Chúng Tôi</a>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Liên Hệ</a></li>
+            <li><a href="./blog.jsp">Blog</a></li>
+            <li><a href="./contact.jsp">Liên Hệ</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -152,7 +152,7 @@
                 <div class="breadcrumb__text">
                     <h2>Món Ăn</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
+                        <a href="./index.jsp">Trang Chủ</a>
                         <span>Món ăn</span>
                     </div>
                 </div>
@@ -230,9 +230,9 @@
                             <div class="filter__sort">
                                 <span>Sắp Xếp Theo</span>
                                     <select name="valueFilter" id="selectFilter" onchange="genderChanged()">
-                                        <option value="0" >Mặc định</option>
-                                        <option value="1" >Giá tăng</option>
-                                        <option value="2" >Giá giảm</option>
+                                        <option value="0" >Mặc Định</option>
+                                        <option value="1" >Giá Tăng</option>
+                                        <option value="2" >Giá Giảm</option>
                                         <option value="3" >Ngày Tăng</option>
                                         <option value="4" >Ngày Giảm</option>
                                     </select>

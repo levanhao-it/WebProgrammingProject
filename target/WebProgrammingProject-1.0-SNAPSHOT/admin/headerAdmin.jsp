@@ -74,7 +74,7 @@
                         </c:if>
                         <c:if test="${sessionScope.acc.access == 1}">
                             <div class="header__top__right__social">
-                                <a href="./admin/quanlyuser.jsp"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
+                                <a href="ManagerUser"><i class="fa fa-grin"></i> Quản Lý Hệ Thống</a>
                             </div>
                         </c:if>
                         <c:if test="${sessionScope.acc == null}">

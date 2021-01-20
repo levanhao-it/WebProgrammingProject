@@ -92,7 +92,7 @@ Coded by www.creative-tim.com
                 <a href="./about-us.jsp" style="text-decoration: none;">Về Chúng Tôi</a>
             </li>
             <li><a href="./blog.jsp" style="text-decoration: none;">Blog</a></li>
-            <li><a href="./contact.html" style="text-decoration: none;">Liên Hệ</a></li>
+            <li><a href="./contact.jsp" style="text-decoration: none;">Liên Hệ</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>

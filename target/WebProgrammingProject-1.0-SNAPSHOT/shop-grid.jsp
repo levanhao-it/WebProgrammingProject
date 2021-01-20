@@ -108,10 +108,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
-                        <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
-                        <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
-                        <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
@@ -167,10 +167,10 @@
                     <div class="sidebar__item">
                         <h4>Danh Mục Sản Phẩm</h4>
                         <ul>
-                            <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
-                            <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
-                            <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
-                            <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
+                            <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                            <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                            <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                            <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">
@@ -197,7 +197,7 @@
                                 <c:forEach begin="1" end="3" var="k">
                                     <div class="latest-prdouct__slider__item">
                                         <c:forEach begin="${k*3-2}" end="${k*3}" items="${dataNew}" var="i">
-                                            <a href="#" class="latest-product__item">
+                                            <a href="ProductDetail?idProduct=${i.id}" class="latest-product__item">
                                                 <div class="latest-product__item__pic">
                                                     <img src="${i.img}" style="height: 110px;width: 110px" alt="">
                                                 </div>
@@ -358,9 +358,6 @@
                                                         <option value="4">Ngày Giảm</option>
                                                     </select>
                                                 </c:if>
-
-
-
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -383,7 +380,7 @@
                             <div class="product__item__pic set-bg" data-setbg="${i.img}">
                                 <ul class="product__item__pic__hover">
                                     <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                                    <li><a href="ProductDetail?idProduct=${i.id}"><i class="fa fa-external-link"></i></a></li>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>

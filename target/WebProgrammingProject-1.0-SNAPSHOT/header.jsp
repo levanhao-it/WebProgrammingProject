@@ -99,13 +99,13 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.jsp"><img src="img/logo.png" alt=""></a>
+                    <a href="Home"><img src="img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
+                        <li class="active"><a href="Home">Trang Chủ</a></li>
                         <li><a href="Products?index=1&value=0&valueFilter=0">Cửa Hàng</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>

@@ -53,10 +53,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
-                        <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
-                        <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
-                        <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,8 +93,8 @@
                 <div class="breadcrumb__text">
                     <h2>Món Ăn</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
-                        <a href="./index.html">Món Chính</a>
+                        <a href="Home">Trang Chủ</a>
+                        <a href="SearchCategory?idCategory=${product.idCategory}&index=1&valueFilter=0">${nameCategory}</a>
                         <span>${product.name}</span>
                     </div>
                 </div>
@@ -111,18 +111,17 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
-                        <img class="product__details__pic__item--large"
-                             src="${product.img}" alt="">
+                        <img class="product__details__pic__item--large" src="${product.img}" alt="" style="height: 400px;width: 450px">
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="">
+                             src="${product.img}" alt="" style="height: 78px;width: 98px">
                         <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="">
+                             src="${product.img}" alt="" style="height: 78px;width: 98px">
                         <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="">
+                             src="${product.img}" alt="" style="height: 78px;width: 98px">
                         <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="">
+                             src="${product.img}" alt="" style="height: 78px;width: 98px">
                     </div>
                 </div>
             </div>
@@ -147,7 +146,7 @@
                         </div>
                     </div>
                     <a href="shoping-cart.html" class="primary-btn">Thêm vào giỏ hàng</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    <a href="addWhishlist?page=ProductDetail?idProduct=${product.id}&id=${product.id}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Tình Trạng</b> <span>${product.status}</span></li>
                         <li><b>Giao hàng</b> <span>01 giờ giao hàng. <samp>Miễn phí trong ngày</samp></span></li>
@@ -187,7 +186,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane active" id="tabs-2" role="tabpanel">
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Mô Tả Chi Tiết</h6>
                                 <p>${product.descriptionDetail}</p>
@@ -196,8 +195,7 @@
 
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Products Infomation</h6>
-
+                                <h6>Các Đánh Giá</h6>
                             </div>
                         </div>
                     </div>
@@ -219,66 +217,23 @@
             </div>
         </div>
         <div class="row">
+            <c:forEach items="${dataRelative}" var="o">
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/1.png">
+                    <div class="product__item__pic set-bg" data-setbg="${o.img}">
                         <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                            <li><a href="addWhishlist?page=ProductDetail?idProduct=${product.id}&id=${o.id}"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="ProductDetail?idProduct=${o.id}"><i class="fa fa-external-link"></i></a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">Bánh Mì Úc</a></h6>
-                        <h5>30.000</h5>
+                        <h6><a href="#">${o.name}</a></h6>
+                        <h5>${o.price}</h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/6.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Bò Bít Tết</a></h6>
-                        <h5>600.000</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/8.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Hambuger Kiểu Mỹ</a></h6>
-                        <h5>120.000</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/monchinh/5.jpg">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Pizza</a></h6>
-                        <h5>300.000</h5>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>

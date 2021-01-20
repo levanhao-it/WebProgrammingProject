@@ -16,7 +16,9 @@ import java.util.List;
 public class ProductEntity {
 
     public static void main(String[] args) {
-
+        ProductEntity pe = new ProductEntity();
+        List<Product> data = pe.getRelativeProduct("KV001","DM1",9);
+        for (Product p : data) System.out.println(p.getName());
     }
 
     public List<Product> getAll() {
@@ -228,7 +230,6 @@ public class ProductEntity {
                         rs.getString(8),
                         rs.getInt(9),
                         rs.getString(10));
-
             }
         } catch (Exception e) {
         }
@@ -539,5 +540,39 @@ public class ProductEntity {
         }
     }
 
+    public List<Product> getRelativeProduct(String idProduct,String idCategory, int size) {
+        PreparedStatement s= null;
+        try {
+            List<Product> re= new LinkedList<>();
+            String sql = "SELECT * FROM product where idCategory = ? and id <> ? ORDER BY RAND() limit 0, ?";
+            s= ConnectionDB.connect(sql);
+            s.setString(1,idCategory);
+            s.setString(2,idProduct);
+            s.setInt(3,size);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
 
+    }
 }

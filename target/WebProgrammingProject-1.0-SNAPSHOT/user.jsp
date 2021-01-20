@@ -58,8 +58,8 @@ Coded by www.creative-tim.com
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
     </div>
@@ -79,19 +79,19 @@ Coded by www.creative-tim.com
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html" style="text-decoration: none;">Trang Chủ</a></li>
+            <li class="active"><a href="./index.jsp" style="text-decoration: none;">Trang Chủ</a></li>
             <li><a href="#" style="text-decoration: none;">Cửa Hàng</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="./khaivi.html" style="text-decoration: none;">Khai vị</a></li>
-                    <li><a href="./monchinh.html" style="text-decoration: none;">Món chính</a></li>
-                    <li><a href="./trangmieng.html" style="text-decoration: none;">Tráng miệng</a></li>
-                    <li><a href="./thucuong.html" style="text-decoration: none;">Đồ uống</a></li>
+                    <li><a href="SearchCategory?idCategory=DM1&index=1" style="text-decoration: none;">Khai vị</a></li>
+                    <li><a href="SearchCategory?idCategory=DM2&index=1" style="text-decoration: none;">Món chính</a></li>
+                    <li><a href="SearchCategory?idCategory=DM3&index=1" style="text-decoration: none;">Tráng miệng</a></li>
+                    <li><a href="SearchCategory?idCategory=DM4&index=1" style="text-decoration: none;">Đồ uống</a></li>
                 </ul>
             </li>
             <li>
-                <a href="./about-us.html" style="text-decoration: none;">Về Chúng Tôi</a>
+                <a href="./about-us.jsp" style="text-decoration: none;">Về Chúng Tôi</a>
             </li>
-            <li><a href="./blog.html" style="text-decoration: none;">Blog</a></li>
+            <li><a href="./blog.jsp" style="text-decoration: none;">Blog</a></li>
             <li><a href="./contact.html" style="text-decoration: none;">Liên Hệ</a></li>
         </ul>
     </nav>

@@ -190,19 +190,19 @@
                                 <img src=${d.img} alt="" style="height: 110px;width: 110px">
                                 <h5>${d.name}</h5>
                             </td>
-                            <td class="shoping__cart__price" id="price">
-                                ${d.price}
+                            <td class="shoping__cart__price">
+                                ${d.price} đ
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <span class="dec qtybtn">-</span>
-                                        <input type="text" value="1" id="number">
-                                        <span class="inc qtybtn">+</span>
+                                        <button> <a href="DecreaseCart?id=${d.id}"><span class="dec qtybtn">-</span></a></button>
+                                        <input type="text" value="${d.quantity}">
+                                        <button> <a href="addCart?id=${d.id}"><span class="inc qtybtn">+</span></a></button>
                                     </div>
                                 </div>
                             </td>
-                            <td class="shoping__cart__total" id="total"></td>
+                            <td class="shoping__cart__total">${d.price*d.quantity} đ</td>
                             <td class="shoping__cart__item__close">
                                <button> <a href="DeleteCartProduct?id=${d.id}"><span class="icon_close"></span></a></button>
                             </td>
@@ -281,12 +281,6 @@
         }
         $button.parent().find('input').val(newVal);
     });
-</script>
-<script>
-    var x = Number(document.getElementById('number').value);
-    var y = Number(document.getElementById('price'));
-    var z = x*y + "";
-    document.getElementById('total').innerHTML = z ;
 </script>
 
 

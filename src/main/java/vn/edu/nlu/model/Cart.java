@@ -60,4 +60,14 @@ public class Cart implements Serializable {
     public void commit(HttpSession session) {
         session.setAttribute("cart",this);
     }
+
+    public void decrease(Product p) {
+        if(p==null) return ;
+        if(data.containsKey(p.getId())){
+            data.get(p.getId()).remove();
+            return;
+        }
+        p.setQuantity(1);
+        data.remove(p.getId(),p);
+    }
 }

@@ -166,4 +166,8 @@ public class Product implements Serializable {
         this.quantity++;
 
     }
+
+    public void remove() {
+        this.quantity--;
+    }
 }

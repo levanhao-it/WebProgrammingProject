@@ -191,18 +191,18 @@
                                 <h5>${d.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${d.price}
+                                ${d.price} đ
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <span class="dec qtybtn">-</span>
-                                        <input type="text" value="1">
-                                        <span class="inc qtybtn">+</span>
+                                        <button> <a href="DecreaseCart?id=${d.id}"><span class="dec qtybtn">-</span></a></button>
+                                        <input type="text" value="${d.quantity}">
+                                        <button> <a href="addCart?id=${d.id}"><span class="inc qtybtn">+</span></a></button>
                                     </div>
                                 </div>
                             </td>
-                            <td class="shoping__cart__total"></td>
+                            <td class="shoping__cart__total">${d.price*d.quantity} đ</td>
                             <td class="shoping__cart__item__close">
                                <button> <a href="DeleteCartProduct?id=${d.id}"><span class="icon_close"></span></a></button>
                             </td>
@@ -217,7 +217,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="Products?index=1&value=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
+                    <a href="Products?index=1&value=0&valueFilter=0" class="primary-btn cart-btn">TIẾP TỤC ĐẶT HÀNG</a>
                     <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
                         Cập nhật giỏ hàng</a>
                 </div>

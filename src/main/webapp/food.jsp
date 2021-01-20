@@ -108,10 +108,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="./khaivi.html">Khai vị</a></li>
-                        <li><a href="./monchinh.html">Món chính</a></li>
-                        <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                        <li><a href="./thucuong.html">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
@@ -229,15 +229,13 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <span>Sắp Xếp Theo</span>
-                                <form>
-                                <select name="filter">
-                                    <option value="0">Mặc Định</option>
-                                    <option value="1">Giá Tăng</option>
-                                    <option value="2">Giá Giảm</option>
-                                    <option value="3">Ngày Tăng</option>
-                                    <option value="3">Ngày Giảm</option>
-                                </select>
-                                </form>
+                                    <select name="valueFilter" id="selectFilter" onchange="genderChanged()">
+                                        <option value="0" >Mặc định</option>
+                                        <option value="1" >Giá tăng</option>
+                                        <option value="2" >Giá giảm</option>
+                                        <option value="3" >Ngày Tăng</option>
+                                        <option value="4" >Ngày Giảm</option>
+                                    </select>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
@@ -288,6 +286,30 @@
     var x = document.getElementById('${index}')
     x.style.color = "white";
     x.style.backgroundColor = "#ff8928"
+    document.getElementById('selectFilter').selectedIndex = "${valueFilter}";
+
+    function genderChanged()
+    {
+        var x = document.getElementById('selectFilter');
+        var value = x.value;
+
+        if (value === '0'){
+            location.assign("SearchCategory?idCategory=${idCategory}&index=1&valueFilter=0");
+        }
+        else if (value === '1'){
+            location.assign("SearchCategory?idCategory=${idCategory}&index=1&valueFilter=1");
+        }
+        else if (value === '2'){
+            location.assign("SearchCategory?idCategory=${idCategory}&index=1&valueFilter=2")
+        }
+        else if (value === '3'){
+            location.assign("SearchCategory?idCategory=${idCategory}&index=1&valueFilter=3")
+        }
+        else if (value === '4'){
+            location.assign("SearchCategory?idCategory=${idCategory}&index=1&valueFilter=4")
+        }
+    }
+
 </script>
 
 <!-- Footer Section Begin -->

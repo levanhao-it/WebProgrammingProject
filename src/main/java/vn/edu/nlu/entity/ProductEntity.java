@@ -285,11 +285,22 @@ public class ProductEntity {
         return 0;
     }
     //lay du lieu theo so phan trang
-    public List<Product> getProductWithCategory(String idCategory, int begin, int size){
+    public List<Product> getProductWithCategory(String idCategory, int begin, int size, int valueFilter){
         PreparedStatement s= null;
         try {
             List<Product> re= new LinkedList<>();
-            String sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
+            String sql = "";
+            if(valueFilter == 0)
+                sql = "SELECT * FROM product where idCategory = ? limit ? , ?";
+            else if(valueFilter == 1)
+                sql = "SELECT * FROM product where idCategory = ? order by price asc limit ? , ?";
+            else if(valueFilter == 2)
+                sql = "SELECT * FROM product where idCategory = ? order by price desc limit ? , ?";
+            else if(valueFilter == 3)
+                sql = "SELECT * FROM product where idCategory = ? order by datePost asc limit ? , ?";
+            else if(valueFilter == 4)
+                sql = "SELECT * FROM product where idCategory = ? order by datePost desc limit ? , ?";
+
             s= ConnectionDB.connect(sql);
             s.setString(1, idCategory);
             s.setInt(2, begin);

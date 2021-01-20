@@ -108,17 +108,17 @@
                         <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
                         <li><a href="Products?index=1&value=0&valueFilter=0">Cửa Hàng</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
-                                <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
-                                <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
-                                <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
+                                <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                                <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                                <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                                <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="./about-us.jsp">Về Chúng Tôi</a>
                         </li>
                         <li><a href="./blog.jsp">Blog</a></li>
-                        <li><a href="./contact.html">Liên Hệ</a></li>
+                        <li><a href="./contact.jsp">Liên Hệ</a></li>
                     </ul>
                 </nav>
             </div>

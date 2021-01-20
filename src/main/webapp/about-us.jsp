@@ -107,23 +107,19 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="#">Món Khai Vị</a></li>
-                        <li><a href="#">Món Chính</a></li>
-                        <li><a href="#">Món Tráng Miệng</a></li>
-                        <li><a href="#">Thức Uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Bạn muốn ăn gì?">
-                            <button type="submit" class="site-btn">Tìm Kiếm</button>
+                        <form action="SearchControl?index=1&value=1&valueFilter=0" method="post">
+                            <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
+                            <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">

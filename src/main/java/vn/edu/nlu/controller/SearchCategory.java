@@ -21,14 +21,9 @@ public class SearchCategory extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id= request.getParameter("idCategory");
         int index = Integer.parseInt(request.getParameter("index"));
+        int valueFilter = Integer.parseInt(request.getParameter("valueFilter"));
+
         ProductEntity pe = new ProductEntity();
-
-
-        String name = "";
-        if(id.equals("DM1")) name = "Khai Vị";
-        else if(id.equals("DM2")) name = "Món Chính";
-        else if(id.equals("DM3")) name = "Tráng Miệng";
-        else if(id.equals("DM4")) name = "Đồ Uống";
 
         int count  = pe.countCategory(id);
         int pageSize = 12;
@@ -38,19 +33,25 @@ public class SearchCategory extends HttpServlet {
         else endPage = (count/pageSize) +1;
         int beginPage = index*pageSize - (pageSize-1);
 
-        Collection<Product> data = pe.getProductWithCategory(id,beginPage -1,pageSize);
+
+        Collection<Product> data = pe.getProductWithCategory(id,beginPage -1,pageSize, valueFilter);
         Collection<Product> dataNew = pe.getNewProductWithCategory(id);
+
+        String name = "";
+        if(id.equals("DM1")) name = "Khai Vị";
+        else if(id.equals("DM2")) name = "Món Chính";
+        else if(id.equals("DM3")) name = "Tráng Miệng";
+        else if(id.equals("DM4")) name = "Đồ Uống";
 
         request.setAttribute("endPage", endPage);
         request.setAttribute("list", data);
         request.setAttribute("idCategory", id);
         request.setAttribute("index", index);
         request.setAttribute("size", count);
-
         request.setAttribute("data", data);
         request.setAttribute("title", name);
-
         request.setAttribute("dataNew", dataNew);
+        request.setAttribute("valueFilter", valueFilter);
 
         request.getRequestDispatcher("food.jsp").forward(request,response);
     }

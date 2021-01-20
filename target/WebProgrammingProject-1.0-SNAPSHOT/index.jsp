@@ -73,10 +73,10 @@
             <li class="active"><a href="./index.html">Trang Chủ</a></li>
             <li><a href="./shop-grid.html">Cửa Hàng</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
-                    <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Món chính</a></li>
-                    <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Tráng miệng</a></li>
-                    <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Đồ uống</a></li>
+                    <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                    <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                    <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                    <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                 </ul>
             </li>
             <li>
@@ -117,10 +117,10 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="SearchCategory?idCategory=DM1&index=1">Khai vị</a></li>
-                        <li><a href="SearchCategory?idCategory=DM2&index=1">Món chính</a></li>
-                        <li><a href="SearchCategory?idCategory=DM3&index=1">Tráng miệng</a></li>
-                        <li><a href="SearchCategory?idCategory=DM4&index=1">Đồ uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>

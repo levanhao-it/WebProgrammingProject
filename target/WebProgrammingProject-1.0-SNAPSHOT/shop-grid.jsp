@@ -108,17 +108,17 @@
                         <span>Danh Mục Sản Phẩm</span>
                     </div>
                     <ul>
-                        <li><a href="./khaivi.html">Món Khai Vị</a></li>
-                        <li><a href="./monchinh.html">Món Chính</a></li>
-                        <li><a href="./trangmieng.html">Món Tráng Miệng</a></li>
-                        <li><a href="./thucuong.html">Thức Uống</a></li>
+                        <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
+                        <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
+                        <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
+                        <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="SearchControl?index=1" method="post" accept-charset="utf-8">
+                        <form action="SearchControl?index=1&value=1&valueFilter=0" method="post">
                             <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
                             <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>
@@ -167,10 +167,10 @@
                     <div class="sidebar__item">
                         <h4>Danh Mục Sản Phẩm</h4>
                         <ul>
-                            <li><a href="./khaivi.html">Khai vị</a></li>
-                            <li><a href="./monchinh.html">Món chính</a></li>
-                            <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                            <li><a href="./thucuong.html">Đồ uống</a></li>
+                            <li><a href="SearchCategory?idCategory=DM1&index=1&filter=0">Khai vị</a></li>
+                            <li><a href="SearchCategory?idCategory=DM2&index=1&filter=0">Món chính</a></li>
+                            <li><a href="SearchCategory?idCategory=DM3&index=1&filter=0">Tráng miệng</a></li>
+                            <li><a href="SearchCategory?idCategory=DM4&index=1&filter=0">Đồ uống</a></li>
                         </ul>
                     </div>
                     <div class="sidebar__item">

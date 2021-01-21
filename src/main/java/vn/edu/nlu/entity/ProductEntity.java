@@ -15,11 +15,6 @@ import java.util.List;
 
 public class ProductEntity {
 
-    public static void main(String[] args) {
-        ProductEntity pe = new ProductEntity();
-        List<Product> data = pe.getRelativeProduct("KV001","DM1",9);
-        for (Product p : data) System.out.println(p.getName());
-    }
 
     public List<Product> getAll() {
         Statement s = null;
@@ -199,6 +194,7 @@ public class ProductEntity {
                         rs.getString(8),
                         rs.getInt(9),
                         rs.getString(10));
+
                 rs.close();
                 s.close();
                 return a;
@@ -277,7 +273,6 @@ public class ProductEntity {
         }
 
     }
-
     // Tim kiem san pham theo danh muc
     //tinh so luong san pham tim thay trong danh muc de phan trang
     public int countCategory(String idCategory) {
@@ -540,6 +535,7 @@ public class ProductEntity {
         }
     }
 
+
     public List<Product> getRelativeProduct(String idProduct,String idCategory, int size) {
         PreparedStatement s= null;
         try {
@@ -573,7 +569,6 @@ public class ProductEntity {
             e.printStackTrace();
             return new LinkedList<>();
         }
-
     }
 
     public List<Product> getAllProducts(int beginPage,int pageSize) {

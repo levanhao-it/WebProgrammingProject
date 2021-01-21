@@ -33,7 +33,6 @@ public class SearchCategory extends HttpServlet {
         else endPage = (count/pageSize) +1;
         int beginPage = index*pageSize - (pageSize-1);
 
-
         Collection<Product> data = pe.getProductWithCategory(id,beginPage -1,pageSize, valueFilter);
         Collection<Product> dataNew = pe.getNewProductWithCategory(id);
 

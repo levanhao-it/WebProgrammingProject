@@ -237,11 +237,9 @@
                 <div class="shoping__checkout">
                     <h5>Đơn Hàng</h5>
                     <ul>
-                        <li>Tổng Tiền Hàng <span>1.021.000</span></li>
-                        <li>Phí Vận Chuyển <span>9.000</span></li>
-                        <li>Tổng Cộng <span>1.030.000</span></li>
+                        <li>Tổng Tiền Hàng <span>${data.stream().map(d -> (d.price*d.quantity)).sum()}</span></li>
                     </ul>
-                    <a href="checkout.jsp" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
+                    <a href="MyCheckout?uid=${sessionScope.acc.idUser}" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
                 </div>
             </div>
         </div>

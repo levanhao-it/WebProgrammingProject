@@ -264,7 +264,7 @@
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="${i.img}">
                                 <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                    <li><a href="addWhishlist?id=${i.id}"><i class="fa fa-heart"></i></a></li>
                                     <li><a href="ProductDetail?idProduct=${i.id}"><i class="fa fa-external-link"></i></a></li>
                                     <li><a href="addCart?id=${i.id}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
@@ -280,9 +280,9 @@
                 </div>
                 <div class="product__pagination">
                     <c:forEach begin="1"  end="${endPage}" var="i">
-                        <a id="${i}" href="SearchCategory?index=${i}&idCategory=${idCategory}">${i}</a>
+                        <a id="${i}" href="SearchCategory?index=${i}&idCategory=${idCategory}&valueFilter=${valueFilter}">${i}</a>
                     </c:forEach>
-                    <a href="SearchCategory?index=${index +1}&idCategory=${idCategory}"><i class="fa fa-long-arrow-right"></i></a>
+                    <a href="SearchCategory?index=${index +1}&idCategory=${idCategory}&valueFilter=${valueFilter}"><i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>

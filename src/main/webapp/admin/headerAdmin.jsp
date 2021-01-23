@@ -106,12 +106,14 @@
                 <nav class="header__menu">
                     <ul>
                         <li ><a href="Home">Trang Chủ</a></li>
-                        <li><a href="ManagerUser">Quản Lý Người Dùng</a>
+                        <li><a href="ManagerUser">Người Dùng</a>
                         </li>
                         <li>
-                            <a href="ManagerAdmin">Quản Lý Admin</a>
+                            <a href="ManagerAdmin">Admin</a>
                         </li>
-                        <li><a href="DataProducts">Quản Lý Sản Phẩm</a></li>
+                        <li><a href="DataProducts">Sản Phẩm</a></li>
+                        <li><a href="ManagerBill">Đơn hàng</a></li>
+                        <li><a href="ManagerBlog">Blog</a></li>
 
                     </ul>
                 </nav>

@@ -20,9 +20,6 @@ public class addWhishlist extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
-        String page = request.getParameter("page");
-        System.out.println(page);
-        System.out.println(id);
         if(id==null) response.sendRedirect("Home");
         ProductEntity pe = new ProductEntity();
         Product p = pe.getById(id);
@@ -34,7 +31,7 @@ public class addWhishlist extends HttpServlet {
         HttpSession session =request.getSession();
         Whishlist wl = Whishlist.getWhishlist(session);
         wl.put(p);
-        response.sendRedirect(page);
+        response.sendRedirect("whishlist.jsp");
         wl.commit(session);
 
     }

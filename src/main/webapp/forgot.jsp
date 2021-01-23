@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Page Preloder -->
@@ -108,7 +108,9 @@
 <div class="d-flex justify-content-center align-items-center w-100 h-100" style="background-image: url(img/bg.png);     background-size: 100%;
     background-repeat: no-repeat;">
     <div class="card beauty_login">
+        <form action="ForgetPasswordCTL" method="post">
         <div class="card-header">
+
             <!-- <div class="logo"><img src="img/logo.png" alt=""></div> -->
             <div class="login_text d-flex flex-row justify-content-center align-items-center">
                 <span></span>
@@ -139,8 +141,9 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="">
+                <form action="" >
                     <label for="email">Email</label>
+                    <p class="text-danger"></p>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
@@ -171,8 +174,11 @@
             <div class="d-flex justify-content-center align-items-center p-3">
                 Bạn chưa có tài khoản <a href="register.html" class="ml-2">Bấm vô đây</a>
             </div>
+
         </div>
+        </form>
     </div>
+
 </div>
 
 <!-- Footer Section Begin -->

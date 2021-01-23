@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -191,7 +192,7 @@
                                 <h5>${d.name}</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${d.price} đ
+                                <fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${d.price}"/> đ
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
@@ -202,7 +203,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="shoping__cart__total">${d.price*d.quantity} đ</td>
+                            <td class="shoping__cart__total"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${d.price*d.quantity}"/> đ</td>
                             <td class="shoping__cart__item__close">
                                <button> <a href="DeleteCartProduct?id=${d.id}"><span class="icon_close"></span></a></button>
                             </td>
@@ -237,7 +238,7 @@
                 <div class="shoping__checkout">
                     <h5>Đơn Hàng</h5>
                     <ul>
-                        <li>Tổng Tiền Hàng <span>${data.stream().map(d -> (d.price*d.quantity)).sum()}</span></li>
+                        <li>Tổng Tiền Hàng <span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${data.stream().map(d -> (d.price*d.quantity)).sum()}"/></span></span></li>
                     </ul>
                     <a href="MyCheckout?uid=${sessionScope.acc.idUser}" class="primary-btn">TIẾN HÀNH ĐẶT HÀNG</a>
                 </div>

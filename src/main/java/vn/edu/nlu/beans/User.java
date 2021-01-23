@@ -13,7 +13,11 @@ public class User implements Serializable {
     private String regisDate;
     private int access;
     private String key;
+    private Role role;
 
+    public User(Role role) {
+        this.role = role;
+    }
 
     public User(){
 
@@ -139,6 +143,9 @@ public class User implements Serializable {
     }
 
 
+    public boolean accept(int admin) {
+        return role.accept(admin);
+    }
 }
 
 

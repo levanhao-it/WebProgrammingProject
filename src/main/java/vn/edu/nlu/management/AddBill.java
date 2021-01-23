@@ -22,18 +22,11 @@ public class AddBill extends HttpServlet {
 
 
         String makh = request.getParameter("makh");
-        System.out.println(makh);
         String diachi = request.getParameter("diachi");
-        System.out.println(diachi);
-
         String sodt = request.getParameter("sodt");
-        System.out.println(sodt);
         String email = request.getParameter("email");
-        System.out.println(email);
         String ghichu= request.getParameter("ghichu");
-        System.out.println(ghichu);
         String trigia = request.getParameter("trigia");
-        System.out.println(trigia);
 
 
         BillManagement bm= new BillManagement();

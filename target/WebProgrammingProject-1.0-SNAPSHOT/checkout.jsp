@@ -1,3 +1,6 @@
+<%@ page import="vn.edu.nlu.model.Cart" %>
+<%@ page import="vn.edu.nlu.beans.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -169,20 +172,27 @@
         </div>
         <div class="checkout__form">
             <h4>Chi Tiết Thanh Toán</h4>
-            <form action="#">
+            <form action="AddBill" method="post">
+                <c:forEach items="${detail}" var="d">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-6"hidden>
                                 <div class="checkout__input">
-                                    <p>Họ<span>*</span></p>
-                                    <input type="text">
+                                    <p>Mã DH<span>*</span></p>
+                                    <input type="text" name="madh" value="${d.name}">
+                                </div>
+                            </div>
+                            <div class="col-lg-6"hidden>
+                                <div class="checkout__input">
+                                    <p>Họ Tên<span>*</span></p>
+                                    <input type="text" name="makh" value="${d.idUser}">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Tên<span>*</span></p>
-                                    <input type="text">
+                                    <p>Họ Tên<span>*</span></p>
+                                    <input type="text" name="hoten" value="${d.name}">
                                 </div>
                             </div>
                         </div>
@@ -192,76 +202,57 @@
                         <!--                            </div>-->
                         <div class="checkout__input">
                             <p>Địa chỉ<span>*</span></p>
-                            <input type="text" placeholder="Tên Đường" class="checkout__input__add">
+                            <input type="text" value="${d.address}" name="diachi" placeholder="Tên Đường" class="checkout__input__add">
                             <!--                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">-->
                         </div>
-                        <!--                            <div class="checkout__input">-->
-                        <!--                                <p>Thành Phố<span>*</span></p>-->
-                        <!--                                <input type="text">-->
-                        <!--                            </div>-->
-                        <!--                            <div class="checkout__input">-->
-                        <!--                                <p>Quốc Gia/ Liên Bang<span>*</span></p>-->
-                        <!--                                <input type="text">-->
-                        <!--                            </div>-->
-                        <!-- <div class="checkout__input">
-                            <p>Postcode / ZIP<span>*</span></p>
-                            <input type="text">
-                        </div> -->
+
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Điện Thoại<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" value="${d.phone}" name="sodt">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" value="${d.email}" name="email">
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="acc">
-                                Tạo Tài Khoản Mới?
-                                <input type="checkbox" id="acc">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <p>Tạo tài khoản bằng cách nhập thông tin bên dưới.
-                            Nếu bạn là khách hàng cũ, vui lòng đăng nhập ở đầu trang</p>
+
                         <div class="checkout__input">
-                            <p>Tên Đăng Nhập<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input">
-                            <p>Mật Khẩu<span>*</span></p>
-                            <input type="text">
-                        </div>
-                        <div class="checkout__input__checkbox">
-                            <label for="diff-acc">
-                                Giao hàng đến địa chỉ khác?
-                                <input type="checkbox" id="diff-acc">
-                                <span class="checkmark"></span>
-                            </label>
+                            <a href="register.jsp">Bạn Chưa Có Tài Khoản? Hãy Đăng Kí </a>
                         </div>
                         <div class="checkout__input">
                             <p>Ghi Chú Đặt Hàng<span>*</span></p>
-                            <input type="text"
+                            <input type="text" name="ghichu"
                                    placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: lưu ý đặc biệt khi giao hàng.">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
+
                         <div class="checkout__order">
                             <h4>Đơn Hàng Của Bạn</h4>
-                            <div class="checkout__order__products">Sản Phẩm <span>Tổng</span></div>
-                            <ul>
-                                <li>Gõi Đu Đủ<span>400.000</span></li>
-                                <li>Lẩu Thái <span>600.000</span></li>
-                                <li>Chuối <span>21.000</span></li>
-                            </ul>
-                            <div class="checkout__order__subtotal">Chi Phí Thêm <span>15.000</span></div>
-                            <div class="checkout__order__total">Tổng Tiền <span>1.036.000</span></div>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th style="font-size: 18px;font-weight: 700;padding-right: 130px;padding-bottom: 15px">Sản Phẩm</th>
+                                    <th style="font-size: 19px;font-weight: 700;padding-bottom: 15px">Tổng </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% Cart c=Cart.getCart(session);
+                                    Collection<Product> data=c.getData();
+                                    request.setAttribute("data",data);%>
+                                <c:forEach items="${data}" var="d">
+                                <tr>
+                                    <td style="padding-bottom: 15px">${d.name}</td>
+                                    <td style="padding-bottom: 15px">${d.price*d.quantity}</td>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                            <div class="checkout__order__total" >Tổng Tiền <span><input type="text" name="trigia" value="${data.stream().map(d -> d.price*d.quantity).sum()}" readonly> </span></div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc-or">
                                     Tạo một tài khoản?
@@ -285,8 +276,10 @@
                             </div>
                             <button type="submit" class="site-btn">Đặt Hàng</button>
                         </div>
+
                     </div>
                 </div>
+                </c:forEach>
             </form>
         </div>
     </div>

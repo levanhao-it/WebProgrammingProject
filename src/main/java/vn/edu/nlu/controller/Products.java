@@ -33,6 +33,7 @@ public class Products extends HttpServlet {
 
         Collection<Product> data = pe.getAllProductsWithFilter(beginPage,pageSize,valueFilter);
         Collection<Product> dataNew = pe.getNewProduct();
+
         request.setAttribute("list", data);
         request.setAttribute("value", value);
         request.setAttribute("endPage", endPage);

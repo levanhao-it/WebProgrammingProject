@@ -27,16 +27,20 @@ public class Home extends HttpServlet {
         }
         ProductEntity pe = new ProductEntity();
         int countProduct = pe.getAll().size();
-        int pageSize = 24;
+        int pageSize = 40;
         int endPage;
         if(countProduct % pageSize ==0)
             endPage = countProduct/pageSize;
         else endPage = (countProduct/pageSize) +1;
         int beginPage = indexPage*pageSize - (pageSize-1) - 1;
         Collection<Product> data = pe.getAllProducts(beginPage,pageSize);
+        Collection<Product> dataSale = pe.getProductSale();
+
+
         request.setAttribute("index", indexPage);
         request.setAttribute("data", data);
         request.setAttribute("endPage", endPage);
+        request.setAttribute("dataSale", dataSale);
         request.getRequestDispatcher("index.jsp").forward(request,response);
 
     }

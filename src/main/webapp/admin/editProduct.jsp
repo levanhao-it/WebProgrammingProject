@@ -284,7 +284,7 @@
 <!-- Edit Modal HTML -->
     <div class="modal-dialog">
         <div class="modal-content">
-                        <form action="editPro" method="post">
+            <form action="editPro" method="post">
                 <c:forEach items="${detail}" var="d">
                 <div class="modal-header">
                     <h4 class="modal-title">Thêm Sản Phẩm</h4>

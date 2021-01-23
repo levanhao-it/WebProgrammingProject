@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -118,13 +119,9 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <!-- <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div> -->
-                            <input type="text" placeholder="Bạn muốn ăn gì?">
-                            <button type="submit" class="site-btn">Tìm Kiếm</button>
+                        <form action="SearchControl?index=1&value=1&valueFilter=0" method="post">
+                            <input type="txtSearch"  name="txtSearch" placeholder="Bạn muốn ăn gì?">
+                            <button type="submit" name="submit" class="site-btn">Tìm Kiếm</button>
                         </form>
                     </div>
                     <div class="hero__search__phone">
@@ -152,8 +149,9 @@
                 <div class="breadcrumb__text">
                     <h2>Món Ăn</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.jsp">Trang Chủ</a>
-                        <span>Món ăn</span>
+                        <a href="Home">Trang Chủ</a>
+                        <a href="Products?index=1&value=0&valueFilter=0">Món ăn</a>
+                        <span>${title}</span>
                     </div>
                 </div>
             </div>
@@ -177,23 +175,32 @@
                             <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                         </ul>
                     </div>
-                    <div class="sidebar__item">
-                        <h4>Giá</h4>
-                        <div class="price-range-wrap">
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                 data-min="10" data-max="5000">
-                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            </div>
-                            <div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount">
-                                    <input type="text" id="maxamount">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<%--                    <div class="sidebar__item">--%>
+<%--                        <h4>Giá</h4>--%>
+<%--                        <div class="price-range-wrap">--%>
+<%--                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"--%>
+<%--                                 data-min="10" data-max="5000">--%>
+<%--                                <div class="ui-slider-range ui-corner-all ui-widget-header"></div>--%>
+<%--                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>--%>
+<%--                                <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>--%>
+<%--                            </div>--%>
+<%--                            <div class="range-slider">--%>
+
+<%--                                <div class="price-input">--%>
+<%--                                    <form>--%>
+<%--                                        <input type="text" id="minamount" name= "min">--%>
+<%--                                        <input type="text" id="maxamount" name= "max">--%>
+
+<%--                                    </form>--%>
+
+<%--                                </div>--%>
+
+<%--                                <div>--%>
+<%--                                    <button type="submit" name="submit" class="site-btn">Áp dụng</button>--%>
+<%--                                </div>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Sản Phẩm Mới</h4>
@@ -207,7 +214,7 @@
                                                 </div>
                                                 <div class="latest-product__item__text">
                                                     <h6>${i.name}</h6>
-                                                    <span>${i.price}</span>
+                                                    <span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${i.price}"/></span>
                                                 </div>
                                             </a>
                                         </c:forEach>
@@ -243,12 +250,12 @@
                                 <h6><span>${size}</span> Sản Phẩm Tìm Kiếm</h6>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-3">
-                            <div class="filter__option">
-                                <span class="icon_grid-2x2"></span>
-                                <span class="icon_ul"></span>
-                            </div>
-                        </div>
+<%--                        <div class="col-lg-4 col-md-3">--%>
+<%--                            <div class="filter__option">--%>
+<%--                                <span class="icon_grid-2x2"></span>--%>
+<%--                                <span class="icon_ul"></span>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
                     </div>
                 </div>
                 <div class="row">
@@ -263,8 +270,8 @@
                                 </ul>
                             </div>
                             <div class="product__item__text">
-                                <h6><a href="#">${i.name}</a></h6>
-                                <h5>${i.price}</h5>
+                                <h6><a href="ProductDetail?idProduct=${i.id}">${i.name}</a></h6>
+                                <h5><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${i.price}"/></h5>
                             </div>
                         </div>
                     </div>

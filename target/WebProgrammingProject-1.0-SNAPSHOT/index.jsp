@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -204,113 +205,25 @@
                     </div>
                     <div class="row">
                         <div class="product__discount__slider owl-carousel">
+                            <c:forEach items="${dataSale}" var="s">
                             <div class="col-lg-4">
                                 <div class="product__discount__item">
                                     <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/2.jpg">
-                                        <div class="product__discount__percent">-20%</div>
+                                         data-setbg="${s.img}">
+                                        <div class="product__discount__percent"><fmt:formatNumber value = "${(s.price - s.priceSale)/s.price}" type = "percent"/></div>
                                         <ul class="product__item__pic__hover">
                                             <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                                            <li><a href="ProductDetail?idProduct=${s.id}"><i class="fa fa-external-link"></i></a></li>
                                             <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="product__discount__item__text">
-                                        <h5><a href="#">Gỏi Tôm Canada</a></h5>
-                                        <div class="product__item__price">80.000 <span>100.000</span></div>
+                                        <h5><a href="ProductDetail?idProduct=${s.id}">${s.name}</a></h5>
+                                        <div class="product__item__price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${s.priceSale}"/><span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${s.price}"/></span></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/10.jpg">
-                                        <div class="product__discount__percent">-5%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-
-                                        <h5><a href="#">Súp Đậu Thịt Bằm</a></h5>
-                                        <div class="product__item__price">45.000<span>50.000</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/14.jpg">
-                                        <div class="product__discount__percent">-20%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-
-                                        <h5><a href="#">Mì Ý</a></h5>
-                                        <div class="product__item__price">160.000 <span>200.000</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/18.jpg">
-                                        <div class="product__discount__percent">-20%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-
-                                        <h5><a href="#">Cá Basa Kho Tộ</a></h5>
-                                        <div class="product__item__price">360.000 <span>450.000</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/6.jpg">
-                                        <div class="product__discount__percent">-20%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-
-                                        <h5><a href="#">Bò Bít Tết</a></h5>
-                                        <div class="product__item__price">640.000 <span>800.000</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="product__discount__item">
-                                    <div class="product__discount__item__pic set-bg"
-                                         data-setbg="img/monchinh/15.jpg">
-                                        <div class="product__discount__percent">-10%</div>
-                                        <ul class="product__item__pic__hover">
-                                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-external-link"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product__discount__item__text">
-
-                                        <h5><a href="#">Canh Rau Củ</a></h5>
-                                        <div class="product__item__price">90.000 <span>100.000</span></div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -326,13 +239,13 @@
                         <div class="product__item__pic set-bg" data-setbg="${i.img}">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-external-link"></i></a></li>
+                                <li><a href="ProductDetail?idProduct=${i.id}"><i class="fa fa-external-link"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">${i.name}</a></h6>
-                            <h5>${i.price}</h5>
+                            <h6><a href="ProductDetail?idProduct=${i.id}">${i.name}</a></h6>
+                            <h5><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${i.price}"/></h5>
                         </div>
                     </div>
                 </div>

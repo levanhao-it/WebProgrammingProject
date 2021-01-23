@@ -29,8 +29,7 @@ public class AdminManagement {
                         rs.getString(6),
                         rs.getString(7),
                         rs.getString(8),
-                        rs.getInt(9)
-                ));
+                        rs.getInt(9)));
             }
             rs.close();
             s.close();

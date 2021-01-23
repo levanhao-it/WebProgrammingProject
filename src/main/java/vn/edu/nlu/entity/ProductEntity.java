@@ -14,6 +14,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductEntity {
+    public static void main(String[] args) {
+        ProductEntity pe = new ProductEntity();
+        List<Product> data = (List<Product>) pe.getProductSale();
+        for(Product p : data) System.out.println(p.getName());
+    }
 
 
     public List<Product> getAll() {
@@ -603,5 +608,38 @@ public class ProductEntity {
             e.printStackTrace();
             return new LinkedList<>();
         }
+    }
+
+    public Collection<Product> getProductSale() {
+        Statement s = null;
+        try {
+            List<Product> re = new LinkedList<>();
+            String sql = "SELECT * FROM product where isSale = 1 order by rand() ";
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(sql);
+            while (rs.next()) {
+                re.add(new Product(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBoolean(8),
+                        rs.getBoolean(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getString(12),
+                        rs.getString(13),
+                        rs.getString(14)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+
     }
 }

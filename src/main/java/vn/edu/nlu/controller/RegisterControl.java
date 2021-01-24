@@ -2,7 +2,6 @@ package vn.edu.nlu.controller;
 
 import vn.edu.nlu.beans.User;
 import vn.edu.nlu.entity.ProductEntity;
-import vn.edu.nlu.model.Account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

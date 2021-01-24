@@ -25,7 +25,7 @@ public class LoginControl extends HttpServlet {
         ProductEntity pe = new ProductEntity();
         User a = pe.login(username,password);
         if(a==null){
-            request.setAttribute("mess","Sai thông tin đăng nhập");
+            request.setAttribute("mess","Sai tên đăng nhập hoặc mật khẩu. Mời bạn nhập lại!");
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }else {
             //day a len session

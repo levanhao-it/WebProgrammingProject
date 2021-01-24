@@ -114,16 +114,16 @@
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large" src="${product.img}" alt="" style="height: 400px;width: 450px">
                     </div>
-                    <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="" style="height: 78px;width: 98px">
-                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="" style="height: 78px;width: 98px">
-                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="" style="height: 78px;width: 98px">
-                        <img data-imgbigurl="img/product/details/product-details-1.jpg"
-                             src="${product.img}" alt="" style="height: 78px;width: 98px">
-                    </div>
+<%--                    <div class="product__details__pic__slider owl-carousel">--%>
+<%--                        <img data-imgbigurl="img/product/details/product-details-1.jpg"--%>
+<%--                             src="${product.img}" alt="" style="height: 78px;width: 98px">--%>
+<%--                        <img data-imgbigurl="img/product/details/product-details-1.jpg"--%>
+<%--                             src="${product.img}" alt="" style="height: 78px;width: 98px">--%>
+<%--                        <img data-imgbigurl="img/product/details/product-details-1.jpg"--%>
+<%--                             src="${product.img}" alt="" style="height: 78px;width: 98px">--%>
+<%--                        <img data-imgbigurl="img/product/details/product-details-1.jpg"--%>
+<%--                             src="${product.img}" alt="" style="height: 78px;width: 98px">--%>
+<%--                    </div>--%>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">

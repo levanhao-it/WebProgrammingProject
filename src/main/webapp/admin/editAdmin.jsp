@@ -293,7 +293,7 @@
         <div class="modal-content">
 
             <form action="EditAdminControl" method="post">
-                <c:forEach items="${dataBlog}" var="d">
+                <c:forEach items="${detail}" var="d">
 
                 <div class="modal-header">
                     <h4 class="modal-title">Chi Tiết Người Dùng</h4>

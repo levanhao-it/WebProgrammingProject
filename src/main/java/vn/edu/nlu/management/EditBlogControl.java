@@ -24,8 +24,9 @@ public class EditBlogControl extends HttpServlet {
         String date = request.getParameter("date");
         String img = request.getParameter("img");
         String content = request.getParameter("content");
+        String srcImg = "http://localhost:8080/WebProgrammingProject/img/blog/" + img;
         BlogManagement bm = new BlogManagement();
-        bm.editBlog(id, name, danhmuc, date, img, content);
+        bm.editBlog(id, name, danhmuc, date, srcImg, content);
         response.sendRedirect("ManagerBlog");
     }
 }

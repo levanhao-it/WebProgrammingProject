@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -136,7 +137,7 @@
                         <i class="fa fa-star-half-o"></i>
                         <span>(18 đánh giá)</span>
                     </div>
-                    <div class="product__details__price">${product.price}</div>
+                    <div class="product__details__price"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${product.price}"/></div>
                     <p>${product.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
@@ -145,8 +146,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="shoping-cart.html" class="primary-btn">Thêm vào giỏ hàng</a>
-                    <a href="addWhishlist?page=ProductDetail?idProduct=${product.id}&id=${product.id}" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    <a href="addCart?id=${product.id}" class="primary-btn">Thêm vào giỏ hàng</a>
+                    <a href="addWhishlist?id=${product.id}" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     <ul>
                         <li><b>Tình Trạng</b> <span>${product.status}</span></li>
                         <li><b>Giao hàng</b> <span>01 giờ giao hàng. <samp>Miễn phí trong ngày</samp></span></li>
@@ -222,14 +223,14 @@
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="${o.img}">
                         <ul class="product__item__pic__hover">
-                            <li><a href="addWhishlist?page=ProductDetail?idProduct=${product.id}&id=${o.id}"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="addWhishlist?id=${o.id}"><i class="fa fa-heart"></i></a></li>
                             <li><a href="ProductDetail?idProduct=${o.id}"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            <li><a href="addCart?id=${o.id}"><i class="fa fa-shopping-cart"></i></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">${o.name}</a></h6>
-                        <h5>${o.price}</h5>
+                        <h5><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${o.price}"/></h5>
                     </div>
                 </div>
             </div>

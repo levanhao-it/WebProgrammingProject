@@ -1,5 +1,6 @@
 package vn.edu.nlu.entity;
 
+import vn.edu.nlu.beans.Blog;
 import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.beans.User;
 import vn.edu.nlu.db.ConnectionDB;
@@ -16,8 +17,9 @@ import java.util.List;
 public class ProductEntity {
     public static void main(String[] args) {
         ProductEntity pe = new ProductEntity();
-        List<Product> data = (List<Product>) pe.getProductSale();
-        for(Product p : data) System.out.println(p.getName());
+        List<Blog> data = (List<Blog>) pe.getDataBlog();
+        for(Blog b : data) System.out.print(b.getNameBlog());
+
     }
 
 
@@ -642,4 +644,29 @@ public class ProductEntity {
         }
 
     }
+    public Collection<Blog> getDataBlog() {
+        Statement s= null;
+        try {
+            List<Blog> re= new LinkedList<>();
+            String sql = "SELECT * FROM blog ORDER BY RAND() limit 0, 3";
+            s= ConnectionDB.connect();
+            ResultSet rs=s.executeQuery(sql);
+            while (rs.next()){
+                re.add(new Blog(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
+
+
 }

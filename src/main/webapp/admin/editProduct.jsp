@@ -307,7 +307,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
-                        <input type="text"name="image" value="${d.img}" class="form-control" required>
+                        <input type="file" name="image" value="${d.img}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>

@@ -498,55 +498,22 @@
             </div>
         </div>
         <div class="row">
+            <c:forEach items="${dataBlog}" var="b">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="img/blog/blog-1.jpg" alt="">
+                        <img src="${b.pictureBlog}" alt="">
                     </div>
                     <div class="blog__item__text">
                         <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
+                            <li><i class="fa fa-calendar-o"></i> ${b.dateBlog}</li>
+<%--                            <li><i class="fa fa-comment-o"></i> 5</li>--%>
                         </ul>
-                        <h5><a href="#">4 Phương Pháp Giúp Bạn Tăng Cân Với Chế Độ Ăn</a></h5>
-                        <p>Để có cách tăng cân phù hợp và có hiệu quả thì bạn phải tìm ra nguyên nhân khiến bạn không
-                            thể tăng cân được mặc dù đã làm rất nhiều phương pháp. Một số nguyên nhân chính có thể kể
-                            đến... </p>
+                        <h5><a href="#">${b.nameBlog}</a></h5>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-2.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">9 Loại Thức Ăn Giảm Cân Mùa Hè</a></h5>
-                        <p>Trái bơ Đây là 1 loại trái cây rất tốt chứa hàm lượng chất béo tốt và đáng bổ sung vào danh
-                            sách các thực phẩm cần thiết cho bạn. ... </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic">
-                        <img src="img/blog/blog-3.jpg" alt="">
-                    </div>
-                    <div class="blog__item__text">
-                        <ul>
-                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-                            <li><i class="fa fa-comment-o"></i> 5</li>
-                        </ul>
-                        <h5><a href="#">Cách sống khỏe thời đại 4.0</a></h5>
-                        <p>Có những thói quen tưởng chừng như đơn giản nhưng lại tác động tích cực đến sức khỏe của
-                            bạn... </p>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>

@@ -1,3 +1,4 @@
+<%@ page import="vn.edu.nlu.beans.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -265,6 +266,11 @@
     </script>
 </head>
 <body>
+<%
+    User user = (User)session.getAttribute("acc");
+    if(user == null || user.getAccess()!=1)
+        response.sendRedirect("Home");
+%>
 <%@ include file="headerAdmin.jsp" %>
 <div class="container">
     <div class="table-responsive">
@@ -301,7 +307,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
-                        <input type="text"name="image" value="${d.img}" class="form-control" required>
+                        <input type="file" name="image" value="${d.img}" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>

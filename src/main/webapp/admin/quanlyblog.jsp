@@ -280,8 +280,6 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <h2>Quản Lý <b>Blog</b></h2>
-
-                        
                     </div>
                     <div class="col-xs-6">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm Sản Phẩm</span></a>
@@ -353,7 +351,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
-                        <input type="text"name="imageBlog" class="form-control" required>
+                        <input type="file"name="imageBlog" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
@@ -487,16 +485,20 @@
     </div>
 </div>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-            // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-        } )
-        .then( editor => {
-            window.editor = editor;
-        } )
-        .catch( err => {
-            console.error( err.stack );
-        } );
+    // ClassicEditor
+    //     .create( document.querySelector( '#editor' ), {
+    //         // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+    //     } )
+    //     .then( editor => {
+    //         window.editor = editor;
+    //     } )
+    //     .catch( err => {
+    //         console.error( err.stack );
+    //     } );
+    CKEDITOR.replace('editor')
+
+
+
 </script>
 <%@ include file="footerAdmin.jsp" %>
 </body>

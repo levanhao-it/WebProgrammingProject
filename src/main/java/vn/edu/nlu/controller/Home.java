@@ -1,5 +1,6 @@
 package vn.edu.nlu.controller;
 
+import vn.edu.nlu.beans.Blog;
 import vn.edu.nlu.beans.Product;
 import vn.edu.nlu.entity.ProductEntity;
 
@@ -36,11 +37,12 @@ public class Home extends HttpServlet {
         Collection<Product> data = pe.getAllProducts(beginPage,pageSize);
         Collection<Product> dataSale = pe.getProductSale();
 
-
+        Collection<Blog> dataBlog = pe.getDataBlog();
         request.setAttribute("index", indexPage);
         request.setAttribute("data", data);
         request.setAttribute("endPage", endPage);
         request.setAttribute("dataSale", dataSale);
+        request.setAttribute("dataBlog", dataBlog);
         request.getRequestDispatcher("index.jsp").forward(request,response);
 
     }

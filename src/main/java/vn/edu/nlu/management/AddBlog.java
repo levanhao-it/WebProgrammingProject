@@ -24,10 +24,10 @@ public class AddBlog extends HttpServlet {
         String img = request.getParameter("imageBlog");
         String date = request.getParameter("date");
         String content = request.getParameter("content");
-
+        String srcImg = "http://localhost:8080/WebProgrammingProject/img/blog/" + img;
         BlogManagement bm = new BlogManagement();
         String idBlog = bm.getNewIDBlog();
-        bm.addBlog(idBlog,name,danhmuc,img,date,content);
+        bm.addBlog(idBlog,name,danhmuc,srcImg,date,content);
         response.sendRedirect("ManagerBlog");
     }
 }

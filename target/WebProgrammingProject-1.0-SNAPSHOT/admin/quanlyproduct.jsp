@@ -1,3 +1,4 @@
+<%@ page import="vn.edu.nlu.beans.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -265,6 +266,11 @@
     </script>
 </head>
 <body>
+<%
+    User user = (User)session.getAttribute("acc");
+    if(user == null || user.getAccess()!=1)
+        response.sendRedirect("Home");
+%>
 <%@ include file="headerAdmin.jsp" %>
 <div class="container">
     <div class="table-responsive">
@@ -303,7 +309,7 @@
                     <td>${i.price}</td>
                     <td>
                         <a href="loadProductDetail?pid=${i.id}"  class="edit" ><i class="material-icons"  title="Edit">&#xE254;</i></a>
-                        <a href="deleteProduct?pid=${i.id}" class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>
+<%--                        <a href="deleteProduct?pid=${i.id}" class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>--%>
                     </td>
                 </tr>
                 </c:forEach>
@@ -335,16 +341,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" name="id" class="form-control" required>
-                    </div>
-                    <div class="form-group">
                         <label>Tên</label>
                         <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Ảnh </label>
-                        <input type="text"name="image" class="form-control" required>
+                        <input type="file"name="image" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>

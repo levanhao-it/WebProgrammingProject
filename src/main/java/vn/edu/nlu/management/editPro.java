@@ -31,9 +31,19 @@ public class editPro extends HttpServlet {
         String pidcategory=request.getParameter("idCategory");
         String pStatus=request.getParameter("status");
 
-        ProductManagement pm= new ProductManagement();
-        pm.updateProduct(pId,pName,pimg,pPrice,pPriceSale,pisSale,pisNew,pdescription,pdescriptionDetail,pdate,pidcategory,pStatus);
-        response.sendRedirect("DataProducts");
+        String imgSrc = "";
+        if(pidcategory.equals("DM1")){
+            imgSrc = "http://localhost:8080/WebProgrammingProject/img/khaivi/" + pimg;
+        }else if(pidcategory.equals("DM2")) {
+            imgSrc = "http://localhost:8080/WebProgrammingProject/img/monchinh/" + pimg;
+        }else if(pidcategory.equals("DM3")) {
+            imgSrc = "http://localhost:8080/WebProgrammingProject/img/trangmieng/" + pimg;
+        }else if(pidcategory.equals("DM4")) {
+            imgSrc = "http://localhost:8080/WebProgrammingProject/img/thucuong/" + pimg;
+        }
 
+        ProductManagement pm= new ProductManagement();
+        pm.updateProduct(pId,pName,imgSrc,pPrice,pPriceSale,pisSale,pisNew,pdescription,pdescriptionDetail,pdate,pidcategory,pStatus);
+        response.sendRedirect("DataProducts");
     }
 }

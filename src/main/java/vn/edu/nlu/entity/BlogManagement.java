@@ -163,7 +163,7 @@ public class BlogManagement {
             Statement s= null;
             try {
                 List<Blog> re= new LinkedList<>();
-                String sql = "Select * from blog where isNew = 1";
+                String sql = "Select * from blog order by ngaydang desc limit 0,3";
                 s= ConnectionDB.connect();
                 ResultSet rs=s.executeQuery(sql);
                 while (rs.next()){

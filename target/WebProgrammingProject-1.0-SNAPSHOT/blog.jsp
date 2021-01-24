@@ -151,7 +151,7 @@
                 <div class="breadcrumb__text">
                     <h2>Blog</h2>
                     <div class="breadcrumb__option">
-                        <a href="./index.html">Trang Chủ</a>
+                        <a href="Home">Trang Chủ</a>
                         <span>Blog</span>
                     </div>
                 </div>
@@ -167,172 +167,50 @@
         <div class="row">
             <div class="col-lg-4 col-md-5">
                 <div class="blog__sidebar">
-                    <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" placeholder="Tìm Kiếm...">
-                            <button type="submit"><span class="icon_search"></span></button>
-                        </form>
-                    </div>
                     <div class="blog__sidebar__item">
                         <h4>Thể Loại</h4>
                         <ul>
-                            <li><a href="#">Tất Cả</a></li>
-                            <li><a href="#">Vẻ Đẹp (20)</a></li>
-                            <li><a href="#">Thức Ăn (5)</a></li>
-                            <li><a href="#">Phong Cách Sống (9)</a></li>
-                            <li><a href="#">Du Lịch (10)</a></li>
+                            <c:forEach items="${dataDM}" var="i">
+                            <li><a href="BlogCategory?id=${i.idDMBlog}">${i.nameDMBlog}</a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                     <div class="blog__sidebar__item">
                         <h4>Tin Tức Gần Đây</h4>
                         <div class="blog__sidebar__recent">
-                            <a href="#" class="blog__sidebar__recent__item">
+                            <c:forEach items="${dataNew}" var="i">
+                            <a href="BlogDetail?idBlog=${i.idBlog}" class="blog__sidebar__recent__item">
                                 <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/sr-1.jpg" alt="">
+                                    <img src="${i.pictureBlog}" alt="" style="width: 70px; height: 70px">
                                 </div>
                                 <div class="blog__sidebar__recent__item__text">
-                                    <h6>09 Loại Thức Ăn<br/> Giảm Cân Mùa Hè</h6>
-                                    <span>Tháng 6, 2020</span>
+                                    <h6>${i.nameBlog}</h6>
+                                    <span>${i.dateBlog}</span>
                                 </div>
                             </a>
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/sr-2.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>Cách Sống Khỏe<br/> Trong Thời Đại 4.0</h6>
-                                    <span>Tháng 7, 2019</span>
-                                </div>
-                            </a>
-                            <a href="#" class="blog__sidebar__recent__item">
-                                <div class="blog__sidebar__recent__item__pic">
-                                    <img src="img/blog/sidebar/sr-3.jpg" alt="">
-                                </div>
-                                <div class="blog__sidebar__recent__item__text">
-                                    <h6>4 Phương Pháp Giúp Bạn <br/>Tăng Cân Với Chế Độ Ăn </h6>
-                                    <span>Tháng 3, 2019</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="blog__sidebar__item">
-                        <h4>Tìm Kiếm Bằng</h4>
-                        <div class="blog__sidebar__item__tags">
-                            <a href="#">Thức Ăn</a>
-                            <a href="#">Vẻ Đẹp</a>
-                            <a href="#">Đồ Uống</a>
-                            <a href="#">Trái Cây</a>
-                            <a href="#">Rượu</a>
-                            <a href="#">Phong Cách Sống</a>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-8 col-md-7">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <c:forEach items="${data}" var="i">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="blog__item">
                             <div class="blog__item__pic">
-                                <img src="img/blog/details/details-pic.jpg" alt="">
+                                <img src="${i.pictureBlog}" alt="" style="width: 360px; height: 270px">
                             </div>
                             <div class="blog__item__text">
                                 <ul>
-                                    <li><i class="fa fa-calendar-o"></i> Tháng 6, 2020</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
+                                    <li><i class="fa fa-calendar-o"></i> ${i.dateBlog}</li>
                                 </ul>
-                                <h5><a href="blog-details.html">Tác dụng của dâu tây</a></h5>
-                                <p>Axit ellagic có trong dâu tây giúp làm chậm quá trình tiêu hóa thực phẩm tinh bột.
-                                    Điều này có thể kiểm soát sự gia tăng hàm lượng đường huyết... </p>
-                                <a href="blog-details.html" class="blog__btn">ĐỌC THÊM<span class="arrow_right"></span></a>
+                                <h5><a href="BlogDetail?idBlog=${i.idBlog}">${i.nameBlog}</a></h5>
+                                <a href="BlogDetail?idBlog=${i.idBlog}" class="blog__btn">ĐỌC<span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-3.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> Tháng 7, 2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 6</li>
-                                </ul>
-                                <h5><a href="#">Cách sống khỏe thời đại 4.0</a></h5>
-                                <p>Có những thói quen tưởng chừng như đơn giản nhưng lại tác động tích cực đến sức khỏe
-                                    của bạn...</p>
-                                <a href="#" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-1.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> Tháng 3, 2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 7</li>
-                                </ul>
-                                <h5><a href="#">4 Phương Pháp Giúp Bạn Tăng Cân Với Chế Độ Ăn</a></h5>
-                                <p>Để có cách tăng cân phù hợp và có hiệu quả thì bạn phải tìm ra nguyên nhân khiến bạn
-                                    không thể tăng cân được mặc dù đã làm rất nhiều phương pháp. Một số nguyên nhân
-                                    chính có thể kể đến... </p>
-                                <a href="#" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> Tháng 4,2020</li>
-                                    <li><i class="fa fa-comment-o"></i> 2</li>
-                                </ul>
-                                <h5><a href="#">Cách Nấu Một Bữa Ăn Đơn Giản</a></h5>
-                                <p>Từ trước tới nay bữa cơm gia đình luôn được xem trọng, nó là điều kiện cần và đủ để
-                                    một gia đình có thể quây quần bên nhau sau một ngày làm việc vất vã... </p>
-                                <a href="#" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-4.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i>Tháng 4,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cách Để Tạo Điểm Nhấn Cho Món Ăn</a></h5>
-                                <p>Khi đi ăn, thực khách mong muốn xem menu nhanh hơn thay vì đọc thông tin từ trước ra
-                                    sau ... </p>
-                                <a href="#" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="blog__item">
-                            <div class="blog__item__pic">
-                                <img src="img/blog/blog-6.jpg" alt="">
-                            </div>
-                            <div class="blog__item__text">
-                                <ul>
-                                    <li><i class="fa fa-calendar-o"></i> Tháng 11,2019</li>
-                                    <li><i class="fa fa-comment-o"></i> 5</li>
-                                </ul>
-                                <h5><a href="#">Cách Nấu Món Ăn Nung Nấu Hạnh Phúc</a></h5>
-                                <p>Chỉ riêng suy nghĩ về việc phải lên kế hoạch, chuẩn bị nguyên liệu và dọn dẹp sau khi
-                                    nấu đã quá đủ để khiến nhiều người bỏ đi ý tưởng tự nấu ăn...</p>
-                                <a href="#" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                     <div class="col-lg-12">
                         <div class="product__pagination blog__pagination">
                             <a href="#">1</a>

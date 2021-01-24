@@ -45,18 +45,19 @@ public class UserManagement {
         Statement s= null;
 
         String sql = "select * from user";
-        String id = "";
+        int id =0;
 
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(sql);
 
             while (rs.next()){
-                id = rs.getString(1);
+                if(Integer.parseInt(rs.getString(1)) > id)
+                id =Integer.parseInt(rs.getString(1)) ;
             }
             rs.close();
             s.close();
-            String idNew = (Integer.parseInt(id) + 1) + "";
+            String idNew = (id +1) + "";
             return idNew;
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -169,8 +170,7 @@ public class UserManagement {
         }
     }
     public static void main(String[] args) {
-        UserManagement man = new UserManagement();
-        man.editUser("3", "levanhao", "123", "le", "hcm", "", "", "2021-12-01");
+
     }
 
 

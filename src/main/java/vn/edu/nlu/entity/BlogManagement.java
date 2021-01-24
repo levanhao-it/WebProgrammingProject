@@ -81,18 +81,20 @@ public class BlogManagement {
             String sql = "Select * from blog";
             s= ConnectionDB.connect();
             ResultSet rs=s.executeQuery(sql);
-            String id = "";
+            int id = 0;
+            int idTemp = 0;
             while (rs.next()){
-                id = rs.getString(1);
+                idTemp = Integer.parseInt(rs.getString(1).substring(1));
+                if( idTemp > id )
+                    id = idTemp;
             }
-
-            String idNewBlog = "B" + (Integer.parseInt(id.substring(1)) + 1);
+            String idNewBlog = "B" + (id + 1);
             rs.close();
             s.close();
             return idNewBlog;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            return "B01";
+            return "";
         }
     }
 
@@ -149,6 +151,60 @@ public class BlogManagement {
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        BlogManagement bm = new BlogManagement();
+        System.out.println(bm.getNewIDBlog());
+    }
+
+    public List<Blog> getBlogNew() {
+            Statement s= null;
+            try {
+                List<Blog> re= new LinkedList<>();
+                String sql = "Select * from blog where isNew = 1";
+                s= ConnectionDB.connect();
+                ResultSet rs=s.executeQuery(sql);
+                while (rs.next()){
+                    re.add(new Blog(rs.getString(1),
+                            rs.getString(2),
+                            rs.getString(3),
+                            rs.getString(4),
+                            rs.getString(5),
+                            rs.getString(6)));
+                }
+                rs.close();
+                s.close();
+                return re;
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+                return new LinkedList<>();
+            }
+    }
+
+    public List<Blog> getBlogRand(String id) {
+        PreparedStatement s= null;
+        try {
+            List<Blog> re= new LinkedList<>();
+            String sql = "SELECT * FROM blog where mablog != ? order by rand() limit 0 , 3";
+            s= ConnectionDB.connect(sql);
+            s.setString(1,id);
+            ResultSet rs=s.executeQuery();
+            while (rs.next()){
+                re.add(new Blog(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)));
+            }
+            rs.close();
+            s.close();
+            return re;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
         }
     }
 }

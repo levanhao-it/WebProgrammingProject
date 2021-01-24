@@ -502,14 +502,14 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="blog__item">
                     <div class="blog__item__pic">
-                        <img src="${b.pictureBlog}" alt="">
+                        <img src="${b.pictureBlog}" alt="" style="width: 360px; height: 270px">
                     </div>
                     <div class="blog__item__text">
                         <ul>
                             <li><i class="fa fa-calendar-o"></i> ${b.dateBlog}</li>
 <%--                            <li><i class="fa fa-comment-o"></i> 5</li>--%>
                         </ul>
-                        <h5><a href="#">${b.nameBlog}</a></h5>
+                        <h5><a href="BlogDetail?idBlog=${b.idBlog}">${b.nameBlog}</a></h5>
                     </div>
                 </div>
             </div>

@@ -117,7 +117,7 @@
                         <li>
                             <a href="./about-us.jsp">Về Chúng Tôi</a>
                         </li>
-                        <li><a href="./blog.jsp">Blog</a></li>
+                        <li><a href="Blog">Blog</a></li>
                         <li><a href="./contact.jsp">Liên Hệ</a></li>
                     </ul>
                 </nav>

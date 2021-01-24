@@ -30,7 +30,8 @@ public class AddBill extends HttpServlet {
 
 
         BillManagement bm= new BillManagement();
-        String madh= bm.getIdNew();
+        int size = bm.getAll().size();
+        String madh= "HD" + (size +1);
         bm.addBill(madh,makh,diachi,sodt,email,ghichu,trigia);
         response.sendRedirect("Home");
 

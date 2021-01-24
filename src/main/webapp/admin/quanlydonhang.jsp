@@ -311,7 +311,7 @@
                     <td>${i.trangthai}</td>
                     <td>
                         <a href="#"  class="edit" ><i class="material-icons"  title="Edit">&#xE254;</i></a>
-                        <a href="#" class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>
+<%--                        <a href="#" class="delete" ><i class="material-icons"  title="Delete">&#xE872;</i></a>--%>
                     </td>
                 </tr>
                 </c:forEach>

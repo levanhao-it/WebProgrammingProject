@@ -42,8 +42,10 @@ public class addProduct extends HttpServlet {
             imgSrc = "http://localhost:8080/WebProgrammingProject/img/thucuong/" + pimg;
         }
 
+
         ProductManagement pm= new ProductManagement();
-        String idNewP = pm.getIDNewProduct();
+        int size =  pm.getAll().size();
+        String idNewP = "P" + (size + 1);
         pm.insertProduct(idNewP,pName,imgSrc,pPrice,pPriceSale,pisSale,pisNew,pdescription,pdescriptionDetail,pdate,pidcategory,pStatus);
         response.sendRedirect("DataProducts");
     }

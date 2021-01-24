@@ -42,29 +42,29 @@ public class BillManagement {
 
     }
 
-    public String getIdNew() {
-        Statement s= null;
-
-        String sql = "select * from donhang";
-        String id = "";
-
-        try {
-            s = ConnectionDB.connect();
-            ResultSet rs = s.executeQuery(sql);
-
-            while (rs.next()){
-                id = rs.getString(1);
-            }
-            rs.close();
-            s.close();
-            String id1=Integer.parseInt(id.substring(2))+1+"";
-            String idNew = "DH"+id1 ;
-            return idNew;
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
-            return null;
-        }
-    }
+//    public String getIdNew() {
+//        Statement s= null;
+//
+//        String sql = "select * from donhang";
+//        String id = "";
+//
+//        try {
+//            s = ConnectionDB.connect();
+//            ResultSet rs = s.executeQuery(sql);
+//
+//            while (rs.next()){
+//                id = rs.getString(1);
+//            }
+//            rs.close();
+//            s.close();
+//            String id1=Integer.parseInt(id.substring(2))+1+"";
+//            String idNew = "DH"+id1 ;
+//            return idNew;
+//        } catch (SQLException | ClassNotFoundException throwables) {
+//            throwables.printStackTrace();
+//            return null;
+//        }
+//    }
 
     public void addBill(String madh, String makh, String diachi, String sodt, String email, String ghichu, String trigia) {
         PreparedStatement s = null;
@@ -86,7 +86,7 @@ public class BillManagement {
     }
 
     public static void main(String[] args) {
-        BillManagement mb= new BillManagement();
-        System.out.println(mb.getIdNew());
+//        BillManagement mb= new BillManagement();
+//        System.out.println(mb.getIdNew());
     }
 }

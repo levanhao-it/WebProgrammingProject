@@ -159,31 +159,34 @@ public class ProductManagement {
 
 
     public static void main(String[] args) {
+//        ProductManagement p= new ProductManagement();
+//        System.out.print(p.getIDNewProduct());
 
 
     }
 
-    public String getIDNewProduct() {
-        Statement s= null;
-
-        String sql = "select * from product";
-        String id = "";
-
-        try {
-            s = ConnectionDB.connect();
-            ResultSet rs = s.executeQuery(sql);
-
-            while (rs.next()){
-                id = rs.getString(1);
-            }
-            rs.close();
-            s.close();
-            String id1=Integer.parseInt(id.substring(1))+1+"";
-            String idNew = "P"+id1 ;
-            return idNew;
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
-            return null;
-        }
-    }
+//    public String getIDNewProduct() {
+//        Statement s= null;
+//
+//        String sql = "select * from product";
+//        String id = ;
+//
+//        try {
+//            s = ConnectionDB.connect();
+//            ResultSet rs = s.executeQuery(sql);
+//
+//            while (rs.next()){
+//                if(rs.)
+//                id = rs.getString(1);
+//            }
+//            rs.close();
+//            s.close();
+//            String id1=Integer.parseInt(id.substring(1))+1+"";
+//            String idNew = "P"+id1 ;
+//            return idNew;
+//        } catch (SQLException | ClassNotFoundException throwables) {
+//            throwables.printStackTrace();
+//            return null;
+//        }
+//    }
 }

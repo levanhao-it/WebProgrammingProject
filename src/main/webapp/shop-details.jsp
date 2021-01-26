@@ -146,8 +146,15 @@
                             </div>
                         </div>
                     </div>
+                    <c:if test="${empty acc}">
+                        <a href="<c:url value="login.jsp" />" class="primary-btn"onclick="myFunction()">Thêm vào giỏ hàng</a>
+                        <a href="<c:url value="login.jsp" />" class="heart-icon"onclick="myFunction()"><span class="icon_heart_alt"></span></a>
+
+                    </c:if>
+                    <c:if test="${not empty acc}">
                     <a href="addCart?id=${product.id}" class="primary-btn">Thêm vào giỏ hàng</a>
                     <a href="addWhishlist?id=${product.id}" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    </c:if>
                     <ul>
                         <li><b>Tình Trạng</b> <span>${product.status}</span></li>
                         <li><b>Giao hàng</b> <span>01 giờ giao hàng. <samp>Miễn phí trong ngày</samp></span></li>
@@ -223,9 +230,19 @@
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="${o.img}">
                         <ul class="product__item__pic__hover">
-                            <li><a href="addWhishlist?id=${o.id}"><i class="fa fa-heart"></i></a></li>
+                            <c:if test="${empty acc}">
+                                <li><a href="<c:url value="login.jsp" />"><i class="fa fa-heart" onclick="myFunction()"></i></a></li>
+                            </c:if>
+                            <c:if test="${not empty acc}">
+                                <li><a href="addWhishlist?id=${o.id}"><i class="fa fa-heart" ></i></a></li>
+                            </c:if>
                             <li><a href="ProductDetail?idProduct=${o.id}"><i class="fa fa-external-link"></i></a></li>
-                            <li><a href="addCart?id=${o.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                            <c:if test="${empty acc}">
+                                <li><a href="<c:url value="login.jsp" />"><i class="fa fa-shopping-cart"onclick="myFunction()"></i></a></li>
+                            </c:if>
+                            <c:if test="${not empty acc}">
+                                <li><a href="addCart?id=${o.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                            </c:if>
                         </ul>
                     </div>
                     <div class="product__item__text">

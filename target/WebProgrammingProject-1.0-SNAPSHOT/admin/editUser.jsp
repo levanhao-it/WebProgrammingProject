@@ -306,7 +306,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tên Đăng Nhập</label>
-                        <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required>
+                        <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required readonly>
                     </div>
                     <div class="form-group">
                         <label>Mật Khẩu</label>
@@ -333,7 +333,7 @@
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng Kí</label>
-                        <input type="date" value="${d.regisDate}" name="dateregister" class="form-control" placeholder="yyyy-mm-dd" required>
+                        <input type="date" value="${d.regisDate}" name="dateregister" class="form-control" placeholder="yyyy-mm-dd" required readonly>
                     </div>
                 </div>
                 <div class="modal-footer">

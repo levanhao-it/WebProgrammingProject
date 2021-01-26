@@ -112,11 +112,11 @@
             <!-- <div class="logo"><img src="img/logo.png" alt=""></div> -->
             <div class="login_text d-flex flex-row justify-content-center align-items-center">
                 <span></span>
-                <span class="text px-1">QUÊN MẬT KHẨU</span>
+                <span class="text px-1">MÃ XÁC NHẬN</span>
                 <span></span>
             </div>
             <div class="login_with_text">
-                Nhập thông tin email của bạn để nhận mật khẩu của bạn
+                Nhập mã capcha để xác nhận
             </div>
         </div>
         <div class="card-body">

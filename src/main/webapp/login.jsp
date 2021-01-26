@@ -140,7 +140,7 @@
             </div>
             <div class="login_container d-flex flex-column">
                 <form action="LoginControl" method="post">
-                    <p class="text-danger">${mess}</p>
+                    <p id="mess" class="text-danger">${mess}</p>
                     <label for="username">Tên đăng nhập</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

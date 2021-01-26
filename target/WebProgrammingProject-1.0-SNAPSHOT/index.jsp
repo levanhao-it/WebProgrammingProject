@@ -211,9 +211,19 @@
                                          data-setbg="${s.img}">
                                         <div class="product__discount__percent"><fmt:formatNumber value = "${(s.price - s.priceSale)/s.price}" type = "percent"/></div>
                                         <ul class="product__item__pic__hover">
-                                            <li><a href="addWhishlist?id=${s.id}"><i class="fa fa-heart"></i></a></li>
+                                            <c:if test="${empty acc}">
+                                                <li><a href="<c:url value="login.jsp" />"><i class="fa fa-heart" onclick="myFunction()"></i></a></li>
+                                            </c:if>
+                                            <c:if test="${not empty acc}">
+                                                <li><a href="addWhishlist?id=${s.id}"><i class="fa fa-heart" ></i></a></li>
+                                            </c:if>
                                             <li><a href="ProductDetail?idProduct=${s.id}"><i class="fa fa-external-link"></i></a></li>
+                                            <c:if test="${empty acc}">
+                                                <li><a href="<c:url value="login.jsp" />"><i class="fa fa-shopping-cart"onclick="myFunction()"></i></a></li>
+                                            </c:if>
+                                            <c:if test="${not empty acc}">
                                             <li><a href="addCart?id=${s.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </c:if>
                                         </ul>
                                     </div>
                                     <div class="product__discount__item__text">
@@ -237,9 +247,19 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="${i.img}">
                             <ul class="product__item__pic__hover">
-                                <li><a href="addWhishlist?id=${i.id}"><i class="fa fa-heart"></i></a></li>
+                                <c:if test="${empty acc}">
+                                    <li><a href="<c:url value="login.jsp" />"><i class="fa fa-heart" onclick="myFunction()"></i></a></li>
+                                </c:if>
+                                <c:if test="${not empty acc}">
+                                    <li><a href="addWhishlist?id=${i.id}"><i class="fa fa-heart" ></i></a></li>
+                                </c:if>
                                 <li><a href="ProductDetail?idProduct=${i.id}"><i class="fa fa-external-link"></i></a></li>
-                                <li><a href="addCart?id=${i.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                <c:if test="${empty acc}">
+                                    <li><a href="<c:url value="login.jsp" />"><i class="fa fa-shopping-cart"onclick="myFunction()"></i></a></li>
+                                </c:if>
+                                <c:if test="${not empty acc}">
+                                    <li><a href="addCart?id=${i.id}"><i class="fa fa-shopping-cart"></i></a></li>
+                                </c:if>
                             </ul>
                         </div>
                         <div class="product__item__text">
@@ -564,6 +584,9 @@
             }
         }
     });
+    function myFunction() {
+        alert("Bạn cần phải đăng nhập để thực hiện chức năng này ");
+    }
 </script>
 
 

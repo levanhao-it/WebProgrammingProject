@@ -131,7 +131,7 @@ Coded by www.creative-tim.com
                         </div>
                         <div class="form-group">
                             <label>Tên Đăng Nhập</label>
-                            <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required>
+                            <input type="text" value="${d.userName}" name="tendangnhap" class="form-control" required readonly>
                         </div>
                         <div class="form-group">
                             <label>Mật Khẩu</label>

@@ -22,6 +22,7 @@ public class LoginControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("usern");
         String password = request.getParameter("passw");
+        String mess= request.getParameter("mess");
         ProductEntity pe = new ProductEntity();
         User a = pe.login(username,password);
         if(a==null){

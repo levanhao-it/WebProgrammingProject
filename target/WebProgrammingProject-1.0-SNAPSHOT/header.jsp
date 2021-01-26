@@ -125,8 +125,14 @@
             <div class="col-lg-3">
                 <div class="header__cart">
                     <ul>
-                        <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span></span></a></li>
-                        <li><a href="cart.jsp"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
+                        <c:if test="${empty acc}">
+                        <li><a href="<c:url value="login.jsp" />"><i class="fa fa-heart" onclick="myFunction()"></i> <span></span></a></li>
+                        <li><a href="<c:url value="login.jsp" />"><i class="fa fa-shopping-bag"onclick="myFunction()"></i> <span></span></a></li>
+                        </c:if>
+                        <c:if test="${not empty acc}">
+                            <li><a href="<c:url value="whishlist.jsp" />"><i class="fa fa-heart"></i> <span></span></a></li>
+                            <li><a href="<c:url value="cart.jsp" />"><i class="fa fa-shopping-bag"></i> <span></span></a></li>
+                        </c:if>
                     </ul>
                     <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                 </div>
@@ -147,6 +153,12 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+    function myFunction() {
+        alert("Bạn cần phải đăng nhập để thực hiện chức năng này ");
+    }
+</script>
+
 
 </body>
 </html>

@@ -30,5 +30,6 @@ public class ManagerBlog extends HttpServlet {
         request.getRequestDispatcher("/admin/quanlyblog.jsp").forward(request,response);
     }
 
+
 }
 

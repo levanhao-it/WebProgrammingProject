@@ -313,7 +313,6 @@
                     <div class="form-group">
                         <label>Danh mục Blog</label>
                         <input type="text" value="${d.idCategoryBlog}" name="danhmuc" class="form-control" required>
-                        <select name="danhmuc" class="form-select" aria-label="Mặc định" required>
                             <c:forEach items="${dataDMB}" var="i">
                                 <option value="${i.idDMBlog}">${i.nameDMBlog}</option>
                             </c:forEach>

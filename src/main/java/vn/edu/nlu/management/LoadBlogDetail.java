@@ -1,6 +1,7 @@
 package vn.edu.nlu.management;
 
 import vn.edu.nlu.beans.Blog;
+import vn.edu.nlu.beans.DanhMucBlog;
 import vn.edu.nlu.entity.BlogManagement;
 
 import javax.servlet.ServletException;
@@ -23,8 +24,10 @@ public class LoadBlogDetail extends HttpServlet {
         String idBlog = request.getParameter("idBlog");
         BlogManagement bm = new BlogManagement();
         List<Blog> data = bm.getBlogWithID(idBlog);
+        List<DanhMucBlog> dataDMB = bm.getAllDMB();
 
         request.setAttribute("dataBlog", data);
+        request.setAttribute("dataDMB", dataDMB);
         request.getRequestDispatcher("/admin/editBlog.jsp").forward(request,response);
     }
 }

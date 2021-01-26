@@ -23,12 +23,13 @@ public class SearchControl extends HttpServlet {
         ProductEntity pe = new ProductEntity();
 
         String txtSearch = request.getParameter("txtSearch");
+        txtSearch = txtSearch.trim();
         int index = Integer.parseInt(request.getParameter("index"));
         int value = Integer.parseInt(request.getParameter("value"));
         int valueFilter = Integer.parseInt(request.getParameter("valueFilter"));
 
         int count  = pe.count(txtSearch);
-        int pageSize = 12;
+        int pageSize = 18;
         int endPage;
         if(count % pageSize ==0)
             endPage = count/pageSize;

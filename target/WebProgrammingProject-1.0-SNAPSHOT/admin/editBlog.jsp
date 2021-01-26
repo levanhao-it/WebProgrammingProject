@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="library/ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+
     <style>
         body {
             color: #566787;
@@ -312,6 +313,11 @@
                     <div class="form-group">
                         <label>Danh mục Blog</label>
                         <input type="text" value="${d.idCategoryBlog}" name="danhmuc" class="form-control" required>
+                        <select name="danhmuc" class="form-select" aria-label="Mặc định" required>
+                            <c:forEach items="${dataDMB}" var="i">
+                                <option value="${i.idDMBlog}">${i.nameDMBlog}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Ngày Đăng</label>
@@ -340,7 +346,7 @@
 </div>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#editor' ), {
+        .create( document.querySelector('#editor'), {
             // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
         } )
         .then( editor => {

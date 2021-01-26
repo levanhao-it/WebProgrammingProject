@@ -8,32 +8,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "RegisterControl", urlPatterns = "/RegisterControl")
-
-public class RegisterControl extends HttpServlet {
+@WebServlet(urlPatterns = "/CreatePassControl")
+public class CreatePassControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("usern");
-        String email = request.getParameter("email");
+        System.out.println(username);
         String password = request.getParameter("passw");
-        String cpassword = request.getParameter("cpassw");
-        if(!password.equals(cpassword)){
-            response.sendRedirect("login.jsp");
+        System.out.println(password);
+        ProductEntity pe = new ProductEntity();
+        User a = pe.checkAccountExist(username);
+        if(a!=null){
+            pe.editpass(username,password);
+            User a1 = pe.login(username,password);
+            HttpSession session = request.getSession();
+            session.setAttribute("acc", a1);
+            session.setMaxInactiveInterval(1000);
+            response.sendRedirect("Home");
         }else{
-            ProductEntity pe = new ProductEntity();
-            User a = pe.checkAccountExist(username);
-            if(a==null){
-                pe.register(username,password,email);
-                response.sendRedirect("Home");
-            }else{ 
-                request.setAttribute("mess","Tên đăng nhập đã tồn tại");
-                request.getRequestDispatcher("register.jsp").forward(request,response);
-            }
+            request.setAttribute("mess","Tên người dùng không tồn tại");
+            response.sendRedirect("register.jsp");
         }
     }
+
+
 }

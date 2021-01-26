@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 1/6/2021
-  Time: 8:34 PM
+  Date: 1/5/2021
+  Time: 10:13 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
@@ -30,9 +30,9 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Lobster&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <!-- Page Preloder -->
@@ -48,8 +48,8 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href=cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
     </div>
@@ -69,20 +69,25 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
-            <li><a href="#">Cửa Hàng</a>
+            <li class="active"><a href="./index.html">Trang Chủ</a></li>
+            <li><a href="./shop-grid.html">Cửa Hàng</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
-                    <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
-                    <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
-                    <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
+                    <li><a href="./khaivi.html">Khai vị</a></li>
+                    <li><a href="./monchinh.html">Món chính</a></li>
+                    <li><a href="./trangmieng.html">Tráng miệng</a></li>
+                    <li><a href="./thucuong.html">Đồ uống</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="./about-us.jsp">Về Chúng Tôi</a>
+            <li><a href="#">Trang</a>
+                <ul class="header__menu__dropdown">
+                    <li><a href="./shop-details.html">Chi Tiết Cửa Hàng</a></li>
+                    <li><a href="./shoping-cart.html">Giỏ Hàng</a></li>
+                    <li><a href="./checkout.html">Kiểm Tra</a></li>
+                    <li><a href="./blog-details.html">Chi Tiết Blog</a></li>
+                </ul>
             </li>
-            <li><a href="./blog.jsp">Blog</a></li>
-            <li><a href="./contact.jsp">Liên Hệ</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Liên Hệ</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -112,11 +117,11 @@
             <!-- <div class="logo"><img src="img/logo.png" alt=""></div> -->
             <div class="login_text d-flex flex-row justify-content-center align-items-center">
                 <span></span>
-                <span class="text px-1">QUÊN MẬT KHẨU</span>
+                <span class="text px-1">TẠO MẬT KHẨU MỚI</span>
                 <span></span>
             </div>
             <div class="login_with_text">
-                Nhập thông tin email của bạn để nhận mật khẩu của bạn
+                Nhập thông tin để đăng kí mật khẩu mới
             </div>
         </div>
         <div class="card-body">
@@ -139,25 +144,42 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="UserVerity" method="post">
-                    <p class="text-danger">${mess1}</p>
-                    <label for="email">UserName</label>
+                <form action="CreatePassControl" method="post">
+                    <p class="text-danger">${mess}</p>
+                    <label for="username">Tên đăng nhập</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="text" id="username" name="username" class="form-control" placeholder="username">
+                        <input type="text" id="username" name="usern" class="form-control"
+                               placeholder="Tên đăng nhập">
                     </div>
-                    <label for="email">Email</label>
-                    <div class="input-group mb-3">
+<%--                    <label for="email">Email</label>--%>
+<%--                    <div class="input-group mb-3">--%>
+<%--                        <div class="input-group-prepend">--%>
+<%--                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>--%>
+<%--                        </div>--%>
+<%--                        <input type="text" id="email" name="email" class="form-control" placeholder="email">--%>
+<%--                    </div>--%>
+                    <label for="password">Nhập mật khẩu mới</label>
+                    <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="email">
+                        <input type="password" id="password" name="passw" class="form-control"
+                               placeholder="Mật khẩu">
                     </div>
-
+<%--                    <label for="password">Nhập lại mật khẩu</label>--%>
+<%--                    <div class="input-group mb-2">--%>
+<%--                        <div class="input-group-prepend">--%>
+<%--                            <span class="input-group-text"><i class="fa fa-key"></i></span>--%>
+<%--                        </div>--%>
+<%--                        <input type="password" id="cpassword" name="cpassw" class="form-control"--%>
+<%--                               placeholder="Nhập lại mật khẩu">--%>
+<%--                    </div>--%>
+                    <br>
                     <div class="form-group">
-                        <button  type="submit" class="btn btn-primary w-100 login_btn">Gửi</button>
+                        <button class="btn btn-primary w-100 login_btn" type="submit">Lưu</button>
                     </div>
                 </form>
             </div>
@@ -178,12 +200,10 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center p-3">
-                Bạn chưa có tài khoản <a href="register.jsp" class="ml-2">Bấm vô đây</a>
+                Bạn đã có tài khoản <a href="login.jsp" class="ml-2">Bấm vào đây</a>
             </div>
-
         </div>
     </div>
-
 </div>
 
 <!-- Footer Section Begin -->

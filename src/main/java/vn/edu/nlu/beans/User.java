@@ -54,6 +54,11 @@ public class User implements Serializable {
         this.regisDate = regisDate;
         this.access = access;
     }
+    public User(String userName,String email ,String key){
+        this.userName = userName;
+        this.email = email;
+        this.key = key;
+    }
 
     public User(String name) {
         this.name = name;

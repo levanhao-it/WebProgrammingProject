@@ -139,25 +139,16 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="UserVerity" method="post">
-                    <p class="text-danger">${mess1}</p>
-                    <label for="email">UserName</label>
+                <form action="VerifyCode" method="post">
+                    <span>Chúng tôi đã gửi mã xác minh đến email của bạn.</span>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
-                        <input type="text" id="username" name="username" class="form-control" placeholder="username">
+                        <input type="text" name="authcode" class="form-control">
                     </div>
-                    <label for="email">Email</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
-                        </div>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="email">
-                    </div>
-
                     <div class="form-group">
-                        <button  type="submit" class="btn btn-primary w-100 login_btn">Gửi</button>
+                        <button type="submit" value="verify" class="btn btn-primary w-100 login_btn">Gửi</button>
                     </div>
                 </form>
             </div>

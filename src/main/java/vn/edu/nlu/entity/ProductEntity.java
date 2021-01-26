@@ -16,9 +16,8 @@ import java.util.List;
 
 public class ProductEntity {
     public static void main(String[] args) {
-        ProductEntity pe = new ProductEntity();
-        List<Blog> data = (List<Blog>) pe.getDataBlog();
-        for(Blog b : data) System.out.print(b.getNameBlog());
+        ProductEntity p= new ProductEntity();
+        System.out.println(p.editpass("zery","12345"));
 
     }
 
@@ -213,6 +212,30 @@ public class ProductEntity {
             e.printStackTrace();
             return null;
         }
+    }
+    public User checkEmailAndUserName(String username,String email){
+        PreparedStatement s = null;
+        String sql = "select * from user where tendangnhap = ? and email=?";
+        try {
+            s = new ConnectionDB().connect(sql);
+            s.setString(1, username);
+            s.setString(2,email);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                return new User(rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getString(10));
+            }
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public User checkAccountExist(String user) {
@@ -667,6 +690,26 @@ public class ProductEntity {
             return new LinkedList<>();
         }
     }
+
+
+    public User editpass(String username,String pass) {
+        PreparedStatement s = null;
+        String sql = "update user set matkhau=? where tendangnhap=?";
+        try {
+            s = new ConnectionDB().connect(sql);
+            s.setString(1, pass);
+            s.setString(2, username);
+            s.executeUpdate();
+            s.close();
+            return null;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+
 
 
 }

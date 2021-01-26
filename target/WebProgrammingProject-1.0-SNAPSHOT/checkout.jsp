@@ -253,7 +253,8 @@
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            <div class="checkout__order__total" >Tổng Tiền <span><input type="text" name="trigia" value="${data.stream().map(d -> d.price*d.quantity).sum()}" readonly> </span></div>
+                            <div class="checkout__order__total" >Tổng Tiền <span><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${data.stream().map(d -> d.price*d.quantity).sum()}"/> </span></div>
+                            <div hidden><input type="text" name="trigia" value="${data.stream().map(d -> d.price*d.quantity).sum()}"></div>
                             <div class="checkout__input__checkbox">
                                 <label for="acc-or">
                                     Tạo một tài khoản?

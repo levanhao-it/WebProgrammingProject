@@ -48,8 +48,8 @@
     </div>
     <div class="humberger__menu__cart">
         <ul>
-            <li><a href="whishlist.html"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="shoping-cart.html"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="whishlist.jsp"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href=cart.jsp"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
     </div>
@@ -69,20 +69,20 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Trang Chủ</a></li>
+            <li class="active"><a href="./index.jsp">Trang Chủ</a></li>
             <li><a href="#">Cửa Hàng</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="./khaivi.html">Khai vị</a></li>
-                    <li><a href="./monchinh.html">Món chính</a></li>
-                    <li><a href="./trangmieng.html">Tráng miệng</a></li>
-                    <li><a href="./thucuong.html">Đồ uống</a></li>
+                    <li><a href="SearchCategory?idCategory=DM1&index=1&valueFilter=0">Khai vị</a></li>
+                    <li><a href="SearchCategory?idCategory=DM2&index=1&valueFilter=0">Món chính</a></li>
+                    <li><a href="SearchCategory?idCategory=DM3&index=1&valueFilter=0">Tráng miệng</a></li>
+                    <li><a href="SearchCategory?idCategory=DM4&index=1&valueFilter=0">Đồ uống</a></li>
                 </ul>
             </li>
             <li>
-                <a href="./about-us.html">Về Chúng Tôi</a>
+                <a href="./about-us.jsp">Về Chúng Tôi</a>
             </li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Liên Hệ</a></li>
+            <li><a href="./blog.jsp">Blog</a></li>
+            <li><a href="./contact.jsp">Liên Hệ</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -108,9 +108,7 @@
 <div class="d-flex justify-content-center align-items-center w-100 h-100" style="background-image: url(img/bg.png);     background-size: 100%;
     background-repeat: no-repeat;">
     <div class="card beauty_login">
-        <form action="ForgetPasswordCTL" method="post">
         <div class="card-header">
-
             <!-- <div class="logo"><img src="img/logo.png" alt=""></div> -->
             <div class="login_text d-flex flex-row justify-content-center align-items-center">
                 <span></span>
@@ -141,17 +139,25 @@
                 </div>
             </div>
             <div class="login_container d-flex flex-column">
-                <form action="" >
+                <form action="UserVerity" method="post">
+                    <p class="text-danger">${mess1}</p>
+                    <label for="email">UserName</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        </div>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="username">
+                    </div>
                     <label for="email">Email</label>
-                    <p class="text-danger"></p>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                         </div>
                         <input type="text" id="email" name="email" class="form-control" placeholder="email">
                     </div>
+
                     <div class="form-group">
-                        <button class="btn btn-primary w-100 login_btn">Gửi</button>
+                        <button  type="submit" class="btn btn-primary w-100 login_btn">Gửi</button>
                     </div>
                 </form>
             </div>
@@ -172,11 +178,10 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center p-3">
-                Bạn chưa có tài khoản <a href="register.html" class="ml-2">Bấm vô đây</a>
+                Bạn chưa có tài khoản <a href="register.jsp" class="ml-2">Bấm vô đây</a>
             </div>
 
         </div>
-        </form>
     </div>
 
 </div>

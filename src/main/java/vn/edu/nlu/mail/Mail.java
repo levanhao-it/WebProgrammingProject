@@ -7,8 +7,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Mail {
     public String getRandom() {
@@ -24,6 +22,7 @@ public class Mail {
         String toEmail = user.getEmail();
         String fromEmail = "haole7301@gmail.com";
         String password = "uyitfhksvtsroczo";
+
 
         try {
 

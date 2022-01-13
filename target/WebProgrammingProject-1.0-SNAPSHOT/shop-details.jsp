@@ -204,7 +204,10 @@
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>Các Đánh Giá</h6>
-                            </div>
+                                <div id="fb-root">
+                                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="1100" data-numposts="3"></div>
+                                </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -261,6 +264,7 @@
 <%@ include file="footer.jsp" %>
 <!-- Footer Section End -->
 
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0" nonce="WqK0LLXG"></script>
 <!-- Js Plugins -->
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -270,6 +274,7 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+
 
 
 </body>

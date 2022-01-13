@@ -68,4 +68,9 @@ public class Mail {
 
         return test;
     }
+
+    public static void main(String[] args) {
+        User u=new User();
+        System.out.println(u.getEmail());
+    }
 }
